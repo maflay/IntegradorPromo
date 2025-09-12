@@ -28,13 +28,23 @@ window.addEventListener("DOMContentLoaded", () => {
   const url =
     "https://script.google.com/macros/s/AKfycbxFxJQBmeWPIHjFX11Mxvi1XcC_19owDjHtnB3GMK5MpErIrFIHore-6celJL6uoI5r8g/exec";
 
+  const btn_recargarcomentario = document.getElementById("recargarcomentario");
+
   img_send_obs.addEventListener("click", () => {
     console.log("entro al enviar");
-    mini_spinner_any.style.display = "flex";
-    desc_obser_integrador.style.opacity = "0.7";
-    desc_obser_integrador.style.pointerEvents = "none";
+
     const valor_mensaje = desc_obser_integrador.value;
     const valor_rol = rol_desc_obser.value;
+
+    if (valor_mensaje == "" || valor_rol == "") {
+      Swal.fire({
+        title: "Campos en Blanco",
+        text: "Antes de continuar completa la información.",
+        icon: "info",
+        heightAuto: false, // opcional, evita “brinco” en algunos casos
+      });
+      return;
+    }
     let data = {
       tipo: "envio_1",
       valor_1: hora,
@@ -42,13 +52,17 @@ window.addEventListener("DOMContentLoaded", () => {
       valor_3: valor_rol,
       valor_4: valor_mensaje,
     };
-    mini_spinner_observacion_integrador.style.display = "flex";
+    img_send_obs.style.display = "none";
+    mini_spinner_any.style.display = "flex";
+    desc_obser_integrador.style.opacity = "0.7";
+    desc_obser_integrador.style.pointerEvents = "none";
     fetch(url, {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify(data),
     }).then(() => {
       getAllMensajes();
+      img_send_obs.style.display = "flex";
       mini_spinner_any.style.display = "none";
       desc_obser_integrador.style.opacity = "1";
       desc_obser_integrador.style.pointerEvents = "auto";
@@ -57,8 +71,9 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   function getAllMensajes() {
-    mini_spinner_observacion_integrador.style.display = "flex";
     const container = document.getElementById("GetDataOberservacion");
+    mini_spinner_observacion_integrador.style.display = "flex";
+    container.innerHTML = ``;
     fetch(url)
       .then((res) => {
         if (!res.ok) throw new Error(`Error HTTP: ${res.status}`);
@@ -67,9 +82,8 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log(data);
         if (!Array.isArray(data) || data.length === 0) {
-          container.innerHTML = `<p>No hay datos.</p>`;
+          container.innerHTML = `<p>No hay Comentarios.</p>`;
           mini_spinner_observacion_integrador.style.display = "none";
-
           return;
         }
         mini_spinner_observacion_integrador.style.display = "none";
@@ -112,4 +126,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   getAllMensajes();
+
+  btn_recargarcomentario.addEventListener("click", () => {
+    getAllMensajes();
+  });
 });
