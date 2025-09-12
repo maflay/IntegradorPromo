@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Aladdin: Marca Gol.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-futbolera-COL-BOL/css/style.css">
+    <link rel="stylesheet" href="/dinamicas/promocion-futbolera-COL-BOL/css/fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="allView">
+
+        <div id="loader" class="loader-overlay">
+            <div class="spinner"></div>
+        </div>
+        <div class="principal_futbolera">
+            <div class="principal_futbolera_container">
+                <div class="column_left_futbolera">
+                    <!-- <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/logo_FF.png" alt="marcagol"> -->
+                    <h3>Marca Gol</h3>
+                    <span id="titulo_partido">Eliminatorias Copa del Mundo</span>
+                    <span id="fecha_partido">Jueves 04/25</span>
+                    <span id="hora_partido">6:30 p.m</span>
+                    <br />
+                    <div style="display: flex;flex-direction: column; justify-content: center;align-items: center;">
+
+                        <p>Atrévete a vivir la pasión del gran encuentro Colombia vs. Bolivia. Siente la emoción minuto
+                            a
+                            minuto
+                            y
+                            disfrútala en Casino Aladdin, el lugar perfecto para compartir, vibrar y pasar un buen rato
+                            único.
+                        </p>
+                        <span id="equipos_partido"></span>
+                        <span id="estadio_partido"></span>
+                    </div>
+                    <div class="content_marcador_partido">
+                        <div class="content_equipo_1">
+                            <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/colombia_96x96.png" alt="futbolera">
+                        </div>
+                        <div class="content_equipo_2">
+                            <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/bolivia.png" alt="futbolera">
+                        </div>
+                    </div>
+                    <div class="content_view_resultado">
+                        <div class="resultado_partido_final" id="resultado_partido_final"></div>
+                    </div>
+                    <div class="content_btn_marcador">
+                        <button id="btn_guardar_participante" onclick="abrirSaveParticipante()"
+                            class="btn btn-primary">Acciones</button>
+                        <button onclick="refrescarScore()" style="text-decoration: none;"
+                            class="btn btn-primary">Refrescar
+                            Marcador</button>
+                        <!-- <button id="btn_guardar_resultado" onclick="handleSaveMarcador()" class="btn btn-success">Guardar
+                        Marcador</button> -->
+                    </div>
+                    <div class="content_actions_casino">
+                        <select class="form-control" style="cursor: pointer;" id="casino_marca_gol">
+                            <option value="">Casino...</option>
+                            <option value="A05">A05</option>
+                            <option value="A07">A07</option>
+                            <option value="A08">A08</option>
+                            <option value="A09">A09</option>
+                            <option value="A12">A12</option>
+                            <option value="A12-MESAS">A12-MESAS</option>
+                            <option value="A15">A15</option>
+                            <option value="A15-MESAS">A15-MESAS</option>
+                            <option value="A16">A16</option>
+                            <option value="A19">A19</option>
+                            <option value="A35">A35</option>
+                            <option value="A36">A36</option>
+                            <option value="A36-MESAS">A36-MESAS</option>
+                            <option value="A38">A38</option>
+                            <option value="A39">A39</option>
+                            <option value="A43">A43</option>
+                            <option value="A48">A48</option>
+                            <option value="A48-MESAS">A48-MESAS</option>
+                            <option value="A49">A49</option>
+                            <option value="A50">A50</option>
+                            <option value="MP53">MP53</option>
+                            <option value="A70">A70</option>
+                            <option value="A781">A781</option>
+                            <option value="A88">A88</option>
+                            <option value="A100">A100</option>
+                            <option value="A108">A108</option>
+                            <option value="A108-MESAS">A108-MESAS</option>
+                        </select>
+                        <button onclick="getCasino()" class="btn btn-primary">Consulta</button>
+                    </div>
+                </div>
+                <div class="column_rigth_futbolera">
+                    <div class="content_participantes_casino">
+                        <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/aladdin.png" alt="marcagol">
+                        <br />
+                        <!-- <h2>Participantes</h2> -->
+                        <br />
+                        <div style="display: none;" id="content_participantes_card" class="content_participantes_card">
+                        </div>
+                        <div id="content_participantes_card_casino" class="content_participantes_card"></div>
+                        <div id="content_last_participante_card" class="content_participantes_card"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <span id="fecha_partido"></span>
+            <span id="equipos_partido"></span>
+            <span id="estadio_partido"></span>
+            <span id="tiempo"> </span> <span id="resultado"> </span>
+        </div>
+
+        <section id="guardar_participante" class="modal-match">
+            <div class="modal-content2-match">
+                <div class="content_title_modal">
+                    <p id="btn_guardar">Guardar participante</p>
+                    <p id="btn_consultar_participante">Consultar participante</p>
+                    <p id="btn_all_participante">Todos los participante</p>
+                    <p id="btn_observacion">Observación</p>
+                    <span class="close-match" onclick="cerrarSaveParticipante()">&times;</span>
+                </div>
+                <div style="width: 100%;background-color: rgb(212, 212, 212);padding: .5px 0;"></div>
+                <!-- contenido modal -->
+                <div id="content_datos_participantes" class="content_datos_participantes">
+                    <h4>Guardar Participante</h4>
+                    <div class="datos_column">
+                        <select class="form-control" style="cursor: pointer;" id="casino">
+                            <option value="">Casino...</option>
+                            <option value="A05">A05</option>
+                            <option value="A07">A07</option>
+                            <option value="A08">A08</option>
+                            <option value="A09">A09</option>
+                            <option value="A12">A12</option>
+                            <option value="A12-MESAS">A12-MESAS</option>
+                            <option value="A15">A15</option>
+                            <option value="A15-MESAS">A15-MESAS</option>
+                            <option value="A16">A16</option>
+                            <option value="A19">A19</option>
+                            <option value="A35">A35</option>
+                            <option value="A36">A36</option>
+                            <option value="A36-MESAS">A36-MESAS</option>
+                            <option value="A38">A38</option>
+                            <option value="A39">A39</option>
+                            <option value="A43">A43</option>
+                            <option value="A48">A48</option>
+                            <option value="A48-MESAS">A48-MESAS</option>
+                            <option value="A49">A49</option>
+                            <option value="A50">A50</option>
+                            <option value="MP53">MP53</option>
+                            <option value="A70">A70</option>
+                            <option value="A781">A781</option>
+                            <option value="A88">A88</option>
+                            <option value="A100">A100</option>
+                            <option value="A108">A108</option>
+                            <option value="A108-MESAS">A108-MESAS</option>
+                        </select>
+
+                        <select class="form-control" style=" cursor: pointer;" id="categoria">
+                            <option value="">Categoria...</option>
+                            <option value="GENIUS">Genius</option>
+                            <option value="TITANIO">Titanio</option>
+                            <option value="LEGENDARIO">Legendario</option>
+                            <option value="GOLD">Gold</option>
+                            <option value="SILVER">Silver</option>
+                            <option value="BRONCE">Bronce</option>
+                            <option value="SUPERIOR">Superior</option>
+                            <option value="ESTANDAR">Estandar</option>
+                            <option value="ADICIONAL">Adicional</option>
+                        </select>
+                    </div>
+                    <div class="datos_column">
+                        <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="nombre">
+                        <input class="form-control" type="text" name="cedula" placeholder="Cedula" id="cedula">
+                    </div>
+                    <div class="datos_column">
+                        <p>Resultado</p>
+                        <div class="">
+                            <div class="datos_column content_resultado_modal">
+                                <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/colombia_96x96.png" alt="marcagol">
+                                <input id="resultado_local" type="text" name="resultado_colombia" class="form-control">
+                                --
+                                <input id="resultado_visitante" type="text" name="resultado_bolivia"
+                                    class="form-control">
+                                <img src="/dinamicas/promocion-futbolera-COL-BOL/resource/bolivia.png" alt="marcagol">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="datos_column">
+                        <button onclick="handleSaveParticipante()" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+
+                <div id="content_consulta_particiante" class="content_datos_participantes">
+                    <h4>Consultar Participante</h4>
+                    <div>
+                        <div class="datos_column">
+                            <input class="form-control" type="text" name="participante" id="cedula_par"
+                                placeholder="Cedula a consultar">
+                            <button onclick="GetParticipante()" class="btn btn-primary">Consultar</button>
+                        </div>
+                        <br />
+                        <div id="content_result_participante"></div>
+                    </div>
+                </div>
+
+                <div class="content_datos_participantes" id="content_consulta_particiante_all">
+                    <h4>Todos los participantes</h4>
+                    <div id="mini-spinner" class="mini-spinner"></div>
+                    <div class="content_result_participante_all" id="content_result_participante_all"></div>
+                </div>
+
+                <div class="content_form_observacion" id="content_form_observacion">
+                    <h4>Enviar Observación</h4>
+                    <select class="form-control" style="cursor: pointer;" id="casino_marca_gol_observacion">
+                        <option value="">Casino...</option>
+                        <option value="A05">A05</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A09">A09</option>
+                        <option value="A12">A12</option>
+                        <option value="A12-MESAS">A12-MESAS</option>
+                        <option value="A15">A15</option>
+                        <option value="A15-MESAS">A15-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="A19">A19</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A38">A38</option>
+                        <option value="A39">A39</option>
+                        <option value="A43">A43</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="A50">A50</option>
+                        <option value="MP53">MP53</option>
+                        <option value="A70">A70</option>
+                        <option value="A781">A781</option>
+                        <option value="A88">A88</option>
+                        <option value="A100">A100</option>
+                        <option value="A108">A108</option>
+                        <option value="A108-MESAS">A108-MESAS</option>
+                    </select>
+                    <br />
+                    <textarea placeholder="Detalle su Observación" name="descripcion_observacion"
+                        id="marca_gol_observacion"></textarea>
+                    <br />
+                    <button onclick="HandleObservacion()" class="btn btn-primary">Enviar</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div class="ViewMovil">
+        <h2>Vista no Disponible</h2>
+    </div>
+
+
+    <script src="/dinamicas/promocion-futbolera-COL-BOL/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Poppins Black';
+  src: url('/dinamicas/promocion_lo_hacemos_en_grande/fonts/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('/dinamicas/promocion_lo_hacemos_en_grande/fonts/Poppins-Black.ttf') format('truetype');
+}
+

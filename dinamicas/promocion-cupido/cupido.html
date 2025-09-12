@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Aladdin: El Flechazo de Cupido</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-cupido/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="background-promo">
+        <div>
+            <div id="loader" class="loader-overlay">
+                <div class="spinner"></div>
+            </div>
+            <div class="content-logos">
+                <img src="/dinamicas/promocion-cupido/resources/logo.png" alt="promo">
+            </div>
+            <div class="contenedor-inicial">
+                <div id="info-control-finalista" class="control-finalista">
+                    <select class="form-control" style="cursor: pointer;" id="casino">
+                        <option value="">Casino...</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A12">A12</option>
+                        <option value="A12MESAS">A12-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="MP15">MP15</option>
+                        <option value="MP15-MESAS">MP15-MESAS</option>
+                        <option value="A19">A19</option>
+                        <option value="A50">A50</option>
+                        <option value="A58">A58</option>
+                        <option value="A70">A70</option>
+                        <option value="MP108">MP108</option>
+                        <option value="MP108-MESAS">MP108-MESAS</option>
+                        <option value="A05">A05</option>
+                        <option value="A38">A38</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A39">A39</option>
+                        <option value="A88">A88</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="MP127">MP127</option>
+                        <option value="MP100">MP100</option>
+                        <option value="MP100-MESAS">MP100-MESAS</option>
+                        <option value="A43">A43</option>
+                        <option value="A53">A53</option>
+                        <option value="A781">A781</option>
+                        <option value="A09">A09</option>
+                    </select>
+                    <select class="form-control" style=" cursor: pointer;" id="categoria">
+                        <option value="">Categoria...</option>
+                        <option value="GENIUS">Genius</option>
+                        <option value="TITANIO">Titanio</option>
+                        <option value="LEGENDARIO">Legendario</option>
+                        <option value="GOLD">Gold</option>
+                        <option value="SILVER">Silver</option>
+                        <option value="BRONCE">Bronce</option>
+                        <option id="superior_marcopolo" value="SUPERIORMARCOPOLO">Superior Marcopolo</option>
+                        <option id="estandar_marcopolo" value="ESTANDARMARCOPOLO">Estandar Marcopolo</option>
+                        <option id="superior_aladdin" value="SUPERIORALADDIN">Superior Aladdin</option>
+                        <option id="estandar_aladdin" value="ESTANDARALADDIN">Estandar Aladdin</option>
+                        <option value="ADICIONAL">Adicional</option>
+                    </select>
+                    <input style="width: 100px;" placeholder="Cedula" class="form-control" id="cedula" type="number">
+                    <input style="width: 150px;" placeholder="Nombre" class="form-control" id="nombre" type="text">
+                    <input placeholder="# Bono" class="form-control" id="bono" type="number">
+                </div>
+                <br />
+                <div class="content-btn-cupido" style="padding-left: 10px;">
+                    <button class="btn btn-danger" id="btn_send_info">Enviar</button>
+                    <button class="btn btn-danger" id="btn-reset">Reiniciar</button>
+                    <button class="btn btn-danger" id="btn_open_info" onclick="abrirmodalacciones()">Acciones</button>
+                    <button class="btn btn-danger" id="btn_ocultar_info">Ocultar</button>
+                </div>
+            </div>
+            <div class="totales-cupido">
+                <div style="font-size: 1.1rem;" class="result_premio_modal" id="result_premio_modal"></div>
+                Total de flechazos: <span id="total-cupido">0</span> / <span id="max-cupido">4</span>
+                • Tiros: <span id="tiros-cupido">0</span> / 4
+            </div>
+            <div id="board-wrap" class="board-wrap">
+                <!-- <div id="content_fichas_board" class="content_fichas_board">
+                <div class="content_fichas_gandoras">
+                    <img class="posicion_ficha_2" src="/dinamicas/promocion-cupido/resources/cupido-clasico.png" alt="promo">
+                    <img class="posicion_ficha_4" src="/dinamicas/promocion-cupido/resources/cupido-vintage.png" alt="promo">
+                    <img class="posicion_ficha_6" src="/dinamicas/promocion-cupido/resources/cupido-urbano.png" alt="promo">
+                    <img class="posicion_ficha_8" src="/dinamicas/promocion-cupido/resources/cupido-suerte.png" alt="promo">
+
+                </div>
+                <div class="content_fichas_no_ganadoras">
+                    <img class="posicion_ficha_1" src="/dinamicas/promocion-cupido/resources/El_cura.png" alt="promo">
+                    <img class="posicion_ficha_3" src="/dinamicas/promocion-cupido/resources/La_monja.png" alt="promo">
+                    <img class="posicion_ficha_5" src="/dinamicas/promocion-cupido/resources/escudo_anti_amor.png" alt="promo">
+                    <img class="posicion_ficha_7" src="/dinamicas/promocion-cupido/resources/cinturon_castidad.png" alt="promo">
+                    <img class="posicion_ficha_9" src="/dinamicas/promocion-cupido/resources/olafo_amargado.png" alt="promo">
+                </div>
+            </div> -->
+                <div class="board">
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_1" src="/dinamicas/promocion-cupido/resources/El_cura.png" alt="promo" data-score="0">
+                            <p id="des_img_1" class="desc_img">El<br /> Cura</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_2" src="/dinamicas/promocion-cupido/resources/cupido-clasico.png" alt="promo" data-score="1">
+                            <p id="des_img_2" class="desc_img">Cupido Clasico</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_3" src="/dinamicas/promocion-cupido/resources/La_monja.png" alt="promo" data-score="0">
+                            <p id="des_img_3" class="desc_img">La <br /> Monja</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_4" src="/dinamicas/promocion-cupido/resources/cupido-vintage.png" alt="promo" data-score="1">
+                            <p id="des_img_4" class="desc_img">Cupido Vintage</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_5" src="/dinamicas/promocion-cupido/resources/escudo_anti_amor.png" alt="promo" data-score="0">
+                            <p id="des_img_7" class="desc_img">Cinturon <br /> Castidad</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_6" src="/dinamicas/promocion-cupido/resources/cupido-urbano.png" alt="promo" data-score="1">
+                            <p id="des_img_6" class="desc_img">Cupido Urbano</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_7" src="/dinamicas/promocion-cupido/resources/cinturon_castidad.png" alt="promo" data-score="0">
+                            <p id="des_img_5" class="desc_img">Escudo <br />anti-amor</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_8" src="/dinamicas/promocion-cupido/resources/cupido-suerte.png" alt="promo" data-score="1">
+                            <p id="des_img_8" class="desc_img">Cupido <br />de la<br />Suerte</p>
+                        </div>
+                    </div>
+
+                    <div class="board-img-content">
+                        <div class="img-content-text">
+                            <img id="img_9" src="/dinamicas/promocion-cupido/resources/olafo_amargado.png" alt="promo" data-score="0">
+                            <p id="des_img_9" class="desc_img">Olafo <br /> El Amargado</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="btn_reset_tablero">
+                <button class="" id="btn-reset-teblero">Reiniciar Tablero</button>
+            </div>
+            <br />
+
+        </div>
+
+    </div>
+    <section id="datos-modal-observacion" class="modal-cupido">
+        <div class="modal-content2-cupido">
+            <div
+                style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                <h1>Acciones</h1>
+                <span style="display: flex; justify-content: flex-end;" class="close-cupido"
+                    onclick="cerrarmodalacciones()">&times;</span>
+            </div>
+            <div class="modal-body-cupido">
+                <div id="table-container-cupido">
+                    <div class="content-info-modal">
+                        <div class="menu_modal_info" role="menu" aria-label="Acciones del modal">
+                            <p id="btn_envio_suplementario" class="menu-item" role="button" tabindex="0">
+                                Envío suplementario
+                            </p>
+                            <p id="btn_envio_observacion" class="menu-item" role="button" tabindex="0">
+                                Observación
+                            </p>
+                            <p id="btn_tabla_premios" class="menu-item" role="button" tabindex="0">
+                                Tabla de premios
+                            </p>
+                            <p id="btn_registros_dia" class="menu-item" role="button" tabindex="0">
+                                Ver registro del día
+                                <span class="notificacion_registro_dia" id="notificacion_registro_dia"></span>
+                            </p>
+                        </div>
+
+                        <div style="width: 100%;height: 1px;background-color: rgb(219, 219, 219);margin-bottom: 20px;">
+                        </div>
+                        <div class="result_modal_info">
+                            <div class="body_modal_actions" id="envio_suplementario">
+                                <h2>Envió suplementario</h2>
+                                <div class="columns_modal">
+                                    <select class="form-control" style="cursor: pointer;" id="casino_sup">
+                                        <option value="">Casino...</option>
+                                        <option value="A07">A07</option>
+                                        <option value="A08">A08</option>
+                                        <option value="A12">A12</option>
+                                        <option value="A12MESAS">A12-MESAS</option>
+                                        <option value="A16">A16</option>
+                                        <option value="MP15">MP15</option>
+                                        <option value="MP15-MESAS">MP15-MESAS</option>
+                                        <option value="A19">A19</option>
+                                        <option value="A50">A50</option>
+                                        <option value="A58">A58</option>
+                                        <option value="A70">A70</option>
+                                        <option value="MP108">MP108</option>
+                                        <option value="MP108-MESAS">MP108-MESAS</option>
+                                        <option value="A05">A05</option>
+                                        <option value="A38">A38</option>
+                                        <option value="A35">A35</option>
+                                        <option value="A36">A36</option>
+                                        <option value="A36-MESAS">A36-MESAS</option>
+                                        <option value="A39">A39</option>
+                                        <option value="A88">A88</option>
+                                        <option value="A48">A48</option>
+                                        <option value="A48-MESAS">A48-MESAS</option>
+                                        <option value="A49">A49</option>
+                                        <option value="MP127">MP127</option>
+                                        <option value="MP100">MP100</option>
+                                        <option value="A100-MESAS">A100-MESAS</option>
+                                        <option value="A43">A43</option>
+                                        <option value="A53">A53</option>
+                                        <option value="A781">A781</option>
+                                        <option value="A09">A09</option>
+                                    </select>
+                                    <select class="form-control" style=" cursor: pointer;" id="categoria_sup">
+                                        <option value="">Categoria...</option>
+                                        <option value="GENIUS">Genius</option>
+                                        <option value="TITANIO">Titanio</option>
+                                        <option value="LEGENDARIO">Legendario</option>
+                                        <option value="GOLD">Gold</option>
+                                        <option value="SILVER">Silver</option>
+                                        <option value="BRONCE">Bronce</option>
+                                        <option value="SUPERIORMARCOPOLO">Superior Marcopolo</option>
+                                        <option value="ESTANDARMARCOPOLO">Estandar Marcopolo</option>
+                                        <option value="SUPERIORALADDIN">Superior Aladdin</option>
+                                        <option value="ESTANDARALADDIN">Estandar Aladdin</option>
+                                        <option value="ADICIONAL">Adicional</option>
+                                    </select>
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="number" name="Cedula" id="cedula_sup"
+                                        placeholder="Cedula">
+                                    <input class="form-control" type="text" name="Nombre" id="nombre_sup"
+                                        placeholder="Nombre">
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="text" name="hora" id="hora_sup"
+                                        placeholder="Hora">
+                                    <input class="form-control" type="date" name="Fecha" id="fecha_sup"
+                                        placeholder="Fecha">
+                                </div>
+                                <div class="columns_modal">
+                                    <select class="form-control" name="flechazos_sup" id="flechazos_sup">
+                                        <option value="0">Flechazos...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                    <input class="form-control" type="text" name="bono" id="bono_sup"
+                                        placeholder="# Bono">
+                                </div>
+                                <div class="columns_modal">
+                                    <button onclick="handleSuplementarioClean()" class="btn btn-danger">Limpiar</button>
+                                    <button onclick="handleSuplementarioSend()" class="btn btn-danger">Envió
+                                        suplementario</button>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions" id="envio_observacion">
+                                <h2>Observación</h2>
+                                <div class="columns_modal">
+                                    <select class="form-control" style="cursor: pointer;" id="casino_obs">
+                                        <option value="">Casino...</option>
+
+                                        <option value="A07">A07</option>
+                                        <option value="A08">A08</option>
+                                        <option value="A12">A12</option>
+                                        <option value="A12MESAS">A12-MESAS</option>
+                                        <option value="A16">A16</option>
+                                        <option value="MP15">MP15</option>
+                                        <option value="MP15-MESAS">MP15-MESAS</option>
+                                        <option value="A19">A19</option>
+                                        <option value="A50">A50</option>
+                                        <option value="A58">A58</option>
+                                        <option value="A70">A70</option>
+                                        <option value="MP108">MP108</option>
+                                        <option value="MP108-MESAS">MP108-MESAS</option>
+                                        <option value="A05">A05</option>
+                                        <option value="A38">A38</option>
+                                        <option value="A35">A35</option>
+                                        <option value="A36">A36</option>
+                                        <option value="A36-MESAS">A36-MESAS</option>
+                                        <option value="A39">A39</option>
+                                        <option value="A88">A88</option>
+                                        <option value="A48">A48</option>
+                                        <option value="A48-MESAS">A48-MESAS</option>
+                                        <option value="A49">A49</option>
+                                        <option value="MP127">MP127</option>
+                                        <option value="MP100">MP100</option>
+                                        <option value="A100-MESAS">A100-MESAS</option>
+                                        <option value="A43">A43</option>
+                                        <option value="A53">A53</option>
+                                        <option value="A781">A781</option>
+                                        <option value="A09">A09</option>
+                                    </select>
+                                </div>
+                                <div class="columns_modal">
+                                    <textarea name="descripcion" id="desc_obs_modal"
+                                        placeholder="Descripcion de la Observación"></textarea>
+                                </div>
+                                <div class="columns_modal">
+                                    <button onclick="handleObservacionClean()" class="btn btn-danger">Limpiar</button>
+                                    <button onclick="handleObservacionSend()" class="btn btn-danger">Enviar
+                                        Observación</button>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions_table" id="tabla_premios_cupido">
+                                <h2>Tabla de premios</h2>
+                                <div class="table-wrapper ajuste_table_result_2">
+                                    <table class="styled-table table-scrolld ">
+                                        <thead>
+                                            <tr>
+                                                <th>Opciones</th>
+                                                <th>Bronce</th>
+                                                <th>Silver</th>
+                                                <th>Gold</th>
+                                                <th>Legendario</th>
+                                                <th>Titanio</th>
+                                                <th>Genius</th>
+                                                <th>Estandar Aladdin</th>
+                                                <th>Superior Aladdin</th>
+                                                <th>Estandar Marco Polo <br /> A-36 y A-781</th>
+                                                <th>Superior Marco Polo<br /> A-36 y A-781</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>4 Flechas</td>
+                                                <td>$200.000</td>
+                                                <td>$250.000</td>
+                                                <td>$300.000</td>
+                                                <td>$400.000</td>
+                                                <td>$500.000</td>
+                                                <td>$600.000</td>
+                                                <td>$200.000</td>
+                                                <td>$300.000</td>
+                                                <td>$200.000</td>
+                                                <td>$300.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3 Flechas</td>
+                                                <td>$70.000</td>
+                                                <td>$90.000</td>
+                                                <td>$110.000</td>
+                                                <td>$130.000</td>
+                                                <td>$150.000</td>
+                                                <td>$170.000</td>
+                                                <td>$70.000</td>
+                                                <td>$90.000</td>
+                                                <td>$100.000</td>
+                                                <td>$120.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2 Flechas</td>
+                                                <td>$60.000</td>
+                                                <td>$80.000</td>
+                                                <td>$100.000</td>
+                                                <td>$120.000</td>
+                                                <td>$140.000</td>
+                                                <td>$160.000</td>
+                                                <td>$60.000</td>
+                                                <td>$80.000</td>
+                                                <td>$90.000</td>
+                                                <td>$110.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1 Flechas</td>
+                                                <td>$50.000</td>
+                                                <td>$70.000</td>
+                                                <td>$90.000</td>
+                                                <td>$110.000</td>
+                                                <td>$130.000</td>
+                                                <td>$150.000</td>
+                                                <td>$50.000</td>
+                                                <td>$70.000</td>
+                                                <td>$80.000</td>
+                                                <td>$100.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions" id="tabla_premios">
+                                <div
+                                    style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;flex-direction: column;">
+                                    <h1>
+                                        Registros del día, <span id="casino-numero-cupido"
+                                            style="margin-left:10px;"></span>
+                                    </h1>
+                                    <div id="Info-cupido"></div>
+
+                                </div>
+                                <div id="ultimos_registro_cupido"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion-cupido/js/script.js"></script>
+</body>
+
+</html>

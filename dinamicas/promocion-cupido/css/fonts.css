@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Poppins Ligth';
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('/dinamicas/promocion-cupido/fonts/Poppins-Black.ttf') format('truetype');
+}
+

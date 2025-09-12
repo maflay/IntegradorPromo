@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Promocion Agosto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-Escaleras/css/style.css">
+    <link rel="stylesheet" href="/dinamicas/promocion-Escaleras/css/fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+    <section class="fondo">
+        <img src="/dinamicas/promocion-Escaleras/resources/fondo-tren.jpg" alt="fondo-tren">
+    </section>
+    <section class="content-tren">
+        <div class="content-info-cliente">
+            <button id="toggleBtnView" class="btn-ocultar btn-Send">Ocultar</button>
+            <button id="btn-tabla-premios" onclick="abrirModal3()" class="btn-tabla-premios btn-Send">Ver tabla de
+                premios</button>
+            <button id="btn-observacion" onclick="abrirModal4()" class="btn-observacion btn-Send">Enviar
+                observación</button>
+            <div class="bloque1">
+                <div class="content-img-tren">
+                    <img src="/dinamicas/promocion-Escaleras/resources/logo-tren.png" alt="tren de premios">
+                </div>
+                <div class="datos" id="formBox">
+                    <div class="casinos">
+                        <label for="casino">CASINO</label>
+                        <select class="form-control" style="cursor: pointer;" id="casino">
+                            <option value="">Seleccione...</option>
+                            <option value="A05">A05</option>
+                            <option value="A07">A07</option>
+                            <option value="A08">A08</option>
+                            <option value="A09">A09</option>
+                            <option value="A12">A12</option>
+                            <option value="A12-MESAS">A12-MESAS</option>
+                            <option value="A15">A15</option>
+                            <option value="A15-MESAS">A15-MESAS</option>
+                            <option value="A16">A16</option>
+                            <option value="A19">A19</option>
+                            <option value="A35">A35</option>
+                            <option value="A36">A36</option>
+                            <option value="A36-MESAS">A36-MESAS</option>
+                            <option value="A38">A38</option>
+                            <option value="A39">A39</option>
+                            <option value="A43">A43</option>
+                            <option value="A48">A48</option>
+                            <option value="A48-MESAS">A48-MESAS</option>
+                            <option value="A49">A49</option>
+                            <option value="A50">A50</option>
+                            <option value="MP50">MP53</option>
+                            <option value="A70">A70</option>
+                            <option value="A781">A781</option>
+                            <option value="A88">A88</option>
+                            <option value="A100">A100</option>
+                            <option value="A100-MESAS">A100-MESAS</option>
+                            <option value="A108">A108</option>
+                            <option value="A108-MESAS">A108-MESAS</option>
+                        </select>
+                    </div>
+                    <div class="categoria">
+                        <label for="categoria">CATEGORIA</label>
+                        <select class="form-control" style=" cursor: pointer;" id="categoria">
+                            <option value="">Seleccione...</option>
+                            <option value="GENIUS">Genius</option>
+                            <option value="TITANIO">Titanio</option>
+                            <option value="LEGENDARIO">Legendario</option>
+                            <option value="GOLD">Gold</option>
+                            <option value="SILVER">Silver</option>
+                            <option value="BRONCE">Bronce</option>
+                            <option value="SUPERIOR">Superior</option>
+                            <option value="ESTANDAR">Estandar</option>
+                            <option value="ADICIONAL">Adicional</option>
+                        </select>
+                    </div>
+                    <div class="cedula">
+                        <label for="cedula">CEDULA</label>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <input class="form-control" style=" cursor: pointer;" type="number" id="cedula"
+                                placeholder="Cedula del cliente" />
+                        </div>
+                    </div>
+                    <div class="nombre">
+                        <label for="nombre">NOMBRE</label>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <input class="form-control" style=" cursor: pointer;" type="text" id="nombre"
+                                placeholder="Nombre del cliente" />
+                        </div>
+                    </div>
+                    <br />
+                    <div style="padding: 20px 0;" id="valBono"></div>
+                    <div style="padding: 20px 0;" class="content-btnSend">
+                        <button class="toggleBtn2" onclick="handleSendInfo()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-promocion">
+            <button id="btn-fuera-promo" class="btn-Send btn-envio-fuera-promo" onclick="abrirModal()">Envio fuera de
+                promoción.</button>
+            <div style="position: fixed;right: 50px;bottom: 80px ;" class="content-btn">
+                <button id="btn-registro-dia" class="btn-Send" onclick="abrirModal2()">Ver registro del
+                    dia.</button>
+            </div>
+
+            <br />
+            <div class="board" id="board">
+                <div id="player-token" class="player-token">
+                    <img id="content-tren" src="/dinamicas/promocion-Escaleras/resources/tren.png" alt="tren">
+                </div>
+            </div>
+            <br />
+            <div style="display: none;gap: 32px;color: white;">
+                <p id="pos1">Lanz 1: -</p>
+                <p id="pos2">Lanz 2: -</p>
+                <p id="pos3">Lanz 3: -</p>
+            </div>
+            <br />
+            <div class="content-msg">
+                <div class="message" id="message"></div>
+                <div class="resultado-ganador" id="resultado-ganador"></div>
+            </div>
+            <br />
+
+            <div class="content-input">
+                <div class="content-aviso-categoria">
+                    <small>Tener encuenta la categoria. <strong style="color: red;">*</strong></small>
+                </div>
+                <div>
+                    <input class="style-input" type="number" id="input1" placeholder="Lanz 1" min="1" max="6"
+                        disabled />
+                    <!-- <button onclick="emptyInput1()">⟳</button> -->
+                </div>
+                <div>
+                    <input class="style-input" type="number" id="input2" placeholder="Lanz 2" min="1" max="6"
+                        disabled />
+                    <!-- <button>⟳</button> -->
+                </div>
+                <div>
+                    <input class="style-input" type="number" id="input3" placeholder="Lanz 3" min="1" max="6"
+                        disabled />
+                    <!-- <button>⟳</button> -->
+                </div>
+                <div>
+                    <button class="btn-Send btn-reinicio-tiro" id="btn-deshacer" onclick="deshacerTirada()">Deshacer
+                        tirada</button>
+                </div>
+            </div>
+        </div>
+        <div id="btn-reiniciar" style="text-align: center;position: fixed; bottom: 30%;left: 50px;z-index: 12;">
+            <a style="text-align: center;text-decoration: none;" class="btn-Send" href="">Reiniciar</a>
+        </div>
+        <section id="modal-ultimos-registros-tren" class="modal-tren">
+            <div class="modal-content-tren">
+                <div style="display: flex;">
+                    <div
+                        style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;flex-direction: column;">
+                        <h1 style="display: flex; font-weight: bold; color: #a13b22;">Registros del dia, <p
+                                style="margin-left: 10px;" id="casino-numero-tren"></p>
+                        </h1>
+                        <div id="Info-tren"></div>
+                    </div>
+                    <span style="display: flex; justify-content: flex-end;" class="close-tren"
+                        onclick="cerrarModal2()">&times;</span>
+                </div>
+                <div class="modal-body-tren">
+                    <div id="ultimos-registros-tren"></div>
+                </div>
+            </div>
+        </section>
+        <section id="datos-modal-tren" class="modal-tren">
+            <div class="modal-content2-tren">
+                <div
+                    style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                    <h1 style="font-weight: bold; color: #a13b22;">Envio Fuera de Promocion</h1>
+                    <span style="display: flex; justify-content: flex-end;" class="close-tren"
+                        onclick="cerrarModal()">&times;</span>
+                </div>
+                <div class="modal-body-tren">
+                    <div id="table-container-tren">
+                        <div id="formBox">
+                            <div class="casinos-modal">
+                                <label for="casino">CASINO</label>
+                                <select class="input-tren form-control" style="cursor: pointer;" id="casino-modal-tren">
+                                    <option value="">Seleccione...</option>
+                                    <option value="A05">A05</option>
+                                    <option value="A07">A07</option>
+                                    <option value="A08">A08</option>
+                                    <option value="A09">A09</option>
+                                    <option value="A12">A12</option>
+                                    <option value="A12-MESAS">A12-MESAS</option>
+                                    <option value="A15">A15</option>
+                                    <option value="A15-MESAS">A15-MESAS</option>
+                                    <option value="A16">A16</option>
+                                    <option value="A19">A19</option>
+                                    <option value="A35">A35</option>
+                                    <option value="A36">A36</option>
+                                    <option value="A36-MESAS">A36-MESAS</option>
+                                    <option value="A38">A38</option>
+                                    <option value="A39">A39</option>
+                                    <option value="A39">A43</option>
+                                    <option value="A48">A48</option>
+                                    <option value="A48-MESAS">A48-MESAS</option>
+                                    <option value="A49">A49</option>
+                                    <option value="A50">A50</option>
+                                    <option value="A50">MP53</option>
+                                    <option value="A70">A70</option>
+                                    <option value="A781">A781</option>
+                                    <option value="A88">A88</option>
+                                    <option value="A100">A100</option>
+                                    <option value="A100-MESAS">A100-MESAS</option>
+                                    <option value="A108">A108</option>
+                                    <option value="A108-MESAS">A108-MESAS</option>
+                                </select>
+                            </div>
+                            <div class="categoria-modal">
+                                <label for="categoria">CATEGORIA</label>
+                                <select class="input-tren form-control" style=" cursor: pointer;"
+                                    id="categoria-modal-tren">
+                                    <option value="">Seleccione...</option>
+                                    <option value="GENIUS">Genius</option>
+                                    <option value="TITANIO">Titanio</option>
+                                    <option value="LEGENDARIO">Legendario</option>
+                                    <option value="GOLD">Gold</option>
+                                    <option value="SILVER">Silver</option>
+                                    <option value="BRONCE">Bronce</option>
+                                    <option value="SUPERIOR">Superior</option>
+                                    <option value="ESTANDAR">Estandar</option>
+                                </select>
+                            </div>
+                            <div class="cedula-modal">
+                                <label for="cedula">CEDULA</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="input-tren form-control" style=" cursor: pointer;" type="text"
+                                        id="cedula-modal-tren" placeholder="Cedula del cliente" />
+                                </div>
+                            </div>
+                            <div class="nombre-modal">
+                                <label for="nombre">NOMBRE</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="input-tren form-control" style=" cursor: pointer;" type="text"
+                                        id="nombre-modal-tren" placeholder="Nombre del cliente" />
+                                </div>
+                            </div>
+                            <div class="nombre-modal">
+                                <label for="hora">HORA</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="form-control" style=" cursor: pointer;" type="text"
+                                        id="hora-modal-tren" placeholder="Hora del registro" />
+                                </div>
+                            </div>
+                            <div class="nombre-modal">
+                                <label for="fecha">FECHA</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="form-control" style=" cursor: pointer;" type="date"
+                                        id="fecha-modal-tren" placeholder="Fecha del registro" />
+                                </div>
+                            </div>
+                            <div class="nombre-modal">
+                                <label for="posicion">Ultima posición del jugador</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="form-control" style=" cursor: pointer;" type="text"
+                                        id="posicion-modal-tren" placeholder="# posicion" />
+                                </div>
+                            </div>
+                            <div class="nombre-modal">
+                                <label for="bono"># Bono</label>
+                                <div style="display: flex; align-items: center; gap: 5px">
+                                    <input class="form-control" style=" cursor: pointer;" type="text"
+                                        id="bono-modal-tren" placeholder="# Bono" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="content-btn-enviar">
+                                <button id="validatepremio" onclick="HandleSecondSubmit();" class="toggleBtn2">Envio
+                                    suplementario</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="modal-tabla-premios" class="modal-tren">
+            <div class="modal-content-tren">
+                <div style="display: flex;">
+                    <div
+                        style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;flex-direction: column;">
+                        <h1 style="display: flex; font-weight: bold; color: #a13b22;">
+                            Tabla de premios
+                        </h1>
+                        <div id="Info-tren"></div>
+                    </div>
+                    <span style="display: flex; justify-content: flex-end;" class="close-tren"
+                        onclick="cerrarModal3()">&times;</span>
+                </div>
+                <div class="table-wrapper">
+                    <table class="styled-table-tren">
+                        <thead>
+                            <tr>
+                                <th>Resultado de los tres <br />Lanzamientos</th>
+                                <th>Bronce</th>
+                                <th>Silver</th>
+                                <th>Gold</th>
+                                <th>Legendario</th>
+                                <th>Titanio</th>
+                                <th>Genius</th>
+                                <th>Estandar</th>
+                                <th>Superior</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>$200.000</td>
+                                <td>$250.000</td>
+                                <td>$300.000</td>
+                                <td>$350.000</td>
+                                <td>$400.000</td>
+                                <td>$450.000</td>
+                                <td>$200.000</td>
+                                <td>$250.000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>$120.000</td>
+                                <td>$150.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$200.000</td>
+                                <td>$220.000</td>
+                                <td>$120.000</td>
+                                <td>$150.000</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$200.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$200.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                                <td>$130.000</td>
+                                <td>$150.000</td>
+                                <td>$170.000</td>
+                                <td>$190.000</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                                <td>$130.000</td>
+                                <td>$150.000</td>
+                                <td>$170.000</td>
+                                <td>$190.000</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$80.000</td>
+                                <td>$100.000</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                                <td>$130.000</td>
+                                <td>$150.000</td>
+                                <td>$170.000</td>
+                                <td>$190.000</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                                <td>$130.000</td>
+                                <td>$150.000</td>
+                                <td>$170.000</td>
+                                <td>$190.000</td>
+                                <td>$90.000</td>
+                                <td>$110.000</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$200.000</td>
+                                <td>$100.000</td>
+                                <td>$120.000</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                                <td>$ -</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>$120.000</td>
+                                <td>$140.000</td>
+                                <td>$160.000</td>
+                                <td>$180.000</td>
+                                <td>$200.000</td>
+                                <td>$220.000</td>
+                                <td>$120.000</td>
+                                <td>$150.000</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>$200.000</td>
+                                <td>$250.000</td>
+                                <td>$300.000</td>
+                                <td>$350.000</td>
+                                <td>$400.000</td>
+                                <td>$450.000</td>
+                                <td>$200.000</td>
+                                <td>$250.000</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>$250.000</td>
+                                <td>$300.000</td>
+                                <td>$350.000</td>
+                                <td>$400.000</td>
+                                <td>$450.000</td>
+                                <td>$500.000</td>
+                                <td>$250.000</td>
+                                <td>$300.000</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>$300.000</td>
+                                <td>$400.000</td>
+                                <td>$450.000</td>
+                                <td>$500.000</td>
+                                <td>$550.000</td>
+                                <td>$600.000</td>
+                                <td>$300.000</td>
+                                <td>$400.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="datos-modal-observacion" class="modal-tren">
+            <div class="modal-content2-tren">
+                <div
+                    style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                    <h1 style="font-weight: bold; color: #a13b22;">Envio de observación</h1>
+                    <span style="display: flex; justify-content: flex-end;" class="close-tren"
+                        onclick="cerrarModal4()">&times;</span>
+                </div>
+                <div class="modal-body-tren">
+                    <div id="table-container-tren">
+                        <div id="formBox">
+                            <div class="casinos-modal">
+                                <label for="casino">CASINO</label>
+                                <select class="input-tren form-control" style="cursor: pointer;"
+                                    id="casino-modal-observacion">
+                                    <option value="">Seleccione...</option>
+                                    <option value="A05">A05</option>
+                                    <option value="A07">A07</option>
+                                    <option value="A08">A08</option>
+                                    <option value="A09">A09</option>
+                                    <option value="A12">A12</option>
+                                    <option value="A12-MESAS">A12-MESAS</option>
+                                    <option value="A15">A15</option>
+                                    <option value="A15-MESAS">A15-MESAS</option>
+                                    <option value="A16">A16</option>
+                                    <option value="A19">A19</option>
+                                    <option value="A35">A35</option>
+                                    <option value="A36">A36</option>
+                                    <option value="A36-MESAS">A36-MESAS</option>
+                                    <option value="A38">A38</option>
+                                    <option value="A39">A39</option>
+                                    <option value="A39">A43</option>
+                                    <option value="A48">A48</option>
+                                    <option value="A48-MESAS">A48-MESAS</option>
+                                    <option value="A49">A49</option>
+                                    <option value="A50">A50</option>
+                                    <option value="A50">MP53</option>
+                                    <option value="A70">A70</option>
+                                    <option value="A781">A781</option>
+                                    <option value="A88">A88</option>
+                                    <option value="A100">A100</option>
+                                    <option value="A100-MESAS">A100-MESAS</option>
+                                    <option value="A108">A108</option>
+                                    <option value="A108-MESAS">A108-MESAS</option>
+                                </select>
+                            </div>
+
+                            <div class="nombre-modal">
+                                <label for="bono">Observación</label>
+                                <div class="content-text-area">
+                                    <textarea name="descripcion" id="casino-modal-descripcion"
+                                        placeholder="Detalle su observación"></textarea>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div style="display: flex;justify-content: end;" class="content-btn-enviar">
+                                <button id="validatepremio" onclick="HandleObservacionSend();" class="toggleBtn2">Enviar
+                                    observación</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion-Escaleras/js/script.js"></script>
+</body>
+
+</html>

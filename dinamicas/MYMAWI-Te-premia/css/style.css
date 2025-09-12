@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url(/dinamicas/MYMAWI-Te-premia/resources/FONDO-TV-DADOS-DE-POKER-MARCOPOLO-2025.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.content-info-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 6px solid #ccc;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.toggleBtn,
+.btn-dados {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #224fa1;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+}
+
+.toggleBtn {
+    position: fixed;
+    right: 15px;
+    top: 60%;
+    z-index: 1000;
+}
+
+.toggleBtn2 {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #224fa1;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    left: 15px;
+    top: 60%;
+    z-index: 1000;
+}
+
+.toggleBtn:hover,
+.toggleBtn2:hover,
+.btn-dados:hover {
+    background: rgb(17, 36, 207);
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+    visibility: hidden;
+    display: none;
+}
+
+.bloque1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.bloque1-content-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloque1-content-img img {
+    width: 70%;
+}
+
+.datos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.casinos,
+.categoria,
+.nombre,
+.cedula {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-btn-enviar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo-centrado {
+    position: relative;
+    top: 0;
+    z-index: 999;
+    max-width: 100%;
+}
+
+/* ==== TABLA RESPONSIVE ==== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 800px;
+}
+
+.styled-table thead {
+    background: rgb(34, 79, 161);
+    color: #fff;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+    background-color: #fff;
+    color: #000;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-result {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.styled-table {
+    min-width: 1000px;
+    width: 100%;
+}
+
+
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+
+.modal-content2 {
+    background-color: #fff;
+    padding: 20px;
+    width: 600px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content3 {
+    background-color: #fff;
+    padding: 20px;
+    width: 1200px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal-body {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content2>h2 {
+    text-align: center;
+}
+
+.color-gray {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+
+
+/* ===== MEDIA QUERIES ===== */
+
+@media (max-width: 1024px) {
+    .styled-table {
+        font-size: 13px;
+    }
+
+    .datos {
+        flex-direction: column;
+    }
+
+    .table-result {
+        width: 100%;
+        overflow-x: auto;
+        padding: 0 10px;
+    }
+
+
+    .styled-table {
+        min-width: 1000px;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .bloque1 {
+        padding: 0 10px;
+    }
+
+    .toggleBtn {
+        top: 45%;
+    }
+
+    .styled-table {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .toggleBtn,
+    .btn-dados {
+        font-size: 1rem;
+        padding: 8px 14px;
+    }
+
+    .styled-table {
+        font-size: 11px;
+    }
+}

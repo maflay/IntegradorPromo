@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Aladdin a lo Grande</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion_lo_hacemos_en_grande/css/style.css">
+    <link rel="stylesheet" href="/dinamicas/promocion_lo_hacemos_en_grande/css/fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+
+    <div class="background-promo">
+        <div class="btn-content-premios">
+            <a href="/dinamicas/promocion_lo_hacemos_en_grande/components/premios/premios.html" class="btn btn-primary">Premios</a>
+        </div>
+        <div class="screen_full">
+            <button class="btn btn-primary" id="fsBtn">Pantalla completa</button>
+        </div>
+
+        <br />
+        <h2>Vista Admin</h2>
+        <!-- <div style="display: flex;justify-content: center;align-items: center;">
+            <button onclick="abrirModal()" class="btn btn-primary">Acciones</button>
+        </div> -->
+        <div class="content_btn_lugares">
+            <button class="btn btn-primary" data-place="3">3° lugar</button>
+            <button class="btn btn-primary" data-place="2">2° lugar</button>
+            <button class="btn btn-primary" data-place="1">1° lugar</button>
+        </div>
+        <div id="board" class="board">
+            <div id="cell_1" class="cell">
+                1
+            </div>
+            <div id="cell_2" class="cell">
+                2
+            </div>
+            <div id="cell_3" class="cell">
+                3
+            </div>
+            <div id="cell_4" class="cell">
+                4
+            </div>
+            <div id="cell_5" class="cell">
+                5
+            </div>
+            <div id="cell_6" class="cell">
+                6
+            </div>
+            <div id="cell_7" class="cell">
+                7
+            </div>
+            <div id="cell_8" class="cell">
+                8
+            </div>
+            <div id="cell_9" class="cell">
+                9
+            </div>
+            <div id="cell_10" class="cell">
+                10
+            </div>
+            <div id="cell_11" class="cell">
+                11
+            </div>
+            <div id="cell_12" class="cell">
+                12
+            </div>
+            <div id="cell_13" class="cell">
+                13
+            </div>
+            <div id="cell_14" class="cell">
+                14
+            </div>
+            <div id="cell_15" class="cell">
+                15
+            </div>
+            <div id="cell_16" class="cell">
+                16
+            </div>
+            <div id="cell_17" class="cell">
+                17
+            </div>
+            <div id="cell_18" class="cell">
+                18
+            </div>
+            <div id="cell_19" class="cell">
+                19
+            </div>
+            <div id="cell_20" class="cell">
+                20
+            </div>
+            <div id="cell_21" class="cell">
+                21
+            </div>
+            <div id="cell_22" class="cell">
+                22
+            </div>
+            <div id="cell_23" class="cell">
+                23
+            </div>
+            <div id="cell_24" class="cell">
+                24
+            </div>
+            <div id="cell_25" class="cell">
+                25
+            </div>
+            <div id="cell_26" class="cell">
+                26
+            </div>
+            <div id="cell_27" class="cell">
+                27
+            </div>
+            <div id="cell_28" class="cell">
+                28
+            </div>
+            <div id="cell_29" class="cell">
+                29
+            </div>
+            <div id="cell_30" class="cell">
+                30
+            </div>
+            <div id="cell_31" class="cell">
+                31
+            </div>
+            <div id="cell_32" class="cell">
+                32
+            </div>
+            <div id="cell_33" class="cell">
+                33
+            </div>
+            <div id="cell_34" class="cell">
+                34
+            </div>
+            <div id="cell_35" class="cell">
+                35
+            </div>
+            <div id="cell_36" class="cell">
+                36
+            </div>
+            <div id="cell_37" class="cell">
+                0
+            </div>
+            <div id="cell_38" class="cell">
+                00
+            </div>
+        </div>
+        <div style="display: none;" id="bloque-ultimo-numero"></div>
+        <br />
+        <br />
+        <div style="display: flex;justify-content: center;align-items: center;padding: 30px 0;">
+            <button id="reset-btn" class="btn btn-danger">Reiniciar juego</button>
+        </div>
+
+        <!-- Botones de ejemplo -->
+
+        <section id="datos-modal-observacion" class="modal-ruleta">
+            <div class="modal-content2-ruleta">
+                <div
+                    style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                    <h1
+                        style="font-weight: bold; color: rgb(34, 79, 161);position: relative;left: 50%;transform: translateX(-50%);">
+                        Otras acciones.</h1>
+                    <span style="display: flex; justify-content: flex-end;" class="close-ruleta"
+                        onclick="cerraModal()">&times;</span>
+                </div>
+                <br />
+                <br />
+
+                <div class="modal-body-ruleta">
+                    <div id="table-container-ruleta">
+                        <div id="formBox">
+                            <div class="content-btn-actions-modal">
+                                <a style="width: auto;" class="btn btn-success" target="_blank"
+                                    href="/dinamicas/promocion_lo_hacemos_en_grande/components/viewTv/viewTv.html">Otra vista por #</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="datos-modal-premios" class="modal-ruleta">
+            <div class="modal-content2-ruleta">
+                <div
+                    style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                    <h1
+                        style="font-weight: bold; color: rgb(34, 79, 161);position: relative;left: 50%;transform: translateX(-50%);">
+                        Premios.</h1>
+                    <span style="display: flex; justify-content: flex-end;" class="close-ruleta"
+                        onclick="cerrarpremios()">&times;</span>
+                </div>
+                <br />
+                <br />
+
+                <div class="modal-body-ruleta">
+                    <div id="table-container-ruleta">
+                        <div id="formBox">
+                            <div class="content-btn-actions-modal">
+                                <div id="viewCar"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <script src="/dinamicas/promocion_lo_hacemos_en_grande/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion_lo_hacemos_en_grande/components/viewTv/viewTv.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import {
+            getDatabase, ref, set, onValue, update, push
+        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+        // --- CONFIG FIREBASE ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoK7OfN6AyemPhE2Mz49rNX1H5_OKCYlc",
+            authDomain: "prueba-f0c25.firebaseapp.com",
+            databaseURL: "https://prueba-f0c25-default-rtdb.firebaseio.com",
+            projectId: "prueba-f0c25",
+            storageBucket: "prueba-f0c25.appspot.com", // <- opcional, más común
+            messagingSenderId: "984894736026",
+            appId: "1:984894736026:web:f0550d13dea45d77698123"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Rutas en la DB
+        const ROOM = "sala1";
+        const roomRef = ref(db, `rooms/${ROOM}`);
+        const numeroRef = ref(db, `rooms/${ROOM}/numero`);
+        const winnerRef = ref(db, `rooms/${ROOM}/winner`);
+        const historyRef = ref(db, `rooms/${ROOM}/history`);
+
+        // Construye /resources/numeros/01.png ... /resources/numeros/38.png
+        const pad2 = (n) => String(n).padStart(2, "0");
+        const imgFromIndex = (idx) => `/dinamicas/promocion_lo_hacemos_en_grande/resources/numeros/${pad2(idx)}.png`;
+
+        // Pinta/oculta la imagen del número (en TV o en la vista actual)
+        function setNumeroImg(url) {
+            let imgEl = document.getElementById("numero-img");
+            if (!imgEl) {
+                imgEl = document.createElement("img");
+                imgEl.id = "numero-img";
+                imgEl.alt = "Número";
+                imgEl.style.maxWidth = "100%";
+                imgEl.style.height = "auto";
+                imgEl.style.display = "none";
+
+                // la mostramos dentro del contenedor del número en miniView/TV
+                const cont = document.getElementById("result_vista") || document.body;
+                cont.appendChild(imgEl);
+            }
+
+            if (url) {
+                imgEl.src = url;
+                imgEl.style.display = "block";
+            } else {
+                imgEl.removeAttribute("src");
+                imgEl.style.display = "none";
+            }
+        }
+
+        // Título visual del premio por posición (1, 2, 3)
+        function tituloPremioPath(place) {
+            const nombres = { 1: "primer_premio", 2: "segundo_premio", 3: "tercer_premio" };
+            const nombre = nombres[place] || "primer_premio";
+            return `/dinamicas/promocion_lo_hacemos_en_grande/resources/titulospremios/${nombre}.png`;
+        }
+
+
+
+        // --- UI helpers ---
+        function render(valor) {
+            const out = document.getElementById("result_vista");
+            if (out) out.textContent = valor ?? "";
+        }
+        function desmarcarCeldas() {
+            document.querySelectorAll(".cell_select").forEach(el => el.classList.remove("cell_select"));
+        }
+        function idFromValor(valor) {
+            if (valor === "0") return "cell_37";
+            if (valor === "00") return "cell_38";
+            return `cell_${valor}`;
+        }
+
+        function marcarCelda(valor) {
+            desmarcarCeldas();
+            if (!valor) return;
+            const el = document.getElementById(idFromValor(valor));
+            if (el) el.classList.add("cell_select");
+        }
+
+        function normalizar(raw) {
+            if (raw === "37") return "0";
+            if (raw === "38") return "00";
+            return raw;
+        }
+
+        function posicionImgPath(place) {
+            const nombres = { 1: "primer_posicion", 2: "segundo_posicion", 3: "tercer_posicion" };
+            return `/dinamicas/promocion_lo_hacemos_en_grande/resources/posiciones/${nombres[place]}.png`;
+        }
+
+
+
+
+        // --- Reset (número + premio) ---
+        async function resetJuego() {
+            const btn = document.getElementById("reset-btn");
+            if (typeof Swal !== "undefined") {
+                const { isConfirmed } = await Swal.fire({
+                    title: "¿Estás seguro?",
+                    text: "Se borrarán el número y el premio en todas las pantallas (el historial se conserva).",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Sí, reiniciar",
+                    cancelButtonText: "Cancelar"
+                });
+                if (!isConfirmed) return;
+            }
+
+            try {
+                if (btn) btn.disabled = true;
+
+                // Limpieza local inmediata
+                localStorage.removeItem("ultimo_numero");
+                localStorage.removeItem("ultimo_winner");
+
+                render("");
+                marcarCelda(null);
+                if (typeof renderPrize === "function") renderPrize(null);
+
+                // 🔹 limpiar contenedor del premio en esta vista
+                const premioEl = document.getElementById("premio-valor");
+                if (premioEl) premioEl.innerHTML = "";
+
+                const premioImg = document.getElementById("premio-img");
+                if (premioImg) premioImg.innerHTML = "";
+
+                await Promise.all([
+                    update(roomRef, { numero: "__RESET__", numeroImg: null, numeroIdx: null }),
+                    update(roomRef, { winner: null }),
+                    update(roomRef, { grandPrize: null })
+                ]);
+                setNumeroImg(null);
+
+
+
+                if (typeof Swal !== "undefined") {
+                    await Swal.fire("Correcto", "Se reinició número y premio en todas las pantallas.", "success");
+                }
+            } catch (err) {
+                console.error("Error al reiniciar:", err);
+                if (typeof Swal !== "undefined") {
+                    await Swal.fire("Ups…", "No se pudo reiniciar.", "error");
+                }
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+
+
+        // --- Premios ---
+        const PRIZES = {
+            1: { code: "car", label: "Carro 0 km", desc: "Primer Lugar", media: "/dinamicas/promocion_lo_hacemos_en_grande/resources/carros.png" },
+            2: { code: "cash_1m", label: "$1.000.000", desc: "Segundo Lugar", media: "" },
+            3: { code: "cash_500k", label: "$500.000", desc: "Tercer Lugar", media: "" },
+        };
+
+        async function setWinnerAndReset(place) {
+            if (![1, 2, 3].includes(place)) return;
+
+            const payload = {
+                place,
+                titleImg: tituloPremioPath(place), // título del premio (opcional si lo muestras en TV)
+                posImg: posicionImgPath(place),  // imagen de la posición
+                ts: Date.now()
+            };
+
+            await update(roomRef, {
+                winner: payload,
+                numero: "__RESET__",
+                numeroImg: null,
+                numeroIdx: null
+            });
+
+            await push(historyRef, payload);
+            localStorage.removeItem("ultimo_numero");
+        }
+
+
+
+
+        async function resetWinner() {
+            await update(roomRef, { winner: null });
+        }
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            if (loader) loader.style.display = "none";
+        });
+        const numeroImgRef = ref(db, `rooms/${ROOM}/numeroImg`);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("/dinamicas/promocion_lo_hacemos_en_grande/components/miniView/miniView.html")
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById("bloque-ultimo-numero").innerHTML = html;
+
+                    const last = localStorage.getItem("ultimo_numero");
+                    if (last) { render(last); marcarCelda(last); }
+
+                    onValue(numeroRef, (snap) => {
+                        const val = snap.val();
+                        if (val === "__RESET__") {
+                            localStorage.removeItem("ultimo_numero");
+                            render(""); marcarCelda(null);
+                            return;
+                        }
+                        if (val == null || val === "") return;
+                        localStorage.setItem("ultimo_numero", val);
+                        render(val); marcarCelda(val);
+
+
+
+                    });
+                    onValue(numeroImgRef, (snap) => {
+                        const url = snap.val();
+                        if (!url || url === "__RESET__") {
+                            setNumeroImg(null);
+                            return;
+                        }
+                        setNumeroImg(url);
+                    });
+                    document.addEventListener("click", (e) => {
+                        const cell = e.target.closest('[id^="cell_"]');
+                        if (!cell) return;
+
+                        const raw = cell.id.split("_")[1];
+                        const valor = normalizar(raw);
+                        const idx = parseInt(raw, 10);
+                        const img = imgFromIndex(idx);
+
+                        localStorage.setItem("ultimo_numero", valor);
+
+                        update(roomRef, { numero: valor, numeroImg: img, numeroIdx: idx })
+                            .catch(console.error);
+
+                        render(valor);
+                        marcarCelda(valor);
+                        setNumeroImg(img);
+                    });
+
+                    document.addEventListener("click", (e) => {
+                        const btn = e.target.closest("button[data-place]");
+                        if (!btn) return;
+
+                        const place = parseInt(btn.getAttribute("data-place"), 10);
+                        setWinnerAndReset(place).catch(console.error);
+                    });
+
+
+
+                    document.getElementById("reset-btn")?.addEventListener("click", resetJuego);
+                })
+                .catch(err => console.error("Error cargando partial:", err));
+        });
+    </script>
+
+    <script>
+        const btn = document.getElementById('fsBtn');
+        const target = document.documentElement; // o cambia a un div específico
+
+        const isFullscreen = () =>
+            document.fullscreenElement || document.webkitFullscreenElement;
+
+        async function enterFullscreen() {
+            if (target.requestFullscreen) return target.requestFullscreen();
+            if (target.webkitRequestFullscreen) return target.webkitRequestFullscreen();
+        }
+
+        async function exitFullscreen() {
+            if (document.exitFullscreen) return document.exitFullscreen();
+            if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+        }
+
+        async function toggleFullscreen() {
+            try {
+                if (isFullscreen()) await exitFullscreen();
+                else await enterFullscreen();
+            } catch (e) {
+                console.error('No se pudo cambiar fullscreen:', e);
+            }
+        }
+
+        function syncButtonText() {
+            btn.textContent = isFullscreen()
+                ? 'Salir de pantalla completa'
+                : 'Pantalla completa';
+        }
+
+        btn.addEventListener('click', toggleFullscreen);
+        document.addEventListener('fullscreenchange', syncButtonText);
+        document.addEventListener('webkitfullscreenchange', syncButtonText);
+
+        syncButtonText();
+    </script>
+
+    <script>
+        function abrirpremios() {
+            document.getElementById("datos-modal-premios").style.display = "flex";
+        }
+
+        function cerrarpremios() {
+            document.getElementById("datos-modal-premios").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

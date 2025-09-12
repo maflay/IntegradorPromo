@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'antinotario';
+  src: url('/dinamicas/promocion-Escaleras/fonts/AntiaNotario.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bold-drop';
+  src: url('/dinamicas/promocion-Escaleras/fonts/Bold-Drop.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'funkysign';
+  src: url('/dinamicas/promocion-Escaleras/fonts/FunkySign.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'kren';
+  src: url('/dinamicas/promocion-Escaleras/fonts/Kren.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'magic-dafont';
+  src: url('/dinamicas/promocion-Escaleras/fonts/MAGIC-DAFONT.TTF') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'menika';
+  src: url('/dinamicas/promocion-Escaleras/fonts/Menika.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'semisonic';
+  src: url('/dinamicas/promocion-Escaleras/fonts/Semisonic.otf') format('truetype');
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'Hjearh-Regular';
+  src: url('/dinamicas/promocion-Escaleras/fonts/Hjearh-Regular.ttf') format('truetype');
+  font-style: normal;
+}

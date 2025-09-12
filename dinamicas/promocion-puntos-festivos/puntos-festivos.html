@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Puntos Festivos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-puntos-festivos/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="background-promo">
+        <div>
+
+            <div id="loader" class="loader-overlay">
+                <div class="spinner"></div>
+            </div>
+            <div class="content-logos">
+                <h1>Puntos Festivos</h1>
+            </div>
+            <div class="contenedor-inicial">
+                <h3>Ingrese el Jugador</h3>
+                <div class="control-finalista">
+                    <!-- <input placeholder="Fecha" class="form-control" id="fecha" type="date"> -->
+                    <input placeholder="Cedula" class="form-control" id="cedula" type="number">
+                    <input placeholder="Nombre" class="form-control" id="nombre" type="text">
+                    <select class="form-control" style="cursor: pointer;" id="casino">
+                        <option value="">Casino...</option>
+                        <option value="A05">A05</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A09">A09</option>
+                        <option value="A12">A12</option>
+                        <option value="A12-MESAS">A12-MESAS</option>
+                        <option value="A15">A15</option>
+                        <option value="A15-MESAS">A15-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="A19">A19</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A38">A38</option>
+                        <option value="A39">A39</option>
+                        <option value="A43">A43</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="A50">A50</option>
+                        <option value="MP50">MP53</option>
+                        <option value="A70">A70</option>
+                        <option value="A781">A781</option>
+                        <option value="A88">A88</option>
+                        <option value="A100">A100</option>
+                        <option value="A108">A108</option>
+                        <option value="A108-MESAS">A108-MESAS</option>
+                    </select>
+                    <input placeholder="Bono" class="form-control" id="bono" type="number">
+
+                </div>
+                <br />
+                <div>
+                    <button class="btn btn-primary" onclick="handleSendInfo()">Enviar</button>
+                </div>
+            </div>
+            <br />
+            <div class="contenedor-inicial">
+                <div class="content-actions">
+                    <div class="content-actions-1">
+                        <h3>Consultar el Jugador</h3>
+                        <div class="control-finalista">
+                            <input placeholder="Cedula" class="form-control" id="cedulaGet" type="text">
+                        </div>
+                        <br />
+                        <div>
+                            <button class="btn btn-primary" onclick="cleanTable()">Limpiar tabla</button>
+                            <button class="btn btn-primary" onclick="getCliente()">Consultar</button>
+                        </div>
+                    </div>
+                    <div class="content-actions-2">
+                        <h3>Enviar Observación</h3>
+                        <br />
+                        <div>
+                            <button class="btn btn-primary" onclick="abrirModal()">Enviar Observación</button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div id="content-result-cliente"></div>
+            </div>
+        </div>
+        <br />
+        <div style="margin-bottom: 50px;" class="contenedor-inicial">
+            <h3>Todos los registro de los Jugadores</h3>
+            <div id="content-all-result"></div>
+        </div>
+    </div>
+
+    <section id="datos-modal-observacion" class="modal-gran">
+        <div class="modal-content2-gran">
+            <div
+                style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                <h1 style="font-weight: bold; color: rgb(34, 79, 161);">Envio de observación</h1>
+                <span style="display: flex; justify-content: flex-end;" class="close-gran"
+                    onclick="cerraModal()">&times;</span>
+            </div>
+            <div class="modal-body-gran">
+                <div id="table-container-gran">
+                    <div id="formBox">
+                        <div class="casinos-modal">
+                            <label for="casino">CASINO</label>
+                            <select class="input-gran form-control" style="cursor: pointer;"
+                                id="casino-modal-observacion">
+                                <option value="">Seleccione...</option>
+                                <option value="A05">A05</option>
+                                <option value="A07">A07</option>
+                                <option value="A08">A08</option>
+                                <option value="A09">A09</option>
+                                <option value="A12">A12</option>
+                                <option value="A12-MESAS">A12-MESAS</option>
+                                <option value="A15">A15</option>
+                                <option value="A15-MESAS">A15-MESAS</option>
+                                <option value="A16">A16</option>
+                                <option value="A19">A19</option>
+                                <option value="A35">A35</option>
+                                <option value="A36">A36</option>
+                                <option value="A36-MESAS">A36-MESAS</option>
+                                <option value="A38">A38</option>
+                                <option value="A39">A39</option>
+                                <option value="A39">A43</option>
+                                <option value="A48">A48</option>
+                                <option value="A48-MESAS">A48-MESAS</option>
+                                <option value="A49">A49</option>
+                                <option value="A50">A50</option>
+                                <option value="A50">MP53</option>
+                                <option value="A70">A70</option>
+                                <option value="A781">A781</option>
+                                <option value="A88">A88</option>
+                                <option value="A100">A100</option>
+                                <option value="A100-MESAS">A100-MESAS</option>
+                                <option value="A108">A108</option>
+                                <option value="A108-MESAS">A108-MESAS</option>
+                            </select>
+                        </div>
+
+                        <div class="nombre-modal">
+                            <label for="bono">Observación</label>
+                            <div class="content-text-area">
+                                <textarea name="descripcion" id="casino-modal-descripcion"
+                                    placeholder="Detalle su observación"></textarea>
+                            </div>
+                        </div>
+                        <br /><br />
+                        <div style="display: flex;justify-content: end;" class="content-btn-enviar">
+                            <button id="validatepremio" onclick="handleObservacionSubmit()"
+                                class="btn btn-primary">Enviar
+                                observación</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion-puntos-festivos/js/script.js"></script>
+</body>
+
+</html>

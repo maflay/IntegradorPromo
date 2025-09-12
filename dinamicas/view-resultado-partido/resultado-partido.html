@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Vista de cambio de resultado</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/view-resultado-partido/css/fonts.css">
+    <link rel="stylesheet" href="/dinamicas/view-resultado-partido/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="content_principal_view">
+        <div class="content_all_results">
+            <div class="content_each_results">
+                <div class="content_equipo_result">
+                    <img src="/dinamicas/view-resultado-partido/resource/colombia_96x96.png" alt="promoAladdin">
+                    <p id="resultLocal"></p>
+                </div>
+                <div class="content_equipo_result">
+                    <img src="/dinamicas/view-resultado-partido/resource/bolivia.png" alt="promoAladdin">
+                    <p id="resultVisitante"></p>
+                </div>
+            </div>
+            <div style="width: 1px;height: 100%;background-color: white;"></div>
+            <div class="content_each_results">
+                <div class="content_equipo_result">
+                    <img src="/dinamicas/view-resultado-partido/resource/venezuela_96x96.png" alt="promoAladdin">
+                    <p id="resultVen"></p>
+                </div>
+                <div class="content_equipo_result">
+                    <img src="/dinamicas/view-resultado-partido/resource/colombia_96x96.png" alt="promoAladdin">
+                    <p id="resultCol"></p>
+                </div>
+            </div>
+        </div>
+        <h1>Marca Gol!</h1>
+        <p style="color: white;">Encuentros</p>
+        <div class="menu_view_result">
+            <p id="btn_col_bol">Colombia vs Bolivia</p>
+            <p id="btn_ven_col">Venezuela vs Colombia</p>
+        </div>
+        <br />
+        <div class="encuentro_card" id="encuentro_col_bol">
+            <h2>Ingrese el resultado</h2>
+            <div class="content_input">
+                <div style="position: relative;">
+                    <input class="form-control" type="text" id="valor_local" placeholder="Col...">
+                    <img src="/dinamicas/view-resultado-partido/resource/colombia_96x96.png" alt="promoAladdin">
+                </div>
+                <div style="position: relative;">
+                    <input class="form-control" type="text" id="valor_visitante" placeholder="Bol...">
+                    <img src="/dinamicas/view-resultado-partido/resource/bolivia.png" alt="promoAladdin">
+                </div>
+
+            </div>
+            <div class="content_btn_resultado">
+                <button onclick="PutResult()" class="btn btn-primary">Crear</button>
+                <button onclick="cleanScore()" class="btn btn-primary">Limpiar</button>
+            </div>
+            <div style="color: white;" id="content_resultado_col_bol"></div>
+        </div>
+
+        <div class="encuentro_card" id="encuentro_ven_col">
+            <h2>Ingrese el resultado</h2>
+            <div class="content_input">
+                <div style="position: relative;">
+                    <input class="form-control" type="text" id="valor_ven" placeholder="Ven...">
+                    <img src="/dinamicas/view-resultado-partido/resource/venezuela_96x96.png" alt="promoAladdin">
+                </div>
+                <div style="position: relative;">
+                    <input class="form-control" type="text" id="valor_colombia" placeholder="Col...">
+                    <img src="/dinamicas/view-resultado-partido/resource/colombia_96x96.png" alt="promoAladdin">
+                </div>
+
+            </div>
+            <div class="content_btn_resultado">
+                <button onclick="PutResultVC()" class="btn btn-primary">Crear</button>
+                <button onclick="cleanScoreVC()" class="btn btn-primary">Limpiar</button>
+            </div>
+            <div style="color: white;" id="content_resultado_ven_col"></div>
+        </div>
+    </div>
+
+
+    <script src="/dinamicas/view-resultado-partido/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

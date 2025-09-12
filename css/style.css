@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 80%;
+}
+
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 6px solid #ccc;
+  border-top: 6px solid #dc3545;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.content-mini-spinner-observacion-integrador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mini-spinner-observacion-integrador {
+  border: 2px solid #ccc;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin_obs 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin_obs {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mini_spinner_any {
+  border: 2px solid #ccc;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin_obs 1s linear infinite;
+  display: none;
+  position: absolute;
+  right: -30px;
+}
+
+.container_integrador_promociones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 0;
+  gap: 20px;
+  background-image: url(/resource/FONDO-TV-DADOS-DE-POKER-MARCOPOLO-2025.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.container_integrador_promociones>h2 {
+  text-align: center;
+  font-size: 4rem;
+  color: #fff;
+}
+
+.content_card_integrador {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.card_integrador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: #1F253A;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.content_img_card_integrador {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.content_img_card_integrador img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.content_img_card_integrador img:hover {
+  transform: scale(1.1);
+}
+
+.notifiacion_resultado_partido {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+}
+
+.notifiacion_resultado_partido a {
+  text-decoration: none;
+  color: greenyellow;
+  font-size: 0.8rem;
+}
+
+.notifiacion_resultado_partido a:hover {
+  color: rgb(117, 173, 33);
+
+}
+
+.content_text_card_integrador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  color: white;
+  padding: 20px;
+}
+
+.content_btn_a {
+  display: flex;
+  gap: 10px;
+}
+
+.btn_a_1 {
+  text-decoration: none;
+  color: white;
+  background-color: #dc3545;
+  padding: 3px 5px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  border: none;
+}
+
+.btn_a_1:hover {
+  background-color: #a52330;
+}
+
+
+.btn_a_2 {
+  text-decoration: none;
+  color: #ff3c4f;
+  padding: 3px 5px;
+  transition: all 0.4s ease;
+  border: none;
+  border-bottom: 1px #ff3c4f solid;
+}
+
+.btn_a_2:hover {
+  color: #a52330;
+  border-bottom: 1px #a52330 solid;
+}
+
+.menu_principal {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+}
+
+.content_img_aladdin {
+  padding: 0 20px;
+  width: 180px;
+}
+
+.content_img_aladdin img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content_img_mp {
+  padding: 0 20px;
+  width: 180px;
+}
+
+.content_img_mp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content_otras_promos {
+  display: flex;
+  gap: 100px;
+  font-weight: bold;
+  padding: 20px 0;
+  color: white;
+}
+
+.content_otras_promos a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.content_otras_promos a:hover {
+  text-decoration: underline;
+}
+
+
+.identity_device_screen {
+  color: white;
+  display: none;
+}
+
+.title_top {
+  padding-top: 50px;
+  color: white;
+}
+
+.content_observacion_integrador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.GetDataOberservacion {
+  width: 800px;
+  height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff;
+  color: #000;
+}
+
+.content_control_observacion_integrador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  gap: 10px;
+}
+
+.content_control_observacion_integrador .campo_1 {
+  width: 80%;
+}
+
+.content_control_observacion_integrador .campo_2 {
+  width: 20%;
+}
+
+.content_control_observacion_integrador>img {
+  position: absolute;
+  right: 5px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.content_mensaje_chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+  width: 100%;
+  color: white;
+  padding: 8px 0;
+}
+
+.content_date_chat .hora_int {
+  font-size: 0.8rem;
+  color: #202020;
+}
+
+.content_date_chat .fecha_int {
+  font-size: 0.8rem;
+  color: #292929;
+}
+
+.content_mensaje_chat .nombre_int {
+  display: flex;
+  padding-left: 5px;
+  color: #292929;
+  width: 5%;
+}
+
+.content_mensaje_chat .mensaje_int {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 80%;
+  color: #292929;
+}
+
+.content_date_chat {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  position: relative;
+}
+
+@media(max-width:1366px) {
+  .container_integrador_promociones {
+    height: auto;
+  }
+}
+
+@media(max-width: 768px) {
+  .identity_device_screen {
+    display: flex;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .content_img_aladdin {
+    position: absolute;
+    top: 4px;
+    left: -5px;
+  }
+
+  .content_img_mp {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+
+  .container_integrador_promociones>h2 {
+    font-size: 2rem;
+  }
+
+  .container_integrador_promociones {
+    padding-top: 100px;
+  }
+
+  .content_text_card_integrador .btn_a_1 {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .menu_principal {
+    position: static;
+    width: 100%;
+  }
+
+  .content_otras_promos {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 30px;
+  }
+
+  .title_top {
+    padding-top: 0;
+  }
+}

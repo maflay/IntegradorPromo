@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <title>Aladdin a lo Grande</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/dinamicas/promocion_lo_hacemos_en_grande/components/viewTv/viewTv.css">
+  <link rel="stylesheet" href="/dinamicas/promocion_lo_hacemos_en_grande/css/fonts.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="content_View">
+    <div class="number" id="result_vista"></div>
+    <div class="content-primer-lugar" id="premio-media"></div>
+    <div class="content-primer-lugar-img" id="premio-img"></div>
+    <div class="grand-video" id="grand-video"></div>
+
+    <div style="display: none;" class="content-premioview" id="premio"></div>
+    <div style="display: none;" class="result_premio premioval" id="premio-valor"></div>
+    <div style="display: none;" class="content-premio-jugador">
+      <h1 id="premio-label"></h1>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/components/viewTv/viewTv.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+    // --- CONFIG FIREBASE ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyBoK7OfN6AyemPhE2Mz49rNX1H5_OKCYlc",
+      authDomain: "prueba-f0c25.firebaseapp.com",
+      databaseURL: "https://prueba-f0c25-default-rtdb.firebaseio.com",
+      projectId: "prueba-f0c25",
+      storageBucket: "prueba-f0c25.appspot.com",
+      messagingSenderId: "984894736026",
+      appId: "1:984894736026:web:f0550d13dea45d77698123"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const ROOM = "sala1";
+    const numeroRef = ref(db, `rooms/${ROOM}/numero`);
+    const numeroImgRef = ref(db, `rooms/${ROOM}/numeroImg`);
+    const winnerRef = ref(db, `rooms/${ROOM}/winner`);
+
+    // ---- Helpers de UI ----
+    const outNumero = document.getElementById("result_vista");
+    const labelEl = document.getElementById("premio-label");
+    const mediaEl = document.getElementById("premio-media");
+    const premioEl = document.getElementById("premio-valor");
+    const premioImg = document.getAnimations("premio-img");
+
+    // Nunca mostrar número como texto
+    const renderNumero = () => {
+      if (outNumero) outNumero.textContent = "";
+    };
+
+    // Imagen del número (no borrar contenedor para no quitar el placeholder)
+    function setNumeroImg(url) {
+      let imgEl = document.getElementById("numero-img");
+      const cont = document.getElementById("result_vista") || document.body;
+
+      if (!imgEl) {
+        imgEl = document.createElement("img");
+        imgEl.id = "numero-img";
+        imgEl.alt = "Número";
+        imgEl.style.maxWidth = "100%";
+        imgEl.style.height = "auto";
+        imgEl.style.display = "none";
+        cont.appendChild(imgEl);
+      }
+
+      if (url) {
+        imgEl.src = url;
+        imgEl.style.display = "block";
+      } else {
+        imgEl.removeAttribute("src");
+        imgEl.style.display = "none";
+      }
+    }
+
+    // Placeholder “Iniciar juego”
+    let hasNumeroImg = false;
+    let hasWinner = false;
+
+    function showIdle(show, message = "") {
+      let idle = document.getElementById("idle");
+      if (!idle) {
+        idle = document.createElement("div");
+        idle.id = "idle";
+        idle.style.display = "none";
+        idle.style.textAlign = "center";
+        idle.style.padding = "16px";
+        idle.style.fontFamily = "Poppins, sans-serif";
+        idle.style.fontWeight = "700";
+        idle.style.fontSize = "3rem";
+        idle.style.color = "#fff";
+        (document.getElementById("result_vista") || document.body).appendChild(idle);
+      }
+      idle.textContent = message;
+      idle.style.display = show ? "block" : "none";
+    }
+
+    function reevaluateIdle() {
+      showIdle(!hasNumeroImg && !hasWinner);
+    }
+
+    // ---- Estado inicial (cache) ----
+    const cachedNum = localStorage.getItem("ultimo_numero");       // solo lógica
+    const cachedWinner = localStorage.getItem("ultimo_winner");
+    const cachedImg = localStorage.getItem("ultimo_numero_img");   // NUEVO
+
+    renderNumero(); // nunca pintamos número como texto
+
+    if (cachedImg) {
+      setNumeroImg(cachedImg);
+      hasNumeroImg = true;
+    }
+    if (cachedWinner) {
+      try {
+        const data = JSON.parse(cachedWinner);
+        if (data && data.titleImg) {
+          paintWinnerTitleImg(data);
+          hasWinner = true;
+        }
+      } catch { }
+    }
+    reevaluateIdle();
+
+
+    onValue(numeroRef, (snap) => {
+      const val = snap.val();
+
+      if (val === "__RESET__") {
+        localStorage.removeItem("ultimo_numero");
+        renderNumero();
+        setNumeroImg(null);
+        hasNumeroImg = false;
+        reevaluateIdle();
+        return;
+      }
+      if (val == null || val === "") return;
+
+      localStorage.setItem("ultimo_numero", val);
+    });
+
+    onValue(numeroImgRef, (snap) => {
+      const url = snap.val();
+      if (!url || url === "__RESET__") {
+        localStorage.removeItem("ultimo_numero_img");
+        setNumeroImg(null);
+        hasNumeroImg = false;
+      } else {
+        localStorage.setItem("ultimo_numero_img", url);
+        setNumeroImg(url);
+        hasNumeroImg = true;
+      }
+      reevaluateIdle();
+    });
+
+    onValue(winnerRef, (snap) => {
+      const data = snap.val();
+
+      if (labelEl) labelEl.style.display = "none";
+      if (premioEl) premioEl.style.display = "none";
+      if (!data) {
+        localStorage.removeItem("ultimo_winner");
+        // limpia ambos divs: posición y título
+        const posEl = document.getElementById("premio-media");
+        const tituloEl = document.getElementById("premio-img");
+        if (posEl) posEl.innerHTML = "";
+        if (tituloEl) tituloEl.innerHTML = "";
+        hasWinner = false;
+        reevaluateIdle();
+        return;
+      }
+
+      localStorage.setItem("ultimo_winner", JSON.stringify(data));
+      paintWinnerTitleImg(data);
+      hasWinner = true;
+      reevaluateIdle();
+    });
+
+
+
+    function clearWinner() {
+      if (mediaEl) mediaEl.innerHTML = "";
+    }
+
+
+    const posEl = document.getElementById("premio-media");
+    const tituloEl = document.getElementById("premio-img");
+
+    function paintWinnerTitleImg(data) {
+      if (!posEl || !tituloEl) return;
+      posEl.innerHTML = "";
+      tituloEl.innerHTML = "";
+      if (!data) return;
+
+      if (data.posImg) {
+        const pos = document.createElement("img");
+        pos.src = data.posImg;
+        pos.alt = `Posición ${data.place ?? ""}`;
+        pos.loading = "lazy";
+        pos.style.maxWidth = "100%";
+        pos.style.height = "auto";
+        posEl.appendChild(pos);
+      }
+
+      if (data.titleImg) {
+        const tit = document.createElement("img");
+        tit.src = data.titleImg;
+        tit.alt = `Título premio lugar ${data.place ?? ""}`;
+        tit.loading = "lazy";
+        tit.style.maxWidth = "100%";
+        tit.style.height = "auto";
+        tituloEl.appendChild(tit);
+      }
+    }
+
+
+    const gv = document.getElementById("grand-video");
+
+    function ensureVideoEl() {
+      let v = document.getElementById("grandVideo");
+      if (!v) {
+        v = document.createElement("video");
+        v.id = "grandVideo";
+        v.autoplay = true;
+        v.loop = true;
+        v.muted = true;        // autoplay confiable
+        v.playsInline = true;  // iOS
+        v.controls = false;     // quítalo si no quieres controles
+        v.style.maxWidth = "100%";
+        v.style.height = "auto";
+        gv.appendChild(v);
+      }
+      return v;
+    }
+
+    const grandPrizeRef = ref(db, `rooms/${ROOM}/grandPrize`);
+
+
+    function clearGrandVideo() {
+      if (!gv) return;
+      gv.innerHTML = ""; // elimina <video> y posibles botones fallback
+    }
+
+    onValue(grandPrizeRef, (snap) => {
+      const data = snap.val(); // { carId, videoUrl, ts } | null
+      if (!data || !data.videoUrl) {
+        clearGrandVideo();
+        return;
+      }
+      const v = ensureVideoEl();
+      if (v.src !== data.videoUrl) {
+        v.src = data.videoUrl;
+        v.currentTime = 0;
+        v.play().catch(() => {
+          // Si autoplay falla, muestra un botón para iniciar
+          const btn = document.createElement("button");
+          btn.textContent = "Reproducir video";
+          btn.className = "btn btn-primary";
+          btn.style.display = "none";
+          btn.onclick = () => v.play();
+          gv.appendChild(btn);
+        });
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

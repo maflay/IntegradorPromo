@@ -1,0 +1,157 @@
+.background-casino {
+    background-image: url(/dinamicas/promocion-ruleta-six-casinos/resources/FONDO-TV-DADOS-DE-POKER-MARCOPOLO-2025.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.content-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+.contenedor-inicial-casino {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px 0;
+  border: #e9e9e9 solid 2px;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: #f0f0f0 2px 2px 2px;
+  background-color: #ffffff;
+}
+
+
+.control-finalista-casino {
+    display: flex;
+    width: 600px;
+    gap: 20px;
+}
+
+.content-actions-casino {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.content-actions-1-casino {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-actions-2-casino {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-gran-casino {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+
+.content-all-result-finalista{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+
+.table-scrolld {
+  max-height: 450px;
+}
+
+
+
+.table-wrapper-pereira {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.styled-table-pereira {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table-pereira thead {
+  background: #dc3545;
+  color: #fff;
+}
+
+.styled-table-pereira th,
+.styled-table-pereira td {
+  padding: 10px 6px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.styled-table-pereira tbody tr {
+  background-color: #fff;
+  color: #000;
+}
+
+.styled-table-pereira tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.styled-table-pereira tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-result-pereira {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.mini-spinner {
+    border: 2px solid #ccc;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Aladdin: El Match Perfecto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-perfect-match/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+    <!-- <div class="content-logos">
+        <img src="/dinamicas/promocion-perfect-match/resources/logo.png" alt="promo">
+    </div> -->
+    <div id="info-control-finalista" class="control-finalista">
+
+        <button class="btn btn-danger btn_1_control" id="allreset">Reiniciar</button>
+        <div class=" btn_2_control">
+            <select class="form-control " style=" cursor: pointer;" id="categoria">
+                <option value="">Categoria...</option>
+                <option value="GENIUS">Genius</option>
+                <option value="TITANIO">Titanio</option>
+                <option value="LEGENDARIO">Legendario</option>
+                <option value="GOLD">Gold</option>
+                <option value="SILVER">Silver</option>
+                <option value="BRONCE">Bronce</option>
+                <option value="SUPERIOR">Superior</option>
+                <option value="ESTANDAR">Estandar</option>
+                <option value="ADICIONAL">Adicional</option>
+            </select>
+            <button class="btn btn-danger" id="btn_open_info" onclick="abrirmodalacciones()">Acciones</button>
+        </div>
+        <!-- <button class="btn btn-danger" id="btn_ocultar_info">Ocultar</button> -->
+    </div>
+    <!-- <div class="content-board">
+        <div class="board">
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+            <div class="cell-c">
+                <div class="card-c">
+                    <div class="face-c front-c"></div>
+                    <div class="face-c back-c"></div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="total_result"></div>
+        <br />
+        <button class="btn btn-danger" id="reset-game">Reiniciar Tablero</button>
+
+    </div> -->
+    <div id="ganadores" class="ganadores-container-2"></div>
+
+    <div style="display: none;" class="content_match">
+        <h2>Posibles Matches</h2>
+        <div class="content_match_img">
+            <div id="pareja_1" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_corazon.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_diamante.png" alt="promo">
+            </div>
+            <div id="pareja_2" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_pica.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_trebol.png" alt="promo">
+            </div>
+            <div id="pareja_3" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_jinete.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_caballo.png" alt="promo">
+            </div>
+            <div id="pareja_4" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_rey.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_reina.png" alt="promo">
+            </div>
+            <div id="pareja_5" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_ruleta.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_pelita.png" alt="promo">
+            </div>
+            <div id="pareja_6" class="content_pareja_img">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_mymawi.png" alt="promo">
+                <img src="/dinamicas/promocion-perfect-match/resources/ficha_slots.png" alt="promo">
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute;top: 250px;left: 40%;display: none;" id="score_ejemplo_1"></div>
+    <div class="result_premio_screen" id="result_premio_screen"></div>
+    <div class="result_parejas_encontradas">
+        <h2>Matches encontrados</h2>
+        <h2 style="text-align: center;" id="score_ejemplo_2">0</h2>
+        <h2>Lanz... <span id="content_result_tiro">0</span> / 4</h2>
+    </div>
+    <div style="position: absolute;top: 250px;left: 60%;display: none;" id="score_ejemplo_3"></div>
+    <div class="background_column">
+        <div id="content_column" class="content_column">
+            <div class="column_img_1">
+                <div class="content_column_img_1">
+                    <img id="img_1_p_1" src="/dinamicas/promocion-perfect-match/resources/ficha_corazon.png" alt="promo" data-valor="1">
+                </div>
+                <div class="content_column_img_1">
+                    <img id="img_1_p_2" src="/dinamicas/promocion-perfect-match/resources/ficha_pica.png" alt="promo" data-valor="2">
+                </div>
+                <div class="content_column_img_1">
+                    <img id="img_1_p_3" src="/dinamicas/promocion-perfect-match/resources/ficha_jinete.png" alt="promo" data-valor="3">
+                </div>
+                <div class="content_column_img_1">
+                    <img id="img_1_p_4" src="/dinamicas/promocion-perfect-match/resources/ficha_rey.png" alt="promo" data-valor="4">
+                </div>
+                <div class="content_column_img_1">
+                    <img id="img_1_p_5" src="/dinamicas/promocion-perfect-match/resources/ficha_ruleta.png" alt="promo" data-valor="5">
+                </div>
+                <div class="content_column_img_1">
+                    <img id="img_1_p_6" src="/dinamicas/promocion-perfect-match/resources/ficha_mymawi.png" alt="promo" data-valor="6">
+                </div>
+            </div>
+            <div class="column_img_2">
+                <div class="content_column_img_2">
+                    <img id="img_2_p_1" src="/dinamicas/promocion-perfect-match/resources/ficha_diamante.png" alt="promo" data-valor="1">
+                </div>
+                <div class="content_column_img_2">
+                    <img id="img_2_p_2" src="/dinamicas/promocion-perfect-match/resources/ficha_trebol.png" alt="promo" data-valor="2">
+                </div>
+                <div class="content_column_img_2">
+                    <img id="img_2_p_3" src="/dinamicas/promocion-perfect-match/resources/ficha_caballo.png" alt="promo" data-valor="3">
+                </div>
+                <div class="content_column_img_2">
+                    <img id="img_2_p_4" src="/dinamicas/promocion-perfect-match/resources/ficha_reina.png" alt="promo" data-valor="4">
+                </div>
+                <div class="content_column_img_2">
+                    <img id="img_2_p_5" src="/dinamicas/promocion-perfect-match/resources/ficha_pelita.png" alt="promo" data-valor="5">
+                </div>
+                <div class="content_column_img_2">
+                    <img id="img_2_p_6" src="/dinamicas/promocion-perfect-match/resources/ficha_slots.png" alt="promo" data-valor="6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="datos-modal-observacion" class="modal-match">
+        <div class="modal-content2-match">
+            <div
+                style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;position: relative;">
+                <h1 class="style_title">Acciones</h1>
+                <p id="content_alert_categoria" class="content_alert_categoria"></p>
+
+                <span style="display: flex; justify-content: flex-end;" class="close-match"
+                    onclick="cerrarmodalacciones()">&times;</span>
+            </div>
+            <div class="modal-body-match">
+                <div id="table-container-match">
+                    <div class="content-info-modal">
+                        <div class="menu_modal_info" role="menu" aria-label="Acciones del modal">
+                            <p id="btn_envio_normal" class="menu-item" role="button" tabindex="0">
+                                Envío
+                            </p>
+                            <p id="btn_envio_suplementario" class="menu-item" role="button" tabindex="0">
+                                Envío suplementario
+                            </p>
+                            <p id="btn_envio_observacion" class="menu-item" role="button" tabindex="0">
+                                Observación
+                            </p>
+                            <p id="btn_tabla_premios" class="menu-item" role="button" tabindex="0">
+                                Tabla de premios
+                            </p>
+                            <p id="btn_registros_dia" class="menu-item" role="button" tabindex="0">
+                                Ver registro del día
+                                <span class="notificacion_registro_dia" id="notificacion_registro_dia"></span>
+                            </p>
+                        </div>
+
+                        <div style="width: 100%;height: 1px;background-color: rgb(219, 219, 219);margin-bottom: 20px;">
+                        </div>
+                        <div class="result_modal_info">
+                            <div class="body_modal_actions" id="envio">
+                                <h2>Envió</h2>
+                                <div class="columns_modal">
+                                    <select class="form-control" style="cursor: pointer;" id="casino">
+                                        <option value="">Casino...</option>
+                                        <option value="A05">A05</option>
+                                        <option value="A07">A07</option>
+                                        <option value="A08">A08</option>
+                                        <option value="A09">A09</option>
+                                        <option value="A12">A12</option>
+                                        <option value="A12-MESAS">A12-MESAS</option>
+                                        <option value="A15">A15</option>
+                                        <option value="A15-MESAS">A15-MESAS</option>
+                                        <option value="A16">A16</option>
+                                        <option value="A19">A19</option>
+                                        <option value="A35">A35</option>
+                                        <option value="A36">A36</option>
+                                        <option value="A36-MESAS">A36-MESAS</option>
+                                        <option value="A38">A38</option>
+                                        <option value="A39">A39</option>
+                                        <option value="A43">A43</option>
+                                        <option value="A48">A48</option>
+                                        <option value="A48-MESAS">A48-MESAS</option>
+                                        <option value="A49">A49</option>
+                                        <option value="A50">A50</option>
+                                        <option value="MP53">MP53</option>
+                                        <option value="A70">A70</option>
+                                        <option value="A781">A781</option>
+                                        <option value="A88">A88</option>
+                                        <option value="MP100">MP100</option>
+                                        <option value="MP100-MESAS">MP100-MESAS</option>
+                                        <option value="A108">A108</option>
+                                        <option value="A108-MESAS">A108-MESAS</option>
+                                    </select>
+                                    <input class="form-control" type="number" name="Cedula" id="cedula"
+                                        placeholder="Cedula">
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="text" name="Nombre" id="nombre"
+                                        placeholder="Nombre">
+                                    <input class="form-control" type="number" name="bono" id="bono"
+                                        placeholder="# Bono">
+                                </div>
+                                <div>
+                                    <button onclick="handleCleanEnvio()" class="btn btn-danger">Limpiar</button>
+                                    <button onclick="handleSendInfo()" class="btn btn-danger">Enviar</button>
+                                </div>
+                            </div>
+
+
+                            <div class="body_modal_actions" id="envio_suplementario">
+                                <h2>Envió suplementario</h2>
+                                <div class="columns_modal">
+                                    <select class="form-control" style="cursor: pointer;" id="casino_sup">
+                                        <option value="">Casino...</option>
+                                        <option value="A05">A05</option>
+                                        <option value="A07">A07</option>
+                                        <option value="A08">A08</option>
+                                        <option value="A09">A09</option>
+                                        <option value="A12">A12</option>
+                                        <option value="A12-MESAS">A12-MESAS</option>
+                                        <option value="A15">A15</option>
+                                        <option value="A15-MESAS">A15-MESAS</option>
+                                        <option value="A16">A16</option>
+                                        <option value="A19">A19</option>
+                                        <option value="A35">A35</option>
+                                        <option value="A36">A36</option>
+                                        <option value="A36-MESAS">A36-MESAS</option>
+                                        <option value="A38">A38</option>
+                                        <option value="A39">A39</option>
+                                        <option value="A43">A43</option>
+                                        <option value="A48">A48</option>
+                                        <option value="A48-MESAS">A48-MESAS</option>
+                                        <option value="A49">A49</option>
+                                        <option value="A50">A50</option>
+                                        <option value="MP53">MP53</option>
+                                        <option value="A70">A70</option>
+                                        <option value="A781">A781</option>
+                                        <option value="A88">A88</option>
+                                        <option value="A100">A100</option>
+                                        <option value="A108">A108</option>
+                                        <option value="A108-MESAS">A108-MESAS</option>
+                                    </select>
+                                    <select class="form-control" style=" cursor: pointer;" id="categoria_sup">
+                                        <option value="">Categoria...</option>
+                                        <option value="GENIUS">Genius</option>
+                                        <option value="TITANIO">Titanio</option>
+                                        <option value="LEGENDARIO">Legendario</option>
+                                        <option value="GOLD">Gold</option>
+                                        <option value="SILVER">Silver</option>
+                                        <option value="BRONCE">Bronce</option>
+                                        <option value="SUPERIOR">Superior</option>
+                                        <option value="ESTANDAR">Estandar</option>
+                                        <option value="ADICIONAL">Adicional</option>
+                                    </select>
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="number" name="Cedula" id="cedula_sup"
+                                        placeholder="Cedula">
+                                    <input class="form-control" type="text" name="Nombre" id="nombre_sup"
+                                        placeholder="Nombre">
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="text" name="hora" id="hora_sup"
+                                        placeholder="Hora">
+                                    <select class="form-control" name="matchs" id="match_sup">
+                                        <option value="">Matches...</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                                <div class="columns_modal">
+                                    <input class="form-control" type="number" name="bono" id="bono_sup"
+                                        placeholder="# Bono">
+                                    <input class="form-control" type="date" name="Fecha" id="fecha_sup"
+                                        placeholder="Fecha">
+                                </div>
+                                <div>
+                                    <button onclick="handleCleanEnvioSup()" class="btn btn-danger">Limpiar</button>
+                                    <button onclick="handleSuplementarioSend()" class="btn btn-danger">Envió
+                                        suplementario</button>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions" id="envio_observacion">
+                                <h2>Envió de Observación</h2>
+                                <div class="columns_modal">
+                                    <select class="form-control" style="cursor: pointer;" id="casino_obs">
+                                        <option value="">Casino...</option>
+                                        <option value="A05">A05</option>
+                                        <option value="A07">A07</option>
+                                        <option value="A08">A08</option>
+                                        <option value="A09">A09</option>
+                                        <option value="A12">A12</option>
+                                        <option value="A12-MESAS">A12-MESAS</option>
+                                        <option value="A15">A15</option>
+                                        <option value="A15-MESAS">A15-MESAS</option>
+                                        <option value="A16">A16</option>
+                                        <option value="A19">A19</option>
+                                        <option value="A35">A35</option>
+                                        <option value="A36">A36</option>
+                                        <option value="A36-MESAS">A36-MESAS</option>
+                                        <option value="A38">A38</option>
+                                        <option value="A39">A39</option>
+                                        <option value="A43">A43</option>
+                                        <option value="A48">A48</option>
+                                        <option value="A48-MESAS">A48-MESAS</option>
+                                        <option value="A49">A49</option>
+                                        <option value="A50">A50</option>
+                                        <option value="MP53">MP53</option>
+                                        <option value="A70">A70</option>
+                                        <option value="A781">A781</option>
+                                        <option value="A88">A88</option>
+                                        <option value="A100">A100</option>
+                                        <option value="A108">A108</option>
+                                        <option value="A108-MESAS">A108-MESAS</option>
+                                    </select>
+                                </div>
+                                <div class="columns_modal">
+                                    <textarea class="form-control" name="descripcion" id="desc_obs_modal"
+                                        placeholder="Descripcion de la Observación"></textarea>
+                                </div>
+                                <div>
+                                    <button onclick="handleCleanEnvioObs()" class="btn btn-danger">Limpiar</button>
+                                    <button onclick="handleObservacionSend()" class="btn btn-danger">Enviar
+                                        Observación</button>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions" id="tabla_premios_match">
+                                <h2>Tabla de premios</h2>
+                                <div class="table-wrapper ajuste_table_result_2">
+                                    <table class="styled-table table-scrolld ">
+                                        <thead>
+                                            <tr>
+                                                <th>Opciones</th>
+                                                <th>Bronce</th>
+                                                <th>Silver</th>
+                                                <th>Gold</th>
+                                                <th>Legendario</th>
+                                                <th>Titanio</th>
+                                                <th>Genius</th>
+                                                <th>Estandar</th>
+                                                <th>Superior</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2 Match</td>
+                                                <td>$200.000</td>
+                                                <td>$250.000</td>
+                                                <td>$300.000</td>
+                                                <td>$350.000</td>
+                                                <td>$400.000</td>
+                                                <td>$500.000</td>
+                                                <td>$200.000</td>
+                                                <td>$300.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1 Match</td>
+                                                <td>$100.000</td>
+                                                <td>$120.000</td>
+                                                <td>$130.000</td>
+                                                <td>$150.000</td>
+                                                <td>$160.000</td>
+                                                <td>$180.000</td>
+                                                <td>$100.000</td>
+                                                <td>$120.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0 Match</td>
+                                                <td>$80.000</td>
+                                                <td>$100.000</td>
+                                                <td>$110.000</td>
+                                                <td>$130.000</td>
+                                                <td>$140.000</td>
+                                                <td>$150.000</td>
+                                                <td>$80.000</td>
+                                                <td>$100.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="body_modal_actions" id="tabla_premios">
+                                <div class="registros_dia_match">
+                                    <h2>Registros del día, Actual
+                                    </h2>
+                                    <span id="casino-numero-match" style="margin-left:10px;font-size: 1.8rem;"></span>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div id="Info-match"></div>
+                                    <div id="ultimos_registro_match"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion-perfect-match/js/script.js"></script>
+</body>
+
+</html>

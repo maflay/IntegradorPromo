@@ -1,0 +1,1761 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 6px solid #ccc;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.fondo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fondo img {
+  width: 100%;
+  height: 100%;
+}
+
+.content-tren {
+  position: relative;
+  z-index: 1;
+}
+
+.content-promocion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 60px 20px;
+  margin-top: 60px;
+}
+
+.bloque1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloque1-content-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+}
+
+.bloque1-content-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.content-promocion h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #e9e9e9;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  animation: sombra-animada 2s infinite;
+}
+
+
+@keyframes sombra-animada {
+  0% {
+    box-shadow: 0 0 20px #efb810;
+    border-radius: 20px;
+  }
+
+  5% {
+    border-radius: 20px;
+    box-shadow: 0 0 18px #efb810;
+  }
+
+  10% {
+    border-radius: 20px;
+    box-shadow: 0 0 16px #efb810;
+  }
+
+  15% {
+    border-radius: 20px;
+    box-shadow: 0 0 14px #efb810;
+  }
+
+  20% {
+    border-radius: 20px;
+    box-shadow: 0 0 12px #efb810;
+  }
+
+  25% {
+    border-radius: 20px;
+    box-shadow: 0 0 10px #efb810;
+  }
+
+  30% {
+    border-radius: 20px;
+    box-shadow: 0 0 12px #efb810;
+  }
+
+  35% {
+    border-radius: 20px;
+    box-shadow: 0 0 14px #efb810;
+  }
+
+  40% {
+    border-radius: 20px;
+    box-shadow: 0 0 16px #efb810;
+  }
+
+  45% {
+    border-radius: 20px;
+    box-shadow: 0 0 18px #efb810;
+  }
+
+  50% {
+    border-radius: 20px;
+    box-shadow: 0 0 20px #efb810;
+  }
+
+  55% {
+    border-radius: 20px;
+    box-shadow: 0 0 18px #efb810;
+  }
+
+  60% {
+    border-radius: 20px;
+    box-shadow: 0 0 16px #efb810;
+  }
+
+  65% {
+    border-radius: 20px;
+    box-shadow: 0 0 14px #efb810;
+  }
+
+  70% {
+    border-radius: 20px;
+    box-shadow: 0 0 12px #efb810;
+  }
+
+  75% {
+    border-radius: 20px;
+    box-shadow: 0 0 10px #efb810;
+  }
+
+  80% {
+    border-radius: 20px;
+    box-shadow: 0 0 12px #efb810;
+  }
+
+  85% {
+    border-radius: 20px;
+    box-shadow: 0 0 14px #efb810;
+  }
+
+  90% {
+    border-radius: 20px;
+    box-shadow: 0 0 16px #efb810;
+  }
+
+  95% {
+    border-radius: 20px;
+    box-shadow: 0 0 18px #efb810;
+  }
+
+  100% {
+    border-radius: 20px;
+    box-shadow: 0 0 20px #efb810;
+  }
+}
+
+@keyframes sombra-animada-img {
+  0% {
+    filter: drop-shadow(0 0 20px #fff);
+  }
+
+  5% {
+    filter: drop-shadow(0 0 18px #fff);
+  }
+
+  10% {
+    filter: drop-shadow(0 0 16px #fff);
+  }
+
+  15% {
+    filter: drop-shadow(0 0 14px #fff);
+  }
+
+  20% {
+    filter: drop-shadow(0 0 12px #fff);
+  }
+
+  25% {
+    filter: drop-shadow(0 0 10px #fff);
+  }
+
+  30% {
+    filter: drop-shadow(0 0 12px #fff);
+  }
+
+  35% {
+    filter: drop-shadow(0 0 14px #fff);
+  }
+
+  40% {
+    filter: drop-shadow(0 0 16px #fff);
+  }
+
+  45% {
+    filter: drop-shadow(0 0 18px #fff);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px #fff);
+  }
+
+  55% {
+    filter: drop-shadow(0 0 18px #fff);
+  }
+
+  60% {
+    filter: drop-shadow(0 0 16px #fff);
+  }
+
+  65% {
+    filter: drop-shadow(0 0 14px #fff);
+  }
+
+  70% {
+    filter: drop-shadow(0 0 12px #fff);
+  }
+
+  75% {
+    filter: drop-shadow(0 0 10px #fff);
+  }
+
+  80% {
+    filter: drop-shadow(0 0 12px #fff);
+  }
+
+  85% {
+    filter: drop-shadow(0 0 14px #fff);
+  }
+
+  90% {
+    filter: drop-shadow(0 0 16px #fff);
+  }
+
+  95% {
+    filter: drop-shadow(0 0 18px #fff);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px #fff);
+  }
+}
+
+.cell {
+  width: 110px;
+  height: 150px;
+  border-radius: 20px 20px 20px;
+  font-weight: bold;
+  background-color: transparent;
+  position: relative;
+  font-size: 3.2rem;
+  border: transparent solid 8px;
+  color: transparent;
+}
+
+.cell1 {
+  background-image: url(/dinamicas/promocion-Escaleras/resources/background-cell1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.numero-1 {
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.numero-2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.player-token {
+  position: absolute;
+  left: 35px;
+  bottom: 8%;
+  width: 80px;
+  height: 80px;
+  transition: top 0.5s ease, left 0.5s ease;
+  z-index: 100;
+}
+
+
+.player-token img {
+  width: 100%;
+  height: 100%;
+  animation: sombra-animada-img 2s infinite;
+}
+
+
+
+.cell2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 19;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 18;
+}
+
+.cell4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 17;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 18;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 19;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 14;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 13;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-4.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell9 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-5.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
+
+.cell10 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
+
+.cell11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/salto-2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+}
+
+.cell12 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
+
+.cell13 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell14 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/cell14.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell15 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell16 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 7;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/salto.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell17 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/curva-carril-5.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell18 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell19 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-image: url(/dinamicas/promocion-Escaleras/resources/carril.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.cell20 {
+  background-image: url(/dinamicas/promocion-Escaleras/resources/background-cell20.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: end;
+  z-index: 1;
+  justify-content: center;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+  pointer-events: none;
+  visibility: hidden;
+  display: none;
+}
+
+.snake {
+  background-color: red;
+}
+
+.step {
+  background: rgb(1, 25, 32) !important;
+  color: white;
+  transition: all 1s ease;
+}
+
+.active {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-weight: bold;
+  background-color: rgba(12, 12, 12, 0.637);
+}
+
+.final {
+  background-color: rgb(235, 227, 185) !important;
+  color: black;
+  font-weight: bold;
+}
+
+.content-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  gap: 32px;
+}
+
+.toggleBtn {
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #a13b22;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background 0.5s;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  right: 3%;
+  bottom: 5%;
+  z-index: 1000;
+}
+
+.toggleBtn:hover {
+  background: #fff;
+  color: #a13b22;
+}
+
+.toggleBtn2 {
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #a13b22;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+.toggleBtn2:hover {
+  background: #fff;
+  color: #a13b22;
+}
+
+.btn-Send {
+  width: auto;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #a13b22;
+  color: #fff;
+  transition: background 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-Send:hover {
+  background: #fff;
+  color: #a13b22;
+}
+
+.content-info-cliente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-envio-fuera-promo {
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+}
+
+.btn-ocultar {
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+  text-decoration: none;
+}
+
+.btn-tabla-premios {
+  position: fixed;
+  bottom: 50%;
+  left: 50px;
+  text-decoration: none;
+}
+
+.btn-observacion {
+  position: fixed;
+  bottom: 40%;
+  left: 50px;
+  text-decoration: none;
+}
+
+.btn-reinicio-tiro{
+  position: relative;
+}
+
+.bloque1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.datos {
+  display: flex;
+  text-align: center;
+  color: white;
+  position: absolute;
+  gap: 32px;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+}
+
+.casinos,
+.categoria,
+.cedula,
+.nombre,
+#valBono,
+.content-btnSend {
+  width: 100%;
+  height: 30px;
+}
+
+.input-tren {
+  width: 100%;
+}
+
+.content-img-tren {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.content-img-tren img {
+  width: 100%;
+  height: 100%;
+  animation: sombra-animada-img 2s infinite;
+}
+
+.content-input {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: white;
+  position: fixed;
+  right: 32rem;
+  bottom: 50%;
+}
+
+.content-input a {
+  text-decoration: none;
+  padding: 10px;
+  width: auto;
+  border-radius: 20px;
+  background: #a13b22;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background 0.5s;
+  border: none;
+  cursor: pointer;
+}
+
+.content-input a:hover {
+  background: #fff;
+  color: #a13b22;
+
+}
+
+.content-aviso-categoria {
+  display: flex;
+  position: absolute;
+  top: -30px;
+  width: 130px;
+  right: -10px;
+}
+
+.content-aviso-categoria small {
+  font-size: 0.6rem;
+  color: rgb(224, 224, 224);
+}
+
+.content-input input {
+  width: 100px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.content-msg {
+  display: flex;
+  position: relative;
+  top: 40px;
+  right: 20px;
+  width: 30%;
+  color: white;
+  font-size: 1.5rem;
+}
+
+input:disabled {
+  background-color: #eee;
+  color: #333;
+  border: 1px solid #999;
+}
+
+.escalera-img {
+  position: absolute;
+  width: 120px;
+  height: 220px;
+  bottom: 25px;
+  left: 20px;
+  pointer-events: none;
+  transform: rotate(40deg);
+}
+
+.escalera-img-2 {
+  position: absolute;
+  width: 100px;
+  height: 220px;
+  bottom: 5px;
+  left: 60px;
+  pointer-events: none;
+  transform: rotate(30deg);
+}
+
+.content-btn {
+  position: absolute;
+  bottom: 0;
+}
+
+.content-flecha-roja {
+  display: flex;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 80%;
+  z-index: 4;
+  bottom: 10%;
+  overflow: hidden;
+  animation: levitar 1s infinite ease-in-out;
+}
+
+.content-flecha-carril {
+  display: flex;
+  position: absolute;
+  width: 78px;
+  height: 94px;
+  left: 98%;
+  z-index: 4;
+  bottom: 45px;
+  overflow: hidden;
+}
+
+.content-flecha-carril-2 {
+  display: flex;
+  position: absolute;
+  width: 78px;
+  height: 94px;
+  right: 98%;
+  z-index: 4;
+  bottom: 45px;
+  overflow: hidden;
+}
+
+.content-union-carril {
+  display: flex;
+  position: absolute;
+  width: 94px;
+  height: 60px;
+  z-index: 4;
+  left: 0;
+  bottom: 85%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.content-union-carril-2 {
+  display: flex;
+  position: absolute;
+  width: 94px;
+  height: 60px;
+  right: 0;
+  z-index: 4;
+  bottom: 85%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.content-flecha-roja img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.content-flecha-recta {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  bottom: 60%;
+  overflow: hidden;
+  animation: levitar 2s infinite ease-in-out;
+}
+
+.content-flecha-recta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-flecha-curva {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 85%;
+  z-index: 0;
+  bottom: 70%;
+  overflow: hidden;
+  animation: levitar 1.8s infinite ease-in-out;
+}
+
+.content-flecha-curva img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.content-flecha-curva-2 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  right: 80%;
+  z-index: 0;
+  bottom: 80%;
+  overflow: hidden;
+  animation: levitar 1.2s infinite ease-in-out;
+}
+
+.content-flecha-curva-2 img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.content-flecha-curva-3 {
+  width: 220px;
+  height: 150px;
+  position: absolute;
+  left: 75%;
+  z-index: 0;
+  top: 10px;
+  overflow: hidden;
+  animation: levitar 1.5s infinite ease-in-out;
+}
+
+.content-flecha-curva-3 img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.content-flecha-curva-4 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 10%;
+  z-index: 0;
+  bottom: 140%;
+  overflow: hidden;
+  animation: levitar 1.8s infinite ease-in-out;
+}
+
+.content-flecha-curva-4 img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+}
+
+.content-flecha-curva-5 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  bottom: 90%;
+  overflow: hidden;
+  z-index: 3;
+}
+
+
+@keyframes levitar {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+
+.message {
+  width: 400px;
+  border-right: #fff solid 2px;
+  text-shadow: #000 1px 0 10px;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.resultado-ganador {
+  text-shadow: #000 1px 0 10px;
+  padding-left: 10px;
+}
+
+
+/* ==== TABLA RESPONSIVE ==== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.styled-table-tren {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 800px;
+}
+
+.styled-table-tren thead {
+  background: #a13b22;
+  color: #fff;
+}
+
+.styled-table-tren th,
+.styled-table-tren td {
+  padding: 12px 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.styled-table-tren tbody tr {
+  background-color: #fff;
+  color: #000;
+}
+
+.styled-table-tren tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.styled-table-tren tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-result-tren {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.styled-table-tren {
+  min-width: 1000px;
+  width: 100%;
+}
+
+
+/* MODAL */
+
+
+.modal-tren {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+
+.modal-content2-tren {
+  background-color: #fff;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content-tren {
+  background-color: #fff;
+  padding: 20px;
+  width: 1200px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal-body-tren {
+  overflow-y: auto;
+  max-height: 60vh;
+  padding-right: 10px;
+}
+
+.content-text-area {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.content-text-area textarea {
+  width: 100%;
+  height: 150px;
+  border-radius: 20px 20px 0 20px;
+  padding: 10px;
+  border: #eee solid 1px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-text-area textarea:focus {
+  border: #aaaaaa solid 1px;
+}
+
+.close-tren {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.color-gray {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+
+.mi-popup {
+  background-color: #1F253A;
+  color: white;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  top: -50%;
+}
+
+.mi-titulo {
+  font-size: 2rem;
+}
+
+.mi-boton {
+  background-color: #efb810;
+  color: black;
+  border-radius: 10px;
+}
+
+.tablon {
+  width: 37px;
+  height: 94px;
+  position: absolute;
+  left: 79px;
+  bottom: 20px;
+  z-index: -1;
+}
+
+.tablon-2 {
+  width: 37px;
+  height: 94px;
+  position: absolute;
+  right: 87px;
+  bottom: 20px;
+  z-index: -1;
+}
+
+.tablon-3 {
+  width: 16px;
+  height: 94px;
+  position: absolute;
+  right: 94px;
+  bottom: 20px;
+  z-index: -1;
+}
+
+.tablon-4 {
+  width: 16px;
+  height: 94px;
+  position: absolute;
+  left: 94px;
+  bottom: 20px;
+  z-index: -1;
+}
+
+.calle {
+  width: 95px;
+  height: 60px;
+  position: absolute;
+  bottom: 83%;
+  z-index: -1;
+  left: 0;
+}
+
+.calle img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.fondo-tablero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: #efb810 solid 5px;
+}
+
+.valrecompensa {
+  font-size: 2.5rem;
+  color: gold;
+  font-weight: bold;
+}
+
+.semaforo-1 {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  z-index: 100;
+  width: 20px;
+  height: 50px;
+}
+
+.semaforo-1 img {
+  width: 100%;
+  height: 100%;
+
+}
+
+.semaforo-2 {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  z-index: 100;
+  width: 47px;
+  height: 50px;
+}
+
+.semaforo-2 img {
+  width: 100%;
+  height: 100%;
+
+}
+
+@media (max-width:1200px) {
+  .datos {
+    left: 55%;
+  }
+}
+
+@media(max-width:1400px) {
+  .content-img-tren {
+    width: 100px;
+    height: 100px;
+  }
+
+  .form-control {
+    padding: 0;
+  }
+
+  .casinos,
+  .categoria,
+  .cedula,
+  .nombre,
+  #valBono,
+  .content-btnSend {
+    width: 100px;
+    height: 30px;
+  }
+
+}
+
+
+@media(min-width:2000px) {
+
+  .content-msg {
+    top: 100px;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    width: 50%;
+  }
+
+  .message {
+    width: 100%;
+  }
+
+  .resultado-ganador {
+    width: 100%;
+  }
+
+  .board {
+    padding: 60px;
+  }
+
+  .cell {
+    width: 213px;
+    height: 215px;
+    font-size: 6rem;
+    z-index: 1;
+  }
+
+  .content-union-carril {
+    width: 150px;
+    height: 120px;
+  }
+
+  .content-union-carril-2 {
+    width: 150px;
+    height: 120px;
+  }
+
+
+  .numero-1 {
+    width: 70px;
+    height: 100px;
+    left: 70px;
+    top: -45px;
+  }
+
+  .numero-2 {
+    width: 100px;
+    height: 100px;
+    left: 70px;
+    top: -45px;
+  }
+
+  .player-token {
+    width: 180px;
+    height: 180px;
+  }
+
+  .content-flecha-curva-5 {
+    width: 250px;
+    height: 250px;
+    left: -20px;
+  }
+
+  .content-promocion {
+    margin-top: 10%;
+  }
+
+
+
+  .tablon {
+    display: none;
+  }
+
+  .tablon-2 {
+    display: none;
+
+  }
+
+  .tablon-3 {
+    display: none;
+
+  }
+
+  .tablon-4 {
+    display: none;
+
+  }
+
+  .calle {
+    display: none;
+
+  }
+
+  .content-union-carril {
+    display: none;
+  }
+
+  .content-union-carril-2 {
+    display: none;
+  }
+
+  .semaforo-1 {
+    display: none;
+
+  }
+
+  .semaforo-2 {
+    display: none;
+
+  }
+
+  .union {
+    width: 28px;
+    height: 198px;
+    position: absolute;
+    top: 0;
+    right: -18px;
+    z-index: -2;
+  }
+
+  .union-2 {
+    height: 28px;
+    width: 198px;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: -2;
+  }
+
+  .union-3 {
+    width: 28px;
+    height: 198px;
+    position: absolute;
+    top: 0;
+    left: -17px;
+    z-index: -2;
+  }
+
+  .calle-union {
+    position: absolute;
+    top: -18px;
+    left: 23px;
+    width: 152px;
+    height: 20px;
+    z-index: -2;
+  }
+
+  .semaforo-tv {
+    position: absolute;
+    top: -50px;
+    left: 110px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .semaforo-tv-2 {
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    width: 60px;
+    height: 150px;
+  }
+
+  .datos {
+    left: 16.5rem;
+  }
+
+  .content-input {
+    right: 22rem;
+  }
+
+  .content-aviso-categoria {
+    width: 270px;
+    left: 0;
+  }
+
+  .content-aviso-categoria small {
+    font-size: 1.2rem;
+  }
+
+
+  .mi-popup {
+    width: 1200px;
+    height: auto;
+    padding: 40px;
+    font-size: 4rem;
+  }
+
+  .mi-titulo {
+    font-size: 4rem;
+
+  }
+
+  .mi-boton {
+    font-size: 4rem;
+
+  }
+
+  .valrecompensa {
+    font-size: 7rem;
+  }
+
+}
+
+@media(min-width:2450px) {
+  .union {
+    height: 299px;
+  }
+
+  .union-2 {
+    width: 299px;
+  }
+
+  .union-3 {
+    height: 299px;
+  }
+
+  .calle-union {
+    width: 228px;
+    left: 36px;
+  }
+
+  .semaforo-tv {
+    width: 250px;
+    height: 250px;
+    left: 180px;
+  }
+
+  .semaforo-tv-2 {
+    width: 100px;
+    height: 250px;
+
+  }
+
+}
+
+@media(min-width:2480px) {
+  .union {
+    height: 299px;
+  }
+
+  .union-2 {
+    width: 299px;
+  }
+
+  .union-3 {
+    height: 299px;
+  }
+}
+
+@media(min-width:2450px) {
+  .cell {
+    width: 313px;
+    height: 315px;
+    font-size: 7.5rem;
+  }
+
+  .content-union-carril {
+    width: 250px;
+    height: 220px;
+  }
+
+  .content-union-carril-2 {
+    width: 250px;
+    height: 220px;
+  }
+
+  .content-flecha-curva-5 {
+    left: 0;
+  }
+
+}
+
+@media(min-width:2500px) {
+  .cell {
+    width: 363px;
+    height: 365px;
+    font-size: 8rem;
+  }
+
+  .content-union-carril {
+    width: 250px;
+    height: 220px;
+  }
+
+  .content-union-carril-2 {
+    width: 250px;
+    height: 220px;
+  }
+
+
+}
+
+@media(min-width:2500px) {
+  .union {
+    height: 348px;
+  }
+
+  .union-2 {
+    width: 348px;
+  }
+
+  .union-3 {
+    height: 348px;
+  }
+
+  .calle-union {
+    width: 265px;
+    left: 43px;
+  }
+}
+
+@media(min-width:2550px) {
+
+  .union {
+    height: 348px;
+  }
+
+  .union-2 {
+    width: 348px;
+  }
+
+  .union-3 {
+    height: 348px;
+  }
+}
+
+/* @media(min-width:2550px) {}
+
+@media(min-width:2600px) {}
+
+@media(min-width:2650px) {}
+
+@media(min-width:2700px) {}
+
+@media(min-width:2750px) {}*/
+
+@media(min-width:2800px) {
+
+
+  .union {
+    width: 28px;
+    height: 349px;
+  }
+
+  .union-2 {
+    height: 28px;
+    width: 349px;
+  }
+
+  .union-3 {
+    width: 28px;
+    height: 349px;
+  }
+
+  .calle-union {
+    width: 265px;
+    left: 42px;
+    height: 20px;
+  }
+
+  .semaforo-tv {
+    left: 210px;
+  }
+}
+
+@media (max-width:1850px) {
+.content-msg {
+  top: 40px;
+  right: 20px;
+  font-size: 1rem;
+}
+
+  .content-input {
+    right: 20px;
+  }
+}
+
+@media (max-width:389px) {
+
+  .board {
+    position: relative;
+  }
+
+  .content-tren {
+    position: relative;
+  }
+
+  .content-info-cliente {
+    position: relative;
+  }
+
+  .bloque1 {
+    position: relative;
+  }
+
+  .datos {
+    position: relative;
+    left: 0;
+    width: 70%;
+    text-align: center;
+  }
+
+  .content-img-tren {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  .content-img-tren img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .content-input {
+    position: relative;
+    right: 0;
+  }
+
+  .cell {
+    width: 94px;
+  }
+}

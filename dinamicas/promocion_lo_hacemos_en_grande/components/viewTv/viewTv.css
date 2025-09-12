@@ -1,0 +1,165 @@
+body,
+html {
+  font-family: 'Poppins Black', sans-serif !important;
+}
+
+.content_View {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 255);
+  /* background-image: url(/resources/FONDO-TV-DADOS-DE-POKER-MARCOPOLO-2025.jpg); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  gap: 32px;
+}
+
+.content_View h2 {
+  color: white;
+}
+
+.content-premio-jugador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: transparent;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 255, 0);
+}
+
+.premioval {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: transparent;
+}
+
+.result_vista {
+  font-size: 4rem;
+  font-weight: bold;
+  background-color: rgb(0, 255, 0);
+}
+
+.content-premioview {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: start;
+  width: 100%;
+  height: 100%;
+  gap: 32px;
+}
+
+
+.content-primer-lugar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  background-image: url(/dinamicas/promocion_lo_hacemos_en_grande/resources/posiciones/tercer_posicion.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1320px;
+  height: 120px;
+  position: absolute;
+  left: 0;
+  top: 600px;
+}
+
+.content-primer-lugar img {
+  width: 1320px;
+  height: 120px;
+}
+
+.content-primer-lugar-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  background-image: url(/dinamicas/promocion_lo_hacemos_en_grande/resources/titulospremios/tercer_premio.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+
+  width: 1190px;
+  height: 120px;
+
+  position: absolute;
+  left: 0;
+  top: 750px;
+}
+
+.result_premio {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.title_car {
+  position: absolute;
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+}
+
+#premio-label,
+#premio-valor {
+  display: none !important;
+}
+
+.grand-video {
+  position: absolute;
+  top: 0;
+  left: 800px;
+  width: 600px;
+  height: 600px;
+  background-image: url(/dinamicas/promocion_lo_hacemos_en_grande/resources/display--empty.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+@media(max-width:1366px) {
+
+  .content-primer-lugar {
+    bottom: 10px;
+  }
+
+  .content-primer-lugar img {
+    width: 750px;
+  }
+
+  .content-premio-jugador,
+  .number,
+  .premioval {
+    width: 100%;
+    height: 200px;
+  }
+}

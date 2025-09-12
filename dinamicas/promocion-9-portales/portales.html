@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Aladdin: Los nueve Portales</title>
+    <link rel="stylesheet" href="/dinamicas/promocion-9-portales/css/style.css">
+    <link rel="stylesheet" href="/dinamicas/promocion-9-portales/css/fonts.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="loader-overlay" id="loader">
+        <div class="spinner"></div>
+    </div>
+    <div class="content_principal_portales">
+        <div class="content_logo_portales">
+            <a href="">
+                <img src="/dinamicas/promocion-9-portales/resources/logo_3.png" alt="promoAladdin">
+            </a>
+            <button id="btn_modal_rules" class="btn_portales btn_rules"><img
+                    src="/dinamicas/promocion-9-portales/resources/libro.png" alt="promoAladdin"></button>
+        </div>
+        <!-- <div class="content_logo_cuernos">
+            <img src="/resources/portal_1.png" alt="promoAladdin">
+        </div>
+        <div class="content_logo_pesuñas">
+            <img src="/resources/portal_9.png" alt="promoAladdin">
+        </div> -->
+        <div class="content_logo_AD">
+            <div>
+                <button id="full-screen" class="btn btn-primary btn_portales">Full-Screen</button>
+            </div>
+            <img src="/dinamicas/promocion-9-portales/resources/ala_blanco.png" alt="promoAladdin">
+
+        </div>
+        <div class="content_maldicion_6">
+            <img src="/dinamicas/promocion-9-portales/resources/6_evil.png" alt="promoAladdin">
+        </div>
+        <div class="content_maldicion_7">
+            <img src="/dinamicas/promocion-9-portales/resources/7_evil.png" alt="promoAladdin">
+        </div>
+        <div class="content_btn_actions">
+            <select class="form-control" style=" cursor: pointer;" id="categoria">
+                <option value="">Categoria...</option>
+                <option value="GENIUS">Genius</option>
+                <option value="TITANIO">Titanio</option>
+                <option value="LEGENDARIO">Legendario</option>
+                <option value="GOLD">Gold</option>
+                <option value="SILVER">Silver</option>
+                <option value="BRONCE">Bronce</option>
+                <option value="SUPERIOR">Superior</option>
+                <option value="ESTANDAR">Estandar</option>
+                <option value="ADICIONAL">Adicional</option>
+            </select>
+            <button id="abrirmodalopciones" title="Opciones Aladdin" class="content_engranaje"><img
+                    src="/dinamicas/promocion-9-portales/resources/engranaje.png" alt="promoAladdin"></button>
+        </div>
+        <div class="combinacion_6">
+            <div id="combinacion_6">
+                <img src="/dinamicas/promocion-9-portales/resources/Comb1-8.png" alt="promoAladdin">
+                <img src="/dinamicas/promocion-9-portales/resources/Comb3-8.png" alt="promoAladdin">
+                <img src="/dinamicas/promocion-9-portales/resources/Comb2-8.png" alt="promoAladdin">
+            </div>
+            <p id="cerrar_combinaciones" class="cerrar_combinaciones">Combinaciones</p>
+        </div>
+
+        <!-- <div class="combinacion_8">
+            <img src="/resources/regla_2.png" alt="promoAladdin">
+        </div>
+        <div class="combinacion_8_1920">
+            <img src="/resources/regla_2.png" alt="promoAladdin">
+        </div> -->
+        <div class="board">
+            <div class="ficha_antorcha">
+                <div class="content_img_lanzamiento" style="display: none;" id="content_conteo_lanzamiento">
+                    <img class="image_1" src="/dinamicas/promocion-9-portales/resources/Llevas-8.png"
+                        alt="promoAladdin">
+                    <p class="content_conteo_lanzamiento">
+                        <span id="conteo_lanzamientos">0</span> / 4
+                    </p>
+                    <img class="image_2" src="/dinamicas/promocion-9-portales/resources/Lanzamientos-8.png"
+                        alt="promoAladdin">
+                </div>
+                <img class="antorcha_ficha" id="antorcha_ficha"
+                    src="/dinamicas/promocion-9-portales/resources/antorcha.png" alt="promoAladdin">
+            </div>
+            <div>
+                <img id="portal_1" class="img_portal_1" src="/dinamicas/promocion-9-portales/resources/portal_1.png"
+                alt="promoAladdin">
+                <p class="img_portal_1">Los Cachos del Diablo</p>
+            </div>
+            <div>
+                <img id="portal_2" class="img_portal_2" src="/dinamicas/promocion-9-portales/resources/portal_2.png"
+                    alt="promoAladdin">
+                <p class="img_portal_2">La Bruja Negra</p>
+            </div>
+            <div>
+                <img id="portal_3" class="img_portal_3" src="/dinamicas/promocion-9-portales/resources/portal_3.png"
+                    alt="promoAladdin">
+                <p class="img_portal_3">La Llorona del bosque</p>
+            </div>
+            <div>
+                <img id="portal_4" class="img_portal_4" src="/dinamicas/promocion-9-portales/resources/portal_4.png"
+                    alt="promoAladdin">
+                <p class="img_portal_4">El Duende maligno</p>
+            </div>
+            <div>
+                <img id="portal_5" class="img_portal_5" src="/dinamicas/promocion-9-portales/resources/portal_5.png"
+                    alt="promoAladdin">
+                <p class="img_portal_5">El Talisman de Aladdin</p>
+            </div>
+            <div>
+                <img id="portal_6" class="img_portal_6" src="/dinamicas/promocion-9-portales/resources/portal_6.png"
+                    alt="promoAladdin">
+                <p class="img_portal_6">El Duende travieso</p>
+            </div>
+            <div>
+                <img id="portal_7" class="img_portal_7" src="/dinamicas/promocion-9-portales/resources/portal_7.png"
+                    alt="promoAladdin">
+                <p class="img_portal_7">La Llorona del río</p>
+            </div>
+            <div>
+                <img id="portal_8" class="img_portal_8" src="/dinamicas/promocion-9-portales/resources/portal_8.png"
+                    alt="promoAladdin">
+                <p class="img_portal_8">La Bruja blanca</p>
+            </div>
+            <div>
+                <img id="portal_9" class="img_portal_9" src="/dinamicas/promocion-9-portales/resources/Portal_9.png"
+                    alt="promoAladdin">
+                <p class="img_portal_9">La Pezuña del diablo</p>
+            </div>
+        </div>
+        <div class="content_control_start">
+            <h6 style="color: #FF9A00 ;" id="title_game">Eres Valiente, <br />¿Qué camino eliges?</h6>
+            <div id="content_control_btn" class="content_control_btn">
+                <img title="Cuernos" id="btn_cuerno_diablo" src="/dinamicas/promocion-9-portales/resources/portal_1.png"
+                    alt="promoAladdin">
+                <img title="Pezuñas" id="btn_pezuñas_diablo"
+                    src="/dinamicas/promocion-9-portales/resources/portal_9.png" alt="promoAladdin">
+            </div>
+        </div>
+        <div class="btn-reset">
+            <button class="btn btn-primary " id="reiniciar_btn_actions">Devolver jugada</button>
+        </div>
+        <div class="btn-reset-all">
+            <button class="btn btn-primary btn_portales" id="btn_reset_tablero">Reiniciar Tablero</button>
+            <button class="btn btn-primary " id="reiniciar_btn_actions_all">Reiniciar</button>
+        </div>
+        <div id="content_control_actions" class="content_control_actions">
+            <button id="dados_cuernos" class="btn btn-primary">
+                <!-- <img src="/resources/numero_6.png"
+                    alt="promoAladdin"> -->
+                6
+            </button>
+            <button id="dados_pezuñas" class="btn btn-primary">
+                <!-- <img src="/resources/numero_7.png"
+                alt="promoAladdin"> -->
+                7
+            </button>
+            <button id="dados_menos_casilla" class="btn btn-primary">8</button>
+            <button id="dados_una_casilla" class="btn btn-primary"> + </button>
+        </div>
+    </div>
+
+    <section id="modal_rules" class="modal_portales">
+        <div class="content_modal_opciones_portales ">
+            <div class="content_cerrar_modal">
+                <p id="cerrarmodalereglas">&times;</p>
+            </div>
+            <div class="body_modal_portales ">
+                <div class="reglas_modal_imagen">
+                    <img src="/dinamicas/promocion-9-portales/resources/Logo_3.png" alt="promoAladdin">
+                </div>
+                <br />
+                <div class="reglas_modal_text">
+                    <h4 class="text_center_title">Reglas</h4>
+                    <ol>
+                        <li>El participante tiene 4 Lanzamientos.</li>
+                        <li>El Objetivo es llegar al talisman <img class="talisman"
+                                src="/dinamicas/promocion-9-portales/resources/talisman.png" alt="promoAladdin">.</li>
+                        <li>El participante elige donde iniciar en los Cachos <img class="talisman"
+                                src="/dinamicas/promocion-9-portales/resources/portal_1.png" alt="promoAladdin"> o las
+                            Pezuñas <img class="talisman" src="/dinamicas/promocion-9-portales/resources/portal_9.png"
+                                alt="promoAladdin"> .</li>
+                        <li>La antorcha <img class="talisman"
+                                src="/dinamicas/promocion-9-portales/resources/antorcha.png" alt="promoAladdin"> se
+                            mueve asi:</li>
+                        <ol>
+                            <li>Cualquier combinación que su resultado sea 6, enviará al participante al Portal 1 <img
+                                    class="talisman" src="/dinamicas/promocion-9-portales/resources/portal_1.png"
+                                    alt="promoAladdin">.</li>
+                            <li>Cualquier combinación que su resultado sea 7, enviará al participante al Portal 9 <img
+                                    class="talisman" src="/dinamicas/promocion-9-portales/resources/portal_9.png"
+                                    alt="promoAladdin">.</li>
+                            <li>Cualquier combinación que su resultado sea 8, el participante se devolverá un portal
+                                siempre y cuando no
+                                <strong> ESTÉ</strong>
+                                en el portal 1 <img class="talisman"
+                                    src="/dinamicas/promocion-9-portales/resources/portal_1.png" alt="promoAladdin"> o
+                                portal 9 <img class="talisman"
+                                    src="/dinamicas/promocion-9-portales/resources/portal_9.png" alt="promoAladdin"> .
+                            </li>
+                            <li>Cualquier combinación diferente a 6, 7 y 8, el participante podrá avanzar un portal.
+                            </li>
+                        </ol>
+                    </ol>
+                    <h4 class="text_center_title">Suerte en el camino <img style="width: 50px;position: relative;top: -15px;" class="talisman"
+                            src="/dinamicas/promocion-9-portales/resources/calabaza_5.png" alt="promoAladdin"></h4>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="modal_opciones_portales" class="modal_portales">
+        <div class="content_modal_portales">
+            <div class="result_modal">
+                <p id="result_modal"></p>
+                <p id="Result_conteo"></p>
+            </div>
+            <div class="head_modal_portales">
+                <div class="content_opcion_head">
+                    <p id="btn_guardar_registro">Guardar Registro</p>
+                </div>
+                <div class="content_opcion_head">
+                    <p id="btn_envio_secundario">Envió Secundario</p>
+                </div>
+                <div class="content_opcion_head">
+                    <p id="btn_envio_observacion">Observación</p>
+                </div>
+                <div class="content_opcion_head">
+                    <p id="btn_tabla_premios">Tabla de Premios</p>
+                </div>
+                <div class="content_opcion_head">
+                    <p id="btn_registros_dia">Registro del Dia</p>
+                    <span id="notificacion_registro_dia" class="notificacion_registro_dia"></span>
+                </div>
+                <div class="close_modal_x">
+                    <p id="cerrarmodaleopciones">&times;</p>
+                </div>
+            </div>
+            <div style="width: 95%;height: 1px;background-color: gray;position: absolute;top: 70px;"></div>
+            <div id="view_guardar_registro" class="body_modal_portales">
+                <h2>Guardar Registro</h2>
+                <div class="datos_column_modal">
+                    <select class="form-control" style="cursor: pointer;" id="casino">
+                        <option value="">Casino...</option>
+                        <option value="A05">A05</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A09">A09</option>
+                        <option value="A12">A12</option>
+                        <option value="A12-MESAS">A12-MESAS</option>
+                        <option value="A15">A15</option>
+                        <option value="A15-MESAS">A15-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="A19">A19</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A38">A38</option>
+                        <option value="A39">A39</option>
+                        <option value="A43">A43</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="A50">A50</option>
+                        <option value="MP53">MP53</option>
+                        <option value="A70">A70</option>
+                        <option value="A781">A781</option>
+                        <option value="A88">A88</option>
+                        <option value="A100">A100</option>
+                        <option value="A108">A108</option>
+                        <option value="A108-MESAS">A108-MESAS</option>
+                    </select>
+                </div>
+                <div class="datos_column_modal">
+                    <input id="nombre" class="form-control" type="text" placeholder="Nombre">
+                </div>
+                <div class="datos_column_modal">
+                    <input id="cedula" class="form-control" type="number" placeholder="Cedula">
+                </div>
+                <br />
+                <div class="content_btn_modal">
+                    <button id="btn_clean_submit" class="btn_portales btn btn-primary">Limpiar</button>
+                    <button id="btn_submit" class="btn_portales btn btn-primary">Enviar</button>
+                </div>
+            </div>
+            <div id="view_envio_observacion" class="body_modal_portales">
+                <h2 class="space_title_portales">Envió de Observación</h2>
+                <div class="datos_column_modal">
+                    <select class="form-control" style="cursor: pointer;" id="casino_observacion">
+                        <option value="">Casino...</option>
+                        <option value="A05">A05</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A09">A09</option>
+                        <option value="A12">A12</option>
+                        <option value="A12-MESAS">A12-MESAS</option>
+                        <option value="A15">A15</option>
+                        <option value="A15-MESAS">A15-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="A19">A19</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A38">A38</option>
+                        <option value="A39">A39</option>
+                        <option value="A43">A43</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="A50">A50</option>
+                        <option value="MP53">MP53</option>
+                        <option value="A70">A70</option>
+                        <option value="A781">A781</option>
+                        <option value="A88">A88</option>
+                        <option value="A100">A100</option>
+                        <option value="A108">A108</option>
+                        <option value="A108-MESAS">A108-MESAS</option>
+                    </select>
+                </div>
+                <div class="datos_column_modal">
+                    <textarea placeholder="Descripcion" name="descripcion" id="descripcion_observacion"></textarea>
+                </div>
+                <div>
+                    <button id="btn_clean_observacion" class="btn btn-primary btn_portales">Limpiar</button>
+                    <button id="btn_envia_observacion" class="btn btn-primary btn_portales">Enviar</button>
+                </div>
+            </div>
+            <div id="view_envio_secundario" class="body_modal_portales">
+                <h2 class="space_title_portales">Envió Secundario</h2>
+                <div class="datos_column_modal">
+                    <select class="form-control" style="cursor: pointer;" id="casino_secundario">
+                        <option value="">Casino...</option>
+                        <option value="A05">A05</option>
+                        <option value="A07">A07</option>
+                        <option value="A08">A08</option>
+                        <option value="A09">A09</option>
+                        <option value="A12">A12</option>
+                        <option value="A12-MESAS">A12-MESAS</option>
+                        <option value="A15">A15</option>
+                        <option value="A15-MESAS">A15-MESAS</option>
+                        <option value="A16">A16</option>
+                        <option value="A19">A19</option>
+                        <option value="A35">A35</option>
+                        <option value="A36">A36</option>
+                        <option value="A36-MESAS">A36-MESAS</option>
+                        <option value="A38">A38</option>
+                        <option value="A39">A39</option>
+                        <option value="A43">A43</option>
+                        <option value="A48">A48</option>
+                        <option value="A48-MESAS">A48-MESAS</option>
+                        <option value="A49">A49</option>
+                        <option value="A50">A50</option>
+                        <option value="MP53">MP53</option>
+                        <option value="A70">A70</option>
+                        <option value="A781">A781</option>
+                        <option value="A88">A88</option>
+                        <option value="A100">A100</option>
+                        <option value="A108">A108</option>
+                        <option value="A108-MESAS">A108-MESAS</option>
+                    </select>
+
+                    <select class="form-control" style=" cursor: pointer;" id="categoria-secundario">
+                        <option value="">Categoria...</option>
+                        <option value="GENIUS">Genius</option>
+                        <option value="TITANIO">Titanio</option>
+                        <option value="LEGENDARIO">Legendario</option>
+                        <option value="GOLD">Gold</option>
+                        <option value="SILVER">Silver</option>
+                        <option value="BRONCE">Bronce</option>
+                        <option value="SUPERIOR">Superior</option>
+                        <option value="ESTANDAR">Estandar</option>
+                        <option value="ADICIONAL">Adicional</option>
+                    </select>
+                </div>
+                <div class="datos_column_modal">
+                    <input class="form-control" type="text" name="cedula" id="cedula_secundario" placeholder="Cedula">
+                    <input class="form-control" type="text" name="nombre" id="nombre_secundario" placeholder="Nombre">
+                </div>
+                <div class="datos_column_modal">
+                    <input class="form-control" type="text" name="bono_secundario" id="bono_secundario"
+                        placeholder="Bono">
+                    <select class="form-control" id="portal_secundario">
+                        <option value="">Portal...</option>
+                        <option value="1 Portal">Portal 1</option>
+                        <option value="2 Portal">Portal 2</option>
+                        <option value="3 Portal">Portal 3</option>
+                        <option value="4 Portal">Portal 4</option>
+                        <option value="5 Portal">Portal 5</option>
+                        <option value="6 Portal">Portal 6</option>
+                        <option value="7 Portal">Portal 7</option>
+                        <option value="8 Portal">Portal 8</option>
+                        <option value="9 Portal">Portal 9</option>
+                    </select>
+                </div>
+                <div class="datos_column_modal">
+                    <input class="form-control" type="date" name="fecha_secundario" id="fecha_secundario"
+                        placeholder="Fecha">
+                    <input class="form-control" type="text" name="hora_secundario" id="hora_secundario"
+                        placeholder="Hora">
+                </div>
+                <div class="content_btn_modal">
+                    <button id="btn_clean_secundario" class="btn btn-primary btn_portales">Limpiar</button>
+                    <button id="btn_submit_secundario" class="btn btn-primary btn_portales">Enviar</button>
+                </div>
+            </div>
+            <div id="view_tabla_premios" class="body_modal_portales">
+                <div class="vista_table_premios">
+
+                    <h2 class="text_portales">Tabla de Premios</h2>
+                    <br />
+                    <table class="table-wrapper styled-table">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Superior</th>
+                                <th>Estandar</th>
+                                <th>Genius</th>
+                                <th>Titanio</th>
+                                <th>Legendario</th>
+                                <th>Gold</th>
+                                <th>Silver</th>
+                                <th>Bronce</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Portal 1</td>
+                                <td>$ 100.000</td>
+                                <td>$ 80.000</td>
+                                <td>$ 150.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 90.000</td>
+                                <td>$ 80.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 2</td>
+                                <td>$ 110.000</td>
+                                <td>$ 90.000</td>
+                                <td>$ 160.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 90.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 3</td>
+                                <td>$ 120.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 170.000</td>
+                                <td>$ 140.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 4</td>
+                                <td>$ 130.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 180.000</td>
+                                <td>$ 150.000</td>
+                                <td>$ 140.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 5</td>
+                                <td>$ 200.000</td>
+                                <td>$ 150.000</td>
+                                <td>$ 300.000</td>
+                                <td>$ 250.000</td>
+                                <td>$ 220.000</td>
+                                <td>$ 200.000</td>
+                                <td>$ 170.000</td>
+                                <td>$ 150.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 6</td>
+                                <td>$ 130.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 180.000</td>
+                                <td>$ 150.000</td>
+                                <td>$ 140.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 7</td>
+                                <td>$ 120.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 170.000</td>
+                                <td>$ 140.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 8</td>
+                                <td>$ 110.000</td>
+                                <td>$ 90.000</td>
+                                <td>$ 160.000</td>
+                                <td>$ 130.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 90.000</td>
+                            </tr>
+                            <tr>
+                                <td>Portal 9</td>
+                                <td>$ 100.000</td>
+                                <td>$ 80.000</td>
+                                <td>$ 150.000</td>
+                                <td>$ 120.000</td>
+                                <td>$ 110.000</td>
+                                <td>$ 100.000</td>
+                                <td>$ 90.000</td>
+                                <td>$ 80.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div id="view_registros_dia" class="body_modal_portales">
+                <h2>Registro del Dia</h2>
+                <div id="Info_result_dia"></div>
+                <div id="result_dia_portales"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="/dinamicas/promocion-9-portales/js/script.js"></script>
+</body>
+
+</html>

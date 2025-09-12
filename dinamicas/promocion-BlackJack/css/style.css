@@ -1,0 +1,590 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 6px solid #ccc;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.content-img-promo {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.toggleBtn {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: sienna;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 15px;
+    bottom: 1%;
+    z-index: 1000;
+}
+
+.toggleBtn:hover {
+    background: #fff;
+    color: sienna;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+    visibility: hidden;
+    display: none;
+}
+
+.btn-oculta {
+    position: fixed;
+    bottom: 1%;
+    left: 20px;
+}
+
+.btn-observacion {
+    width: auto;
+    border-radius: 20px;
+    background: sienna;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    bottom: 50%;
+    z-index: 1000;
+}
+
+.toggleBtn2 {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: sienna;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 215px;
+    bottom: 1%;
+    z-index: 1000;
+}
+
+.toggleBtn2:hover {
+    background: #fff;
+    color: sienna;
+}
+
+.content-ini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(207, 207, 207);
+    height: auto;
+    min-height: 100vh;
+    background-image: url(/dinamicas/promocion-BlackJack/resources/background-blackjack-2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-bottom {
+    position: fixed;
+    bottom: 1%;
+    left: 120px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: center;
+    gap: 10px;
+}
+
+.content-bottom button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: sienna;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+}
+
+.content-bottom button:hover {
+    background: #fff;
+    color: sienna;
+}
+
+.btn-style {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: sienna;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.5s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-style:hover {
+    background: #fff;
+    color: sienna;
+}
+
+.card-image-call {
+    width: 100px;
+    margin: 5px;
+    opacity: 0;
+    animation: fadeInCard 0.5s ease-out forwards;
+}
+
+
+.mi-popup {
+    background-color: #1F253A;
+    color: white;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: -50%;
+}
+
+.mi-titulo {
+    font-size: 2rem;
+}
+
+.mi-boton {
+    background-color: #efb810;
+    color: black;
+    border-radius: 10px;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateX(-200px) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.content-card-player {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-card-player img.disable {
+    opacity: 0.7;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.card-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.card-image {
+    width: 80px;
+    cursor: pointer;
+    height: auto;
+}
+
+.content-score {
+    position: absolute;
+    bottom: 20px;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.title-cards {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
+
+.content-info-cliente {
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.datos {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    gap: 20px;
+    color: white;
+}
+
+.casinos {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    position: relative;
+}
+
+
+.categoria small {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    font-size: 0.5rem;
+    color: gray;
+}
+
+.cedula,
+.nombre {
+    width: 170px;
+}
+
+.ViewMobil {
+    display: none;
+}
+
+
+.content-img-dealer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.content-img-dealer img {
+    width: 100px;
+}
+
+.content-score-dealer {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    color: white;
+}
+
+.content-score-dealer p {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+/* ==== TABLA RESPONSIVE ==== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.styled-table-blackjack {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 800px;
+}
+
+.styled-table-blackjack thead {
+    background: #a13b22;
+    color: #fff;
+}
+
+.styled-table-blackjack th,
+.styled-table-blackjack td {
+    padding: 12px 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.styled-table-blackjack tbody tr {
+    background-color: #fff;
+    color: #000;
+}
+
+.styled-table-blackjack tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table-blackjack tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-result-blackjack {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.styled-table-blackjack {
+    min-width: 1000px;
+    width: 100%;
+}
+
+/* MODAL */
+
+
+.modal-blackjack {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+
+.modal-content2-blackjack {
+    background-color: #fff;
+    padding: 20px;
+    width: 600px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-blackjack {
+    background-color: #fff;
+    padding: 20px;
+    width: 1200px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal-body-blackjack {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 10px;
+}
+
+
+.content-text-area {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.content-text-area textarea {
+    width: 100%;
+    height: 150px;
+    border-radius: 20px 20px 0 20px;
+    padding: 10px;
+    border: #eee solid 1px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-text-area textarea:focus {
+    border: #aaaaaa solid 1px;
+}
+
+.close-blackjack {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.color-gray {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.content-btn-enviar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+.textoGanador {
+    position: absolute;
+    bottom: 280px;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.valrecompensa {
+    font-size: 2.5rem;
+    color: gold;
+    font-weight: bold;
+}
+
+@media(max-width:1400px) {
+
+    .content-img-promo {
+        width: 160px;
+    }
+
+    .content-score {
+        bottom: 0;
+        font-size: 3rem;
+    }
+
+    .textoGanador {
+        bottom: 180px;
+    }
+}
+
+@media(max-width:1100px) {
+    .content-img-dealer img {
+        width: 40px;
+    }
+
+    .card-image-call {
+        width: 40px;
+    }
+
+    .card-image {
+        width: 40px;
+    }
+}
+
+@media(max-height: 880px) {
+
+    .content-img-dealer img {
+        width: 65px;
+    }
+
+    .card-image-call {
+        width: 65px;
+    }
+
+    .card-image {
+        width: 50px;
+    }
+}
+
+/* 
+@media(max-height: 800px) {
+    .ViewDesk {
+        display: none;
+    }
+
+    .ViewMobil {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+    }
+
+} */
+
+@media(min-width: 2000px) {
+    .content-ini {
+        min-height: 107vh;
+    }
+
+    .content-img-dealer img {
+        width: 150px;
+    }
+
+    .card-image-call {
+        width: 150px;
+    }
+
+    .card-image {
+        width: 150px;
+    }
+
+    .content-score-dealer p {
+        font-size: 7rem;
+    }
+
+    .content-score {
+        font-size: 7rem;
+    }
+}
+
+@media(min-width:2400px) {
+
+    .card-image-call {
+        width: 170px;
+    }
+
+    .card-image {
+        width: 170px;
+    }
+}

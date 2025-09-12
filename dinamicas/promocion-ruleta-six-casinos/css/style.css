@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.background-promo {
+  background-image: url(/dinamicas/promocion-ruleta-six-casinos/resources/FONDO-TV-DADOS-DE-POKER-MARCOPOLO-2025.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.content_principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-inicial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px 0;
+  border: #e9e9e9 solid 2px;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: #f0f0f0 2px 2px 2px;
+  background-color: #ffffff;
+}
+
+.menu_casinos {
+  display: flex;
+  gap: 30px;
+}
+
+.menu_casinos>a {
+  color: #3498db;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu_casinos>a:hover {
+  color: #2b80b9;
+}
+
+.text_title {
+  font-size: 1.3rem;
+}
+
+.control-finalista {
+  display: flex;
+  gap: 10px;
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 6px solid #ccc;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.content-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.content-logos h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+.loader-local {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.spinner2 {
+  border: 6px solid #ccc;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.table-scrolld {
+  max-height: 450px;
+}
+
+
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-width: 800px;
+}
+
+.styled-table thead {
+  background: rgb(34, 79, 161);
+  color: #fff;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+  background-color: #fff;
+  color: #000;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table-result {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.styled-table {
+  min-width: 1000px;
+  width: 100%;
+}
+
+.content-actions {
+  display: flex;
+  width: 100%;
+}
+
+.content-actions-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%;
+}
+
+.content-actions-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%;
+}
+
+.content-actions-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%;
+}
+
+
+
+
+.modal-gran {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+
+.modal-content2-gran {
+  background-color: #fff;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content-gran {
+  background-color: #fff;
+  padding: 20px;
+  width: 1200px;
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal-body-gran {
+  overflow-y: auto;
+  max-height: 60vh;
+  padding-right: 10px;
+}
+
+.content-text-area {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.content-text-area textarea {
+  width: 100%;
+  height: 150px;
+  border-radius: 20px 20px 0 20px;
+  padding: 10px;
+  border: #eee solid 1px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-text-area textarea:focus {
+  border: #aaaaaa solid 1px;
+}
+
+.close-gran {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.color-gray {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+
+
+@media(max-width:768px) {
+
+  .menu_casinos {
+    flex-direction: column;
+  }
+
+  .contenedor-inicial {
+    width: 70%;
+  }
+
+  .control-finalista {
+    flex-direction: column;
+  }
+
+  .content-actions {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .content-actions-1 {
+    width: 100%;
+  }
+
+  .content-actions-2 {
+    width: 100%;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    width: 20px;
+    padding: 10px 0;
+  }
+
+  .table-scrolld {
+    max-width: 350px;
+    max-height: 450px;
+  }
+
+  .modal-content2-gran {
+    width: 90%;
+  }
+}

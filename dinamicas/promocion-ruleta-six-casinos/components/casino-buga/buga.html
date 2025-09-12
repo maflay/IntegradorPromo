@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>Aladdin: Finalista - Buga</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dinamicas/promocion-ruleta-six-casinos/components/casino-buga/buga.css">
+    <link rel="stylesheet" href="/dinamicas/promocion-ruleta-six-casinos/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="background-casino">
+        <div class="content-logos">
+            <h1>Aladdin </h1> <img src="/dinamicas/promocion-ruleta-six-casinos/resources/Aladdin.favicon_rojo.png" alt="promoAladdin">
+        </div>
+        <div class="contenedor-inicial-casino">
+            <h3 class="text_title">Ingrese el Finalista</h3>
+            <div class="control-finalista-casino">
+                <!-- <input placeholder="Fecha" class="form-control" id="fecha" type="date"> -->
+                <input placeholder="Cedula" class="form-control" id="cedula_buga" type="number">
+                <input placeholder="Nombre" class="form-control" id="nombre_buga" type="text">
+                <input class="form-control" type="text" value="A-09" disabled id="casino_buga">
+                <!-- <select class="form-control" style="cursor: pointer;" id="casino_buga">
+                    <option value="">Casino...</option>
+                    <option value="A05">A05</option>
+                    <option value="A07">A07</option>
+                    <option value="A08">A08</option>
+                    <option value="A09">A09</option>
+                    <option value="A12">A12</option>
+                    <option value="A12-MESAS">A12-MESAS</option>
+                    <option value="A15">A15</option>
+                    <option value="A15-MESAS">A15-MESAS</option>
+                    <option value="A16">A16</option>
+                    <option value="A19">A19</option>
+                    <option value="A35">A35</option>
+                    <option value="A36">A36</option>
+                    <option value="A36-MESAS">A36-MESAS</option>
+                    <option value="A38">A38</option>
+                    <option value="A39">A39</option>
+                    <option value="A43">A43</option>
+                    <option value="A48">A48</option>
+                    <option value="A48-MESAS">A48-MESAS</option>
+                    <option value="A49">A49</option>
+                    <option value="A50">A50</option>
+                    <option value="MP50">MP53</option>
+                    <option value="A70">A70</option>
+                    <option value="A781">A781</option>
+                    <option value="A88">A88</option>
+                    <option value="A100">A100</option>
+                    <option value="A108">A108</option>
+                    <option value="A108-MESAS">A108-MESAS</option>
+                </select> -->
+
+            </div>
+            <br />
+            <div>
+                <button id="btn_submit_casino" class="btn btn-danger">Enviar</button>
+            </div>
+        </div>
+        <br />
+        <div class="contenedor-inicial-casino">
+            <div class="content-actions-casino">
+                <div class="content-actions-1-casino">
+                    <h3 class="text_title">Consultar Finalista</h3>
+                    <div class="control-finalista">
+                        <input placeholder="Cedula" class="form-control" id="cedulaGet_buga" type="text">
+                    </div>
+                    <br />
+                    <div>
+                        <button id="btn_clean_finalista_casino" class="btn btn-danger">Limpiar tabla</button>
+                        <button id="btn_consultat_finalista_casino" class="btn btn-danger">Consultar</button>
+                    </div>
+                </div>
+                <div class="content-actions-2-casino">
+                    <h3 class="text_title">Enviar Observación</h3>
+                    <br />
+                    <div>
+                        <button id="abrirmodal_casino" class="btn btn-danger">Enviar Observación</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div id="content-result-cliente"></div>
+        </div>
+        <br />
+        <div style="margin-bottom: 50px;" class="contenedor-inicial-casino">
+            <h3 class="text_title">Todos los registro (finalista)</h3>
+            <div id="mini-spinner" class="mini-spinner"></div>
+            <div class="content-all-result-finalista" id="content-all-result-finalista"></div>
+        </div>
+        <br />
+        <!-- <div style="margin-bottom: 50px;" class="contenedor-inicial">
+            <h3 class="text_title">Todos los registro (Semi-finalista)</h3>
+            <div id="content-all-result"></div>
+        </div> -->
+
+    </div>
+    <section id="datos-modal-observacion" class="modal-gran-casino">
+        <div class="modal-content2-gran">
+            <div
+                style="display: flex;text-align: center;justify-content: space-between;align-items: center;width: 100%;">
+                <h1 style="font-weight: bold; color: #dc3545">Envio de observación</h1>
+                <span id="cerrarmodal_casino" style="display: flex; justify-content: flex-end;"
+                    class="close-gran">&times;</span>
+            </div>
+            <div class="modal-body-gran">
+                <div id="table-container-gran">
+                    <div id="formBox">
+                        <div class="casinos-modal">
+                            <label for="casino">CASINO</label>
+                            <input value="A-09" disabled class="form-control" type="text" name="casino_modal_buga"
+                                id="casino_modal_buga">
+                        </div>
+
+                        <div class="nombre-modal">
+                            <label for="bono">Observación</label>
+                            <div class="content-text-area">
+                                <textarea name="descripcion" id="casino_modal_descripcion_buga"
+                                    placeholder="Detalle su observación"></textarea>
+                            </div>
+                        </div>
+                        <br /><br />
+                        <div style="display: flex;justify-content: end;" class="content-btn-enviar">
+                            <button id="btnObservacionSubmit"
+                                class="btn btn-danger">Enviar
+                                observación</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/dinamicas/promocion-ruleta-six-casinos/components/casino-buga/buga.js"></script>
+</body>
+
+</html>
