@@ -92,9 +92,8 @@ body {
 
 .container_integrador_promociones {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: start;
+  align-items: start;
   width: 100%;
   padding: 30px 0;
   gap: 20px;
@@ -120,6 +119,14 @@ body {
   gap: 20px;
 }
 
+.content_body_view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-left: 200px;
+}
 .card_integrador {
   display: flex;
   flex-direction: column;
@@ -215,23 +222,45 @@ body {
   border-bottom: 1px #a52330 solid;
 }
 
+.content_menu_principal{
+  display: flex;
+  width: 340px;
+  height: 100%;
+   position: relative;
+  left: 10px;
+}
+
 .menu_principal {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #000;
+  flex-direction: column;
+  width: 300px;
+  height: 90vh;
+  background-color: #1F253A;
+  border-radius: 20px;
+  padding: 20px;
+ position: fixed;
+}
+
+.content_legal_title_menu{
   position: absolute;
-  top: 0;
-  z-index: 1000;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: #d6d6d6;
 }
 
 .content_img_aladdin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
   padding: 0 20px;
   width: 180px;
 }
 
 .content_img_aladdin img {
-  width: 100%;
+  width: 50px;
   height: 100%;
   object-fit: contain;
 }
@@ -247,9 +276,16 @@ body {
   object-fit: contain;
 }
 
+.divider_menu {
+  width: 100%;
+  height: 1px;
+  background-color: #c2c2c2;
+  margin: 5px 0;
+}
+
 .content_otras_promos {
   display: flex;
-  gap: 100px;
+  flex-direction: column;
   font-weight: bold;
   padding: 20px 0;
   color: white;
@@ -265,10 +301,10 @@ body {
   text-decoration: underline;
 }
 
-
 .identity_device_screen {
   color: white;
   display: none;
+  position: absolute;
 }
 
 .title_top {
@@ -285,7 +321,7 @@ body {
   padding: 20px;
   border: #c2c2c2 1px solid;
   border-radius: 20px;
-  
+  width: 80%;
 }
 
 .content_observacion_integrador>h4 {
@@ -293,7 +329,7 @@ body {
 }
 
 .GetDataOberservacion {
-  width: 800px;
+  width: 100%;
   height: 400px;
   max-height: 400px;
   overflow-y: auto;
@@ -389,6 +425,10 @@ body {
   .container_integrador_promociones {
     height: auto;
   }
+
+  .content_body_view{
+    padding: 0;
+  }
 }
 
 @media(max-width: 768px) {
@@ -420,11 +460,7 @@ body {
 
   .container_integrador_promociones {
     padding-top: 0px;
-  }
-
-  .content_text_card_integrador .btn_a_1 {
-    pointer-events: none;
-    opacity: 0.7;
+    flex-direction: column;
   }
 
   .menu_principal {

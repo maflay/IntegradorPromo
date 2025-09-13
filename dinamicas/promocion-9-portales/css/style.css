@@ -413,133 +413,133 @@ body {
 }
 
 .board img {
-    width: 100px;
+    width: 180px;
     pointer-events: none;
     animation: sombra-animada-img 2s infinite;
 }
 
 .img_portal_1 {
     position: absolute;
-    left: 420px;
-    top: 500px;
+    left: 205px;
+    top: 65vh;
 }
 
 .posicion_1_cuernos {
-    left: 420px;
-    top: 500px;
+    left: 205px;
+    top: 65vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_2 {
     position: absolute;
-    left: 520px;
-    top: 400px;
+    left: 355px;
+    top: 50vh;
 }
 
 .posicion_2_cuernos {
-    left: 520px;
-    top: 400px;
+    left: 355px;
+    top: 50vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_3 {
     position: absolute;
-    left: 620px;
-    top: 300px;
+    left: 510px;
+    top: 35vh;
 }
 
 
 .posicion_3_cuernos {
-    left: 620px;
-    top: 300px;
+    left: 510px;
+    top: 35vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_4 {
     position: absolute;
-    left: 720px;
-    top: 200px;
+    left: 665px;
+    top: 20vh;
 }
 
 .posicion_4_cuernos {
-    left: 720px;
-    top: 200px;
+    left: 665px;
+    top: 20vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_5 {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 120px;
+    left: 870px;
+    bottom: 380px;
+    top: 10vh;
 }
 
 .posicion_5_last {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 120px;
+    left: 960px;
+    bottom: 380px;
+    top: 10vh;
     z-index: 3;
 }
 
 .img_portal_6 {
     position: absolute;
     left: 1080px;
-    top: 200px;
+    top: 20vh;
 }
 
 .posicion_6_pezuñas {
     left: 1080px;
-    top: 200px;
+    top: 20vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_7 {
     position: absolute;
-    left: 1180px;
-    top: 300px;
+    left: 1245px;
+    top: 35vh;
 }
 
 .posicion_7_pezuñas {
-    left: 1180px;
-    top: 300px;
+    left: 1245px;
+    top: 35vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_8 {
     position: absolute;
-    left: 1280px;
-    top: 400px;
+    left: 1410px;
+    top: 50vh;
 }
 
 .posicion_8_pezuñas {
-    left: 1280px;
-    top: 400px;
+    left: 1410px;
+    top: 50vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .img_portal_9 {
     position: absolute;
-    left: 1380px;
-    top: 500px;
+    left: 1575px;
+    top: 65vh;
 }
 
 .posicion_9_pezuñas {
-    left: 1380px;
-    top: 500px;
+    left: 1575px;
+    top: 65vh;
     z-index: 3;
     transform: translateX(0);
 }
 
 .start_cuernos {
-    left: 420px;
-    top: 500px;
+    left: 205px;
+    top: 65vh;
     z-index: 3;
     transform: translateX(0);
 }
@@ -549,8 +549,8 @@ body {
 }
 
 .start_pezuñas {
-    left: 1400px;
-    top: 500px;
+    left: 1575px;
+    top: 65vh;
     z-index: 3;
     transform: translateX(0);
 }
@@ -581,7 +581,7 @@ body {
     position: absolute;
     z-index: 20;
     bottom: 20px;
-    left: 350px;
+    left: 250px;
 }
 
 .btn-reset-all a,
@@ -644,8 +644,8 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 50vh;
-    left: 300px;
+    top: 45vh;
+    left: 240px;
     width: 80px;
     transform: rotate(-12deg);
 }
@@ -661,8 +661,8 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 50vh;
-    right: 300px;
+    top: 45vh;
+    right: 240px;
     width: 80px;
     transform: rotate(12deg);
 }
@@ -856,7 +856,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 150px;
 }
 
 .reglas_modal_imagen>img {
@@ -1102,111 +1102,122 @@ body {
     display: none;
 }
 
+.division_modal_portales {
+    width: 95%;
+    height: 1px;
+    background-color: gray;
+    position: absolute;
+    top: 70px;
+}
+
 @media(max-width: 1366px) {
+
+    .board img {
+        width: 100px;
+    }
 
     .img_portal_1 {
         position: absolute;
         left: 90px;
-        top: 350px;
+        top: 65vh;
     }
 
     .start_cuernos {
         position: absolute;
         left: 90px;
-        top: 350px;
+        top: 65vh;
         z-index: 3;
     }
 
     .img_portal_2 {
         position: absolute;
         left: 220px;
-        top: 270px;
+        top: 50vh;
     }
 
     .posicion_2_cuernos {
         position: absolute;
         left: 220px;
-        top: 270px;
+        top: 50vh;
     }
 
     .img_portal_3 {
         position: absolute;
         left: 350px;
-        top: 190px;
+        top: 35vh;
     }
 
     .posicion_3_cuernos {
         position: absolute;
         left: 350px;
-        top: 190px;
+        top: 35vh;
         z-index: 3;
     }
 
     .img_portal_4 {
         position: absolute;
         left: 490px;
-        top: 110px;
+        top: 20vh;
     }
 
     .posicion_4_cuernos {
         position: absolute;
         left: 490px;
-        top: 110px;
+        top: 20vh;
         z-index: 3;
     }
 
     .img_portal_5 {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 640px;
         bottom: 380px;
-        top: 10px;
+        top: 10vh;
     }
 
     .posicion_5_last {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 35px;
+        left: 690px;
+        bottom: 380px;
+        top: 10vh;
         z-index: 3;
     }
 
     .img_portal_6 {
         position: absolute;
         left: 780px;
-        top: 110px;
+        top: 20vh;
     }
 
     .posicion_6_pezuñas {
         position: absolute;
         left: 780px;
-        top: 110px;
+        top: 20vh;
         z-index: 3;
     }
 
     .img_portal_7 {
         position: absolute;
         left: 910px;
-        top: 200px;
+        top: 35vh;
     }
 
     .posicion_7_pezuñas {
         position: absolute;
         left: 910px;
-        top: 200px;
+        top: 35vh;
         z-index: 3;
     }
 
     .img_portal_8 {
         position: absolute;
         left: 1040px;
-        top: 270px;
+        top: 50vh;
     }
 
     .posicion_8_pezuñas {
         position: absolute;
         left: 1040px;
-        top: 270px;
+        top: 50vh;
         z-index: 3;
     }
 
@@ -1214,20 +1225,20 @@ body {
     .img_portal_9 {
         position: absolute;
         left: 1180px;
-        top: 350px;
+        top: 65vh;
     }
 
     .posicion_9_pezuñas {
         position: absolute;
         left: 1180px;
-        top: 350px;
+        top: 65vh;
         z-index: 3;
     }
 
 
     .start_pezuñas {
         left: 1180px;
-        top: 350px;
+        top: 65vh;
         z-index: 3;
     }
 
@@ -1296,7 +1307,7 @@ body {
     }
 
     .reglas_modal_imagen {
-        padding-top: 250px;
+        padding-top: 320px;
     }
 
     .content_logo_portales {
@@ -1317,4 +1328,255 @@ body {
     .content_logo_portales>h2 {
         font-size: .8rem;
     }
+}
+
+@media (max-width:1280px) {
+
+    .img_portal_1 {
+        position: absolute;
+        left: 130px;
+    }
+
+    .start_cuernos {
+        position: absolute;
+        left: 130px;
+        z-index: 3;
+    }
+
+    .img_portal_2 {
+        position: absolute;
+        left: 245px;
+    }
+
+    .posicion_2_cuernos {
+        position: absolute;
+        left: 245px;
+    }
+
+    .img_portal_3 {
+        position: absolute;
+        left: 350px;
+    }
+
+    .posicion_3_cuernos {
+        position: absolute;
+        left: 350px;
+        z-index: 3;
+    }
+
+    .img_portal_4 {
+        position: absolute;
+        left: 450px;
+    }
+
+    .posicion_4_cuernos {
+        position: absolute;
+        left: 450px;
+        z-index: 3;
+    }
+
+    .img_portal_5 {
+        position: absolute;
+        left: 590px;
+        bottom: 380px;
+    }
+
+    .posicion_5_last {
+        position: absolute;
+        left: 640px;
+        bottom: 380px;
+    }
+
+    .img_portal_6 {
+        position: absolute;
+        left: 730px;
+    }
+
+    .posicion_6_pezuñas {
+        position: absolute;
+        left: 730px;
+        z-index: 3;
+    }
+
+    .img_portal_7 {
+        position: absolute;
+        left: 850px;
+    }
+
+    .posicion_7_pezuñas {
+        position: absolute;
+        left: 850px;
+        z-index: 3;
+    }
+
+    .img_portal_8 {
+        position: absolute;
+        left: 960px;
+    }
+
+    .posicion_8_pezuñas {
+        position: absolute;
+        left: 960px;
+        z-index: 3;
+    }
+
+
+    .img_portal_9 {
+        position: absolute;
+        left: 1080px;
+    }
+
+    .posicion_9_pezuñas {
+        position: absolute;
+        left: 1080px;
+        z-index: 3;
+    }
+
+
+    .start_pezuñas {
+        left: 1080px;
+        z-index: 3;
+    }
+
+
+    .reglas_modal_imagen {
+        padding-top: 330px;
+    }
+
+}
+
+@media(max-width: 768px) {
+
+    .board img {
+        width: 40px;
+    }
+
+    .img_portal_1 {
+        position: absolute;
+        left: 13px;
+    }
+
+    .start_cuernos {
+        position: absolute;
+        left: 13px;
+        z-index: 3;
+    }
+
+    .img_portal_2 {
+        position: absolute;
+        left: 13px;
+    }
+
+    .posicion_2_cuernos {
+        position: absolute;
+        left: 13px;
+    }
+
+    .img_portal_3 {
+        position: absolute;
+        left: 13px;
+    }
+
+    .posicion_3_cuernos {
+        position: absolute;
+        left: 13px;
+        z-index: 3;
+    }
+
+    .img_portal_4 {
+        position: absolute;
+        left: 13px;
+    }
+
+    .posicion_4_cuernos {
+        position: absolute;
+        left: 13px;
+        z-index: 3;
+    }
+
+    .img_portal_5 {
+        position: absolute;
+        left: 190px;
+        bottom: 380px;
+    }
+
+    .posicion_5_last {
+        position: absolute;
+        left: 250px;
+        bottom: 380px;
+    }
+
+    .img_portal_6 {
+        position: absolute;
+        left: 330px;
+    }
+
+    .posicion_6_pezuñas {
+        position: absolute;
+        left: 330px;
+        z-index: 3;
+    }
+
+    .img_portal_7 {
+        position: absolute;
+        left: 330px;
+    }
+
+    .posicion_7_pezuñas {
+        position: absolute;
+        left: 330px;
+        z-index: 3;
+    }
+
+    .img_portal_8 {
+        position: absolute;
+        left: 330px;
+    }
+
+    .posicion_8_pezuñas {
+        position: absolute;
+        left: 330px;
+        z-index: 3;
+    }
+
+
+    .img_portal_9 {
+        position: absolute;
+        left: 330px;
+    }
+
+    .posicion_9_pezuñas {
+        position: absolute;
+        left: 330px;
+        z-index: 3;
+    }
+
+
+    .start_pezuñas {
+        left: 330px;
+        z-index: 3;
+    }
+
+    .btn-reset-all {
+        left: 330px;
+    }
+
+    .btn-reset-all button {
+        font-size: 0.4rem;
+
+    }
+
+    .btn_reset_all_view_movil {
+        margin-bottom: 20px;
+    }
+
+    .swal_premio_portal>img {
+        left: 65px;
+    }
+
+    .division_modal_portales {
+        top: 90px;
+    }
+    
+
 }

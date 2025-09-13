@@ -277,7 +277,7 @@ function alertaWinLose(premio, matchTotal, contTiro) {
       }
     },
   });
-document.getElementById("result_premio_screen").innerHTML = `
+  document.getElementById("result_premio_screen").innerHTML = `
 <div>
       <p style="font-size: 1.5rem">
         Obtuviste un premio de <b style="font-size: 2rem">${premio} en Dinero Promocional</b>, 
@@ -442,7 +442,9 @@ document.getElementById("allreset")?.addEventListener("click", () => {
     matchTotal = 0;
     state.matchedPairs.clear();
 
-    const result_premio_screen = document.getElementById("result_premio_screen");
+    const result_premio_screen = document.getElementById(
+      "result_premio_screen"
+    );
     result_premio_screen.innerHTML = "";
 
     const board = document.getElementById("content_column");
@@ -813,72 +815,99 @@ function resetGame() {
 // (Pega aquí tus funciones existentes de tabla y observaciones tal cual)
 
 async function handleSuplementarioSend() {
-  const categoriaVal = $("categoria_sup")?.value || "";
-  const baseRequired = [
-    ["casino_sup", "Casino"],
-    ["categoria_sup", "Categoría"],
-    ["cedula_sup", "Cédula"],
-    ["nombre_sup", "Nombre"],
-    ["hora_sup", "Hora"],
-    ["fecha_sup", "Fecha"],
-  ];
-  const required =
-    categoriaVal === ADICIONAL
-      ? baseRequired
-      : [...baseRequired, ["bono_sup", "Bono"]];
+  const casino_sup = document.getElementById("casino_sup");
+  const categoria_sup = document.getElementById("categoria_sup");
+  const cedula_sup = document.getElementById("cedula_sup");
+  const nombre_sup = document.getElementById("nombre_sup");
+  const hora_sup = document.getElementById("hora_sup");
+  const match_sup = document.getElementById("match_sup");
+  const bono_sup = document.getElementById("bono_sup");
+  const fecha_sup = document.getElementById("fecha_sup");
+  const loader = document.getElementById("loader");
+  const casino_sup_val = casino_sup.value;
+  const categoria_sup_val = categoria_sup.value;
+  const cedula_sup_val = cedula_sup.value;
+  const nombre_sup_val = nombre_sup.value;
+  const hora_sup_val = hora_sup.value;
+  const match_sup_val = match_sup.value;
+  const bono_sup_val = bono_sup.value;
+  const fecha_sup_val = fecha_sup.value;
 
-  if (!validateRequired(required)) return;
-
-  const data = buildPayloadSuplementario();
-
-  showLoader(true);
-  try {
-    // (Opcional) también guardarlo local si quieres que aparezca en la tabla:
-    saveRegistroLocal(data);
-    mostrarRegistros?.();
-
-    await sendToBackend(data);
-
-    clearValues([
-      "casino_sup",
-      "categoria_sup",
-      "cedula_sup",
-      "nombre_sup",
-      "bono_sup",
-      "hora_sup",
-      "fecha_sup",
-      "match_sup",
-    ]);
-
-    Swal.fire({
-      icon: "success",
-      title: "Éxito",
-      text: "El envío de la información fue exitoso.",
-      allowOutsideClick: false,
-      confirmButtonColor: "#dc3545",
-      customClass: {
-        popup: "mi-popup",
-        title: "mi-titulo",
-        confirmButton: "btn btn-danger",
-      },
-    });
-  } catch (err) {
-    console.warn(err);
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Ocurrió un problema al enviar la información.",
-      allowOutsideClick: false,
-      confirmButtonColor: "#dc3545",
-      customClass: {
-        popup: "mi-popup",
-        title: "mi-titulo",
-        confirmButton: "btn btn-danger",
-      },
-    });
-  } finally {
-    showLoader(false);
+  if (casino_sup_val == "ADICIONAL") {
+    if (
+      casino_sup_val == "" ||
+      categoria_sup_val == "" ||
+      cedula_sup_val == "" ||
+      nombre_sup_val == "" ||
+      hora_sup_val == "" ||
+      fecha_sup_val == ""
+    ) {
+      Swal.fire({
+        icon: "warning",
+        title: "Antes de continuar.",
+        html: "Debes completar la información antes de enviar",
+      });
+      return;
+    }
+  } else {
+    if (
+      casino_sup_val == "" ||
+      categoria_sup_val == "" ||
+      cedula_sup_val == "" ||
+      nombre_sup_val == "" ||
+      hora_sup_val == "" ||
+      match_sup_val == "" ||
+      bono_sup_val == "" ||
+      fecha_sup_val == ""
+    ) {
+      Swal.fire({
+        icon: "warning",
+        title: "Antes de continuar.",
+        html: "Debes completar la información antes de enviar",
+      });
+      return;
+    }
   }
+
+  const data = {
+    tipo: "dinamica",
+    hora: hora_sup_val,
+    fecha: fecha_sup_val,
+    nombre: nombre_sup_val,
+    cedula: cedula_sup_val,
+    casino: casino_sup_val,
+    categoria: categoria_sup_val,
+    resultado: categoria_sup_val == "ADICIONAL" ? "0" : match_sup_val,
+    valBono: categoria_sup_val == "ADICIONAL" ? "0" : bono_sup_val,
+    promocion: promocion,
+  };
+  loader.style.display = "flex";
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.text())
+    .then(() => {
+      casino_sup.value = "";
+      categoria_sup.value = "";
+      cedula_sup.value = "";
+      nombre_sup.value = "";
+      hora_sup.value = "";
+      match_sup.value = "";
+      bono_sup.value = "";
+      fecha_sup.value = "";
+      Swal.fire({
+        icon: "success",
+        title: "Envio exitoso",
+        html: "La información se envio conrrectamente.",
+      });
+      loader.style.display = "none";
+    })
+    .catch((error) => {
+      console.log(error);
+      loader.style.display = "none";
+    });
 }
 
 function mostrarRegistros() {
@@ -1343,7 +1372,7 @@ function handleCleanEnvioSup() {
   fecha_sup.value = "";
 }
 
-function handleCleanEnvioObs () {
+function handleCleanEnvioObs() {
   const casino_obs = document.getElementById("casino_obs");
   const desc_obs_modal = document.getElementById("desc_obs_modal");
 

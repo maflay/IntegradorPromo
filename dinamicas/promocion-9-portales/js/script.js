@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function modalRules() {
     document.getElementById("modal_rules").style.display = "flex";
   }
-
+document.getElementById("combinacion_6").classList.toggle("display_none");
   cerrar_combinaciones.addEventListener("click", () => {
     document.getElementById("combinacion_6").classList.toggle("display_none");
   });
