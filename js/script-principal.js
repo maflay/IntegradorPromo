@@ -131,3 +131,7 @@ window.addEventListener("DOMContentLoaded", () => {
     getAllMensajes();
   });
 });
+
+function AlertaDesarrollo() {
+  alert("En desarrollo");
+}

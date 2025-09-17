@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function modalRules() {
     document.getElementById("modal_rules").style.display = "flex";
   }
-document.getElementById("combinacion_6").classList.toggle("display_none");
+  document.getElementById("combinacion_6").classList.toggle("display_none");
   cerrar_combinaciones.addEventListener("click", () => {
     document.getElementById("combinacion_6").classList.toggle("display_none");
   });
@@ -1284,7 +1284,6 @@ document.getElementById("combinacion_6").classList.toggle("display_none");
     reiniciar_btn_actions.style.cursor = "default";
     reiniciar_btn_actions.style.opacity = "0.7";
 
-    categoria_val.value = "";
     (categoria.style.opacity = "1"), (categoria.style.pointerEvents = "auto");
     content_conteo_lanzamiento.style.display = "none";
     conteo_lanzamientos.textContent = "0";
@@ -1293,8 +1292,6 @@ document.getElementById("combinacion_6").classList.toggle("display_none");
 
     content_control_actions.style.display = "none";
     content_control_btn.style.display = "flex";
-    content_control_btn.style.pointerEvents = "none";
-    content_control_btn.style.opacity = "0.7";
 
     antorcha_ficha.classList.remove(
       "type_pezuñas",

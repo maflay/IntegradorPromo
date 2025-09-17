@@ -44,7 +44,7 @@ body {
 
 
 .content_halloween_misterioso {
-    background-image: url(/dinamicas/promocion-halloween-misterioso/resources/FONDO-TV-ALADDIN-HALLOWEEN-MISTERIOSO.png);
+    background-image: linear-gradient(180deg, #321CA9, #321CA9), url(/dinamicas/promocion-halloween-misterioso-mp/resources/TV-MARCOPOLO-HALLOWEEN-MISTERIOSO.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,7 +76,7 @@ body {
     align-items: center;
     width: 100%;
     height: 350px;
-    background-color: rgba(212, 32, 1, 0.575);
+    background-color: #1f253ab6;
     padding: 10px;
     border-radius: 20px;
     border: #ccc 2px solid;
@@ -125,7 +125,7 @@ body {
 }
 
 .fondo_board_1 {
-    background-color: #b61d2077;
+    background-color: #311ca970;
     position: absolute;
     width: 485px;
     height: 200px;
@@ -141,7 +141,6 @@ body {
     top: 492px;
     left: 344px;
     opacity: 0;
-    /*Vista 1366*/
 }
 
 .img_esqueleto_all>img {
@@ -174,7 +173,6 @@ body {
     top: 495px;
     left: 496px;
     opacity: 0;
-    /*Vista 1366*/
 }
 
 .img_momia_all>img {
@@ -208,7 +206,6 @@ body {
     top: 492px;
     left: 646px;
     opacity: 0;
-    /*Vista 1366*/
 }
 
 .img_calabaza_all>img {
@@ -708,7 +705,6 @@ body {
         top: 284px;
         left: 260px;
         opacity: 0;
-        /*Vista 1366*/
     }
 
     .img_esqueleto_all>img {
@@ -740,7 +736,6 @@ body {
         top: 284px;
         left: 360px;
         opacity: 0;
-        /*Vista 1366*/
     }
 
     .img_momia_all>img {
@@ -773,7 +768,6 @@ body {
         top: 284px;
         left: 460px;
         opacity: 0;
-        /*Vista 1366*/
     }
 
     .img_calabaza_all>img {
@@ -834,7 +828,7 @@ body {
     }
 
     .fondo_board_1 {
-        background-color: #b61d2077;
+        background-color: #311ca970;
         position: absolute;
         width: 285px;
         height: 140px;
@@ -842,5 +836,4 @@ body {
         display: none;
         border-radius: 40px;
     }
-
 }

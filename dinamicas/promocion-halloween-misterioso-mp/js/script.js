@@ -384,6 +384,13 @@ window.addEventListener("DOMContentLoaded", () => {
       lanz += 1;
       let valor = parseInt(ficha_img_esqueleto_3.dataset.valor);
       TotalPremio += valor;
+      let totalpremio_fichas = TotalPremio.toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_esqueleto.innerHTML = ScoreEsquelto;
@@ -665,7 +672,6 @@ window.addEventListener("DOMContentLoaded", () => {
         maximumFractionDigits: 0,
       });
       premio_acumulado.innerHTML = totalpremio_fichas;
-      console.log(TotalPremio, "total");
       conteo_turno.innerHTML = lanz;
       score_momia.innerHTML = ScoreMomia;
     }
@@ -837,13 +843,6 @@ window.addEventListener("DOMContentLoaded", () => {
       lanz += 1;
       let valor = parseInt(ficha_img_calabaza_3.dataset.valor);
       TotalPremio += valor;
-      let totalpremio_fichas = TotalPremio.toLocaleString("es-CO", {
-        style: "currency",
-        currency: "COP",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      });
-      premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_calabaza.innerHTML = ScoreCalabaza;
@@ -954,8 +953,8 @@ window.addEventListener("DOMContentLoaded", () => {
       img_momia_2.classList.add("ficha_disable");
       img_momia_3.classList.add("ficha_disable");
 
-      label_acumulado.style.display = "none";
       fondo_board_1.style.display = "flex";
+      label_acumulado.style.display = "none";
 
       let premioFormarte = premio.toLocaleString("es-CO", {
         style: "currency",
