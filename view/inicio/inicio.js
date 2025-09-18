@@ -28,7 +28,6 @@ const url =
 const btn_recargarcomentario = document.getElementById("recargarcomentario");
 
 img_send_obs.addEventListener("click", () => {
-
   const valor_mensaje = desc_obser_integrador.value;
   const valor_rol = rol_desc_obser.value;
 

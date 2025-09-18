@@ -256,9 +256,6 @@ function handleObservacionSubmit() {
   loader.style.display = "flex";
   const [fecha, hora] = fechaCompleta.split(", ");
 
-  console.log(casino.value);
-  console.log(observacion.value);
-
   const data = {
     tipo: "observacion",
     hora: hora,

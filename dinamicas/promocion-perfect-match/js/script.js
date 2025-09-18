@@ -304,7 +304,6 @@ function setPairFound(pairNumber) {
   const par = document.getElementById(`pareja_${pairNumber}`);
   par?.classList.add("pareja_encontrada");
   state.matchedPairs.add(String(pairNumber));
-  console.log("setPairFound");
 }
 
 // Mueve al contenedor de ganadores
@@ -324,7 +323,6 @@ function movePairToWinners(pair) {
 
   winners.appendChild(leftEl);
   winners.appendChild(rightEl);
-  console.log("movePairToWinners");
 }
 
 /* =========================================================
@@ -1326,8 +1324,6 @@ function applySlotClass(el, idx) {
   el.classList.add("slot_base"); // <-- clave
   // el.classList.remove("slot_pos_1", "slot_pos_2", "slot_pos_3", "slot_pos_4");
   el.classList.add(`slot_pos_${idx + 1}`);
-  console.log(el.id, "el");
-  console.log(idx, "idx");
 }
 function clearSlotClasses(el) {
   if (!el) return;

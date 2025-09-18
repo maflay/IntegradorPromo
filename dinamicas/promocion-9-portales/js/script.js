@@ -147,7 +147,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   btn_reiniciar_btn_actions_all.addEventListener("click", () => {
-    console.log("entro al boton de reiniciar");
     Swal.fire({
       icon: "none",
       title: "Seguro?",
@@ -544,7 +543,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Tomar categoría desde el select
     const categoria = document.getElementById("categoria").value;
-    console.log(portal, "portal");
     if (!portal) {
       console.log("No se pudo determinar portal.");
       return;
@@ -759,8 +757,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const posClass = getCurrentPosClass(antorcha_ficha); // como vimos antes
     const portal = posClass ? CLASS_TO_PORTAL[posClass] : null;
-
-    console.log(portal, "portal");
 
     let data = {};
 
@@ -1001,7 +997,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     content_registro_dia._clickHandler = async (e) => {
-      console.log("entro al click");
       const btn = e.target.closest(".table_btn_enviar_bono");
       if (!btn) return;
 
@@ -1056,8 +1051,6 @@ window.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Enviando…";
       if (loader?.style) loader.style.display = "flex";
 
-      console.log(data, "data");
-
       try {
         await fetch(url, {
           method: "POST",
@@ -1077,8 +1070,6 @@ window.addEventListener("DOMContentLoaded", () => {
           valBonoregistr
         );
 
-        console.log(ok, " al ok");
-
         if (tr) {
           const tdBono = tr.querySelector("td:nth-child(6)");
           const tdAcc = tr.querySelector("td:nth-child(7)");
@@ -1087,7 +1078,6 @@ window.addEventListener("DOMContentLoaded", () => {
             tdAcc.innerHTML = `<small class="table_ya_tiene_bono">Ya contiene Bono.</small>`;
         }
 
-        console.log(data, "data");
         Swal.fire({
           icon: ok ? "success" : "info",
           title: ok ? "Bono asignado" : "Registro no encontrado",
@@ -1208,8 +1198,6 @@ window.addEventListener("DOMContentLoaded", () => {
       valor_3: casino_observacion_val,
       valor_4: descripcion_observacion_val,
     };
-
-    console.log(data);
 
     loader.style.display = "flex";
     fetch(url, {
@@ -1414,8 +1402,6 @@ window.addEventListener("DOMContentLoaded", () => {
       valor_9: promocion,
     };
 
-    console.log(data, "data secundario");
-
     loader.style.display = "flex";
     fetch(url, {
       method: "POST",
@@ -1536,10 +1522,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const posClass = getCurrentPosClass(antorcha_ficha);
     const portal = posClass ? CLASS_TO_PORTAL[posClass] : null;
 
-    console.log(portal, "porta de la modal");
     result_modal.textContent =
       portal == null ? "Sin resultado" : "Resultado: " + "Portal " + portal;
-    console.log(conteo_lanzamientos.textContent, "texto");
     Result_conteo.textContent =
       conteo_lanzamientos.textContent == 4
         ? `,Lanz... ${conteo_lanzamientos.textContent}`

@@ -416,8 +416,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".board .img-content-text img").forEach((img) => {
     const value = Number(img.dataset.score || 0);
     img.addEventListener("click", () => {
-      console.log(value, "value");
-      console.log(img.id, "id");
 
       let imgVal = img.id;
       let valor = document.getElementById(`${imgVal}`);
@@ -447,10 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       // else {
       //   img.classList.toggle("select_none");
-      //   console.log("entro");
       // }
-
-      console.log(img.dataset.score, "img");
 
       img.addEventListener(
         "animationend",

@@ -208,8 +208,8 @@ window.addEventListener("DOMContentLoaded", () => {
   let Max_TUR = 3;
 
   let ScoreEsquelto = 6;
-  let ScoreMomia = 6;
-  let ScoreCalabaza = 6;
+  let ScoreMomia = 3;
+  let ScoreCalabaza = 3;
 
   let TotalPremio = 0;
 
@@ -665,7 +665,6 @@ window.addEventListener("DOMContentLoaded", () => {
         maximumFractionDigits: 0,
       });
       premio_acumulado.innerHTML = totalpremio_fichas;
-      console.log(TotalPremio, "total");
       conteo_turno.innerHTML = lanz;
       score_momia.innerHTML = ScoreMomia;
     }
@@ -1829,8 +1828,8 @@ window.addEventListener("DOMContentLoaded", () => {
     Max_TUR = 3;
 
     ScoreEsquelto = 6;
-    ScoreMomia = 6;
-    ScoreCalabaza = 6;
+    ScoreMomia = 3;
+    ScoreCalabaza = 3;
 
     TotalPremio = 0;
 

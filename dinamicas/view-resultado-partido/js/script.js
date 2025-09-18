@@ -5,7 +5,6 @@ window.addEventListener("load", () => {
   loader.style.display = "none";
 });
 
-console.log("entro");
 const url_col_bol =
   "https://script.google.com/macros/s/AKfycbz8HEBzuGdiXDQlfjiwSHvCWAFart4ttIxrhEq0A9tRnAdRXX_udUwpRw2tJn7WaEFikw/exec";
 
@@ -26,8 +25,6 @@ function PostResult() {
     valor_2: valor_Visitante_val,
   };
 
-  console.log(data, "data");
-
   fetch(url_col_bol, {
     method: "POST",
     body: JSON.stringify(data),
@@ -45,7 +42,6 @@ function cleanScore() {
   const data = {
     mode: "clear",
   };
-  console.log("entro al clean");
   loader.style.display = "flex";
   fetch(url_col_bol, {
     method: "POST",
@@ -53,7 +49,6 @@ function cleanScore() {
   })
     .then((r) => r.json())
     .then((response) => {
-      console.log(response.mensaje);
       loader.style.display = "none";
       content_resultado.textContent = "Marcador Reiniciado...";
       getAllresult();
@@ -78,8 +73,6 @@ function PutResult() {
     valor_2: valor_visitante_val == "" ? "0" : valor_visitante_val,
   };
 
-  console.log(data);
-
   loader.style.display = "flex";
   fetch(url_col_bol, {
     method: "POST",
@@ -87,7 +80,6 @@ function PutResult() {
   })
     .then((r) => r.json())
     .then((response) => {
-      console.log(response.mensaje);
       content_resultado.textContent = "Marcador actualizado...";
       loader.style.display = "none";
       getAllresult();
@@ -105,13 +97,11 @@ function getAllresult() {
 
   viw1.innerHTML = `<span style="font-size: .8rem;">Cargando el Marcador...</span>`;
   viw2.textContent = "";
-  console.log("no funion");
   fetch(
     "https://script.google.com/macros/s/AKfycbz8HEBzuGdiXDQlfjiwSHvCWAFart4ttIxrhEq0A9tRnAdRXX_udUwpRw2tJn7WaEFikw/exec"
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data[0], "data");
       if (data[0] != undefined) {
         viw1.textContent = data[0].Resultado_local;
         viw2.textContent = data[0].Resultado_Visitante;
@@ -131,13 +121,11 @@ function getAllrestultVC() {
   fetch(url_ven_col)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data[0], "data");
       if (data[0] != undefined) {
         resultVen.textContent = data[0].Resultado_local;
         resultCol.textContent = data[0].Resultado_Visitante;
       } else {
-  resultVen.innerHTML = `<span style="font-size: .8rem;">No hay marcador registrado...</span>`;
-
+        resultVen.innerHTML = `<span style="font-size: .8rem;">No hay marcador registrado...</span>`;
       }
     });
 }
@@ -160,8 +148,6 @@ function PutResultVC() {
     valor_2: valor_colombia_val,
   };
 
-  console.log(data);
-
   loader.style.display = "flex";
 
   fetch(url_ven_col, {
@@ -171,9 +157,8 @@ function PutResultVC() {
   })
     .then((res) => res.text())
     .then((response) => {
-      console.log(response.mensaje);
       encuentro_ven_col.textContent = "Marcador Actualizado";
-      getAllrestultVC()
+      getAllrestultVC();
       loader.style.display = "none";
       valor_ven.value = "";
       valor_colombia.value = "";
@@ -192,7 +177,6 @@ function cleanScoreVC() {
     mode: "clear",
   };
 
-  console.log("entro a la funcion clean");
   loader.style.display = "flex";
   fetch(url_ven_col, {
     method: "POST",
@@ -200,10 +184,9 @@ function cleanScoreVC() {
   })
     .then((res) => res.text())
     .then((response) => {
-      console.log(response.mensaje);
       loader.style.display = "none";
       content_view.textContent = "Mensaje Reiniciado...";
-      getAllrestultVC()
+      getAllrestultVC();
       setTimeout(() => {
         content_view.textContent = "";
       }, 3000);

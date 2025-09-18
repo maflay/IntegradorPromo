@@ -110,8 +110,6 @@ function handleSaveMarcador() {
     resultado_equipo_1_val,
     resultado_equipo_2_val,
   };
-
-  console.log(data, "data");
 }
 
 function abrirSaveParticipante() {
@@ -259,8 +257,6 @@ function getCasino() {
 
   loader.style.display = "flex";
   getResultadoPartido().then((resultadoPartido) => {
-    console.log(resultadoPartido, "resultado");
-
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -373,7 +369,6 @@ function getAllPaticipantes() {
     </div>`;
 
   getResultadoPartido().then((resultadoPartido) => {
-    console.log("Resultado recibido:", resultadoPartido);
     resultado_partido_final.innerHTML = `${
       resultadoPartido == ""
         ? " <p>Sin Resultado...</p>"
@@ -510,7 +505,6 @@ function GetParticipante() {
 
   loader.style.display = "flex";
   getResultadoPartido().then((resultadoPartido) => {
-    console.log("Resultado recibido:", resultadoPartido);
     fetch(`${url}?cedula=${cedula_par_val}`)
       .then((res) => res.json())
       .then((data) => {
@@ -557,7 +551,6 @@ function refrescarScore() {
       <p>Cargando Resultado del Partido...</p>
     </div>`;
   getResultadoPartido().then((resultadoPartido) => {
-    console.log(resultadoPartido, "resultado");
     if (resultadoPartido == "") {
       console.log("entro a resultado en blanco");
     } else {
@@ -574,14 +567,12 @@ function refrescarScore() {
 function tableAllParticipantes() {
   const contenedor = document.getElementById("content_result_participante_all");
   const miniloader = document.getElementById("mini-spinner");
-  console.log("entro a tableAllParticipantes");
   contenedor.innerHTML = ``;
 
   miniloader.style.display = "flex";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (!Array.isArray(data) || data.length === 0) {
         contenedor.innerHTML = `<p>No hay datos disponibles.</p>`;
         miniloader.style.display = "none";
@@ -685,8 +676,6 @@ function HandleObservacion() {
     valor_14: "",
     valor_15: "",
   };
-
-  console.log(data, "data");
 
   loader.style.display = "flex";
   fetch(url, {

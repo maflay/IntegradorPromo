@@ -721,7 +721,6 @@ function HandleSecondSubmit() {
   const loader = document.getElementById("loader");
 
   if (categoriaModal.value == "ADICIONAL") {
-    console.log("entro al console");
     if (
       casinoModal.value == "" ||
       categoriaModal.value == "" ||

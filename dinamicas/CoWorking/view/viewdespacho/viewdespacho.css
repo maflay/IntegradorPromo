@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins Ligth', sans-serif !important;
+}
+
+body {
+    overflow-x: hidden;
+    font-size: 62.5% !important;
+}
+
+.loader-overlay-despacho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-despacho {
+    border: 6px solid #ccc;
+    border-top: 6px solid rgb(105, 105, 219);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.content_ini_despacho_coworking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg, #6C6764, #6c67647a, #6c67647a, #6C6764), url(/dinamicas/CoWorking/resources/fondo_coworking.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content_pedidos {
+    width: 800px;
+    height: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background-color: rgba(255, 255, 255, 0.39);
+    border-radius: 20px;
+    padding: 20px 0;
+    color: white;
+}
+
+.content_pedidos>h2 {
+    text-align: center;
+}
+
+.grid-pedidos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card-pedido-despacho {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.card-pedido-despacho img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* asegura buen recorte */
+    display: block;
+    background: #f3f4f6;
+}
+
+.card-body-despacho {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    height: 120px;
+    gap: 8px;
+    position: relative;
+}
+
+.card-title-despacho-nombre {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111827;
+    margin: 0;
+}
+
+.card-meta-despacho-fecha {
+    font-size: .85rem;
+    color: #374151;
+    line-height: 1.35;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+}
+
+.card-meta-despacho-hora {
+    font-size: .85rem;
+    color: #374151;
+    line-height: 1.35;
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+}
+
+.card-meta-despacho-pedido {
+    font-size: .85rem;
+    color: #374151;
+    line-height: 1.35;
+    position: absolute;
+    width: 300px;
+    bottom: 10px;
+}
+
+.badge-despacho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: .75rem;
+    border-radius: 999px;
+    color: #eef2ff;
+    background: #111827;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+}
+
+
+@media(max-width: 768px) {
+    .content_ini_despacho_coworking {
+        background-image: linear-gradient(180deg, #6C6764, #6c67647a, #6c67647a, #6C6764), url(/dinamicas/CoWorking/resources/fondo_coworking_mobil.jpg);
+    }
+
+}

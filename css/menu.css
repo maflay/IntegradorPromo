@@ -1,0 +1,279 @@
+:root {
+    --bg: #0f162d;
+    /* fondo app */
+    --panel: #1F253A;
+    /* panel/side */
+    --panel-2: #27314F;
+    /* hover */
+    --accent: #6622F8;
+    /* acento */
+    --text: #E8ECF8;
+    /* texto */
+    --muted: #9AA4C6;
+    /* texto suave */
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius: 18px;
+    --sidebar-w: 280px;
+    /* ancho desktop */
+    --header-h: 56px;
+    /* alto header móvil */
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, Helvetica, Arial, "Noto Sans";
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex
+}
+
+/* Header móvil */
+.app-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--header-h);
+    background: linear-gradient(180deg, rgba(31, 37, 58, .95), rgba(31, 37, 58, .8));
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 12px;
+    z-index: 80;
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700
+}
+
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), #2C16B0);
+    background-image: url(/resource/ala_blanco.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 8px;
+    line-height: 0;
+    display: none;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, .06)
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: var(--sidebar-w);
+    background: linear-gradient(180deg, var(--panel), #151b2e 120%);
+    box-shadow: var(--shadow);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform .35s ease;
+    font-size: 16px;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar .brand {
+    padding: 6px 8px;
+}
+
+nav.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.nav-link:hover {
+    background: var(--panel-2);
+}
+
+.nav-link.active {
+    background: rgba(102, 34, 248, .16);
+    outline: 1px solid rgba(102, 34, 248, .45);
+}
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center
+}
+
+.nav-label {
+    flex: 1
+}
+
+.tag {
+    font-size: .72rem;
+    color: var(--muted)
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2C16B0, #6622F8);
+    background-image: url(/resource/ala_blanco.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Backdrop móvil */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 90;
+    transition: opacity .25s ease;
+}
+
+.backdrop.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+/* Main */
+.main {
+    flex: 1;
+    width: 100%;
+    padding: 24px;
+    padding-top: calc(var(--header-h) + 16px);
+}
+
+.view {
+    width: 100%;
+}
+
+.nav-img-icono {
+    width: 20px;
+}
+
+.title_footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+}
+
+@media(max-width: 1025px){
+
+    .icon-btn {
+        display: flex;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .app {
+        padding-left: var(--sidebar-w)
+    }
+
+    .app-header {
+        display: none
+    }
+
+    .sidebar {
+        transform: none
+    }
+
+    .main {
+        padding: 32px
+    }
+}
+
+@media(max-width:768px) {
+    .title_footer {
+        transform: translateX(-25%);
+        width: 100%;
+    }
+    
+    .content_btn_a {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .icon-btn {
+        display: flex;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .backdrop {
+        transition: none
+    }
+}

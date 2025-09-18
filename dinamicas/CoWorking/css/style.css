@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins Ligth', sans-serif !important;
+}
+
+body {
+    overflow-x: hidden;
+    font-size: 62.5% !important;
+}
+
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 6px solid #ccc;
+    border-top: 6px solid rgb(105, 105, 219);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.content_ini_coworking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg, #6C6764, #6c67647a, #6c67647a, #6C6764), url(/dinamicas/CoWorking/resources/fondo_coworking.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+}
+
+.content_info_coworking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: #333333;
+    color: white;
+    border-radius: 20px;
+}
+
+.content_menu_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.datos_column_input {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.datos_column_input>input {
+    width: 400px;
+}
+
+.datos_column_input>textarea {
+    width: 400px;
+    height: 200px;
+}
+
+.title_indentidad {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    font-size: 0.6rem;
+}
+
+.btn_camara_form {
+    border: transparent;
+    background-color: transparent;
+    width: 40px;
+    top: 23px;
+    position: absolute;
+    right: -25px;
+}
+
+.btn_camara_form>img {
+    width: 80%;
+    transition: all 0.4s ease;
+}
+
+.btn_camara_form>img:hover {
+    opacity: 0.7;
+}
+
+.carta_menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    scrollbar-width: none;
+    overflow: auto;
+}
+
+.menu_card_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    width: 250px;
+    height: 182px;
+}
+
+.menu_card_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    width: 250px;
+    height: 182px;
+}
+
+.content_form_pedido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.content_form_pedido>h2 {
+    padding: 20px 0;
+}
+
+
+.input-group {
+    display: flex;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+}
+
+.input-group label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    color: #aaa;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -12px;
+    font-size: 10px;
+    color: #eeeeee;
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #eeeeee;
+}
+
+@media(max-width: 1366px) {
+    .menu_card_1 {
+        width: 140px;
+    }
+
+    .menu_card_2 {
+        width: 140px;
+    }
+
+    .content_menu_form {
+        align-items: start;
+    }
+
+    .content_info_coworking {
+        width: 70%;
+    }
+
+    .carta_menu {
+        justify-content: start;
+    }
+}
+
+@media(max-width: 768px) {
+    .content_ini_coworking {
+        background-image: linear-gradient(180deg, #6C6764, #6c67647a, #6c67647a, #6C6764), url(/dinamicas/CoWorking/resources/fondo_coworking_mobil.jpg);
+        padding: 0;
+        background-attachment: fixed;
+    }
+
+    .datos_column_input>input {
+        width: 300px;
+    }
+
+    .datos_column_input>textarea {
+        width: 300px;
+        height: 200px;
+    }
+
+    .input_camara_view {
+        width: 250px !important;
+        position: relative;
+        left: -25px;
+    }
+
+    .content_menu_form {
+        flex-direction: column;
+    }
+
+    .content_info_coworking {
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    .content_form_pedido>h2 {
+        padding-top: 50px;
+    }
+
+    .menu_card_1 {
+        width: 100%;
+    }
+
+    .menu_card_2 {
+        width: 100%;
+    }
+}
