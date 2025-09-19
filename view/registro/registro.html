@@ -20,15 +20,15 @@
       <label class="field">
         <span>Contraseña</span>
         <div class="pwd">
-          <input id="reg-pass" type="password" required placeholder="mínimo 6 caracteres" minlength="6"/>
+          <input id="reg-pass" type="password" required minlength="6" placeholder="mínimo 6 caracteres" />
           <button type="button" class="toggle-pwd" aria-label="Mostrar u ocultar contraseña" aria-pressed="false">👁</button>
         </div>
       </label>
 
-      <!-- opcional si usas invitación/clave -->
+      <!-- Solo si usas REGISTER_SECRET en el backend -->
       <label class="field">
         <span>Código de registro</span>
-        <input id="reg-key" type="text" placeholder="(opcional / según tu política)" />
+        <input id="reg-key" type="text" placeholder="(si tu admin te dio uno)" />
       </label>
 
       <button id="btn-reg" class="btn-primary" type="submit">
