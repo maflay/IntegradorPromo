@@ -1,0 +1,45 @@
+<section class="login-wrap">
+  <div class="login-card" role="dialog" aria-labelledby="reg-title">
+    <header class="login-header">
+      <img src="/resources/logo_2.png" alt="Integrador" class="login-logo" />
+      <h1 id="reg-title">Crear cuenta</h1>
+      <p class="login-sub">Completa tus datos para registrarte.</p>
+    </header>
+
+    <form id="form-registro" autocomplete="off" novalidate>
+      <label class="field">
+        <span>Usuario</span>
+        <input id="reg-usuario" type="text" required placeholder="tu.usuario" />
+      </label>
+
+      <label class="field">
+        <span>Nombre</span>
+        <input id="reg-nombre" type="text" placeholder="Tu nombre" />
+      </label>
+
+      <label class="field">
+        <span>Contraseña</span>
+        <div class="pwd">
+          <input id="reg-pass" type="password" required placeholder="mínimo 6 caracteres" minlength="6"/>
+          <button type="button" class="toggle-pwd" aria-label="Mostrar u ocultar contraseña" aria-pressed="false">👁</button>
+        </div>
+      </label>
+
+      <!-- opcional si usas invitación/clave -->
+      <label class="field">
+        <span>Código de registro</span>
+        <input id="reg-key" type="text" placeholder="(opcional / según tu política)" />
+      </label>
+
+      <button id="btn-reg" class="btn-primary" type="submit">
+        <span class="btn-text">Registrarme</span>
+        <span class="btn-loader" aria-hidden="true"></span>
+      </button>
+
+      <p id="reg-error" class="msg-error" role="alert" style="display:none"></p>
+      <p style="text-align:center;margin-top:12px">
+        ¿Ya tienes cuenta? <a href="#login">Inicia sesión</a>
+      </p>
+    </form>
+  </div>
+</section>

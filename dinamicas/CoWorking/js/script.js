@@ -13,6 +13,24 @@ window.addEventListener("DOMContentLoaded", () => {
   const descripcion_pedido = document.getElementById("descripcion_pedido");
   const btn_enviar_pedido = document.getElementById("btn_enviar_pedido");
 
+  // btnWhat
+  const btn_what_pedido = document.getElementById("btn_what_pedido");
+  btn_what_pedido.addEventListener("click", ()=> {
+    let telCliente = mesa_pedido.value;
+    if(telCliente == ""){
+      Swal.fire({
+        icon:"info",
+        title: "Antes de continuar",
+        html: "Digita un numero valido para poderte comunicar con nosotros."
+      });
+      return;
+    }
+    // console.log(`wa.me/57${telCliente}`);
+    window.open(`wa.me/57${telCliente}`, target ="_blank")
+  });
+
+  
+
   const WEBAPP_URL =
     "https://script.google.com/macros/s/AKfycbz6N5YHKvx7m2v6QIUv22cQt6rquoVAynhyvK4eczfIuXEo4-CVYomVqsnpExB_0jb98Q/exec"; // <-- cámbiala
 

@@ -226,6 +226,23 @@ nav.sidebar-nav {
     left: 50%;
 }
 
+/* Ocultar shell en login/registro */
+body.is-authless .app-header,
+body.is-authless #sidebar,
+body.is-authless #backdrop,
+body.is-authless .title_footer { display: none !important; }
+
+body.is-authless #main {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+
 @media(max-width: 1025px){
 
     .icon-btn {
