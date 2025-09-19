@@ -28,6 +28,15 @@
         <div class="brand-logo"></div> <span>Integrador</span>
       </div>
     </header>
+    <div id="background_login" class="background_login">
+      <div id="loader-login" class="loader-login">
+        <div class="spinner-login"></div>
+      </div>
+      <h2> Integrador Aladdin <br /> Login</h2>
+      <input type="text" id="nombre_login" placeholder="Usuario">
+      <input type="text" id="contraseña_login" placeholder="Contraseña">
+      <button id="btn_iniciar_sesion" class="btn_a_1">Iniciar sesión</button>
+    </div>
 
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar" aria-label="Menú lateral">
@@ -74,10 +83,11 @@
         <div class="user">
           <div class="avatar"></div>
           <div>
-            <div style="font-weight:700">Aladdin</div>
-            <div class="tag">Administrador</div>
+            <div id="user_name" style="font-weight:700">Aladdin</div>
+            <div id="user_rol" class="tag">Administrador</div>
           </div>
         </div>
+        <button class="olvidar_usuario" id="olvidar_usuario">Salir</button>
         <button id="btnClose" class="icon-btn" aria-label="Cerrar menú">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -91,7 +101,7 @@
 
     <!-- Contenido principal -->
     <div class="main" id="main" tabindex="-1">
-      <h1 style="margin-top:0;">Bienvenido al integrador de Aladdin - MP.</h1>
+      <h1 style="margin-top:0; text-align: center;">Bienvenido al integrador de Aladdin - MP.</h1>
       <br />
       <div id="view" class="view">
         <!-- Aquí se inyectan las vistas -->

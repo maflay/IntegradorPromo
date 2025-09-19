@@ -1,10 +1,4 @@
-/* ========= app.js (principal) ========= */
-
-// ============== CONFIG API ==============
-const API_URL =
-  "https://script.google.com/macros/s/AKfycbycrFFC2OpF39k40-4X5OlmhAOzGgjmGaJu9018RZsZumOAeerOazIInHFJST6iACaj_Q/exec"; // ej: https://script.google.com/macros/s/AKfycbx.../exec
-
-// ========== SELECTORES BÁSICOS ==========
+// js/app.js
 const sidebar = document.getElementById("sidebar");
 const btnOpen = document.getElementById("btnOpen");
 const btnClose = document.getElementById("btnClose");
@@ -15,38 +9,33 @@ const links = Array.from(
   document.querySelectorAll('[data-route], .sidebar-nav .nav-link[href^="#"]')
 );
 
-// ========== SIDEBAR / UI ==========
 const prefersDesktop = () => matchMedia("(min-width:1024px)").matches;
-
 function openSidebar() {
   if (prefersDesktop()) return;
-  sidebar?.classList.add("open");
-  if (backdrop) {
-    backdrop.hidden = false;
-    backdrop.classList.add("show");
-  }
+  sidebar.classList.add("open");
+  backdrop.hidden = false;
+  backdrop.classList.add("show");
   btnOpen?.setAttribute("aria-expanded", "true");
-  const firstLink = sidebar?.querySelector?.(".nav-link");
+  const firstLink = sidebar.querySelector(".nav-link");
   firstLink && firstLink.focus();
 }
 function closeSidebar() {
-  sidebar?.classList.remove("open");
-  backdrop?.classList.remove("show");
+  sidebar.classList.remove("open");
+  backdrop.classList.remove("show");
   setTimeout(() => {
-    if (!sidebar?.classList.contains("open"))
-      backdrop && (backdrop.hidden = true);
+    if (!sidebar.classList.contains("open")) backdrop.hidden = true;
   }, 250);
   btnOpen?.setAttribute("aria-expanded", "false");
-  main?.focus?.();
+  main?.focus();
 }
 btnOpen?.addEventListener("click", openSidebar);
 btnClose?.addEventListener("click", closeSidebar);
 backdrop?.addEventListener("click", closeSidebar);
 window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && sidebar?.classList.contains("open")) closeSidebar();
+  if (e.key === "Escape" && sidebar.classList.contains("open")) closeSidebar();
 });
 
-// ======== RUTAS (marca requiresAuth en las privadas) ========
+// Rutas con CSS/JS por vista
 const routes = {
   "#inicio": {
     title: "Inicio",
@@ -59,21 +48,18 @@ const routes = {
     file: "views/promos.html",
     css: ["css/views/promos.css"],
     js: "js/views/promos.js",
-    requiresAuth: true,
   },
   "#juegos": {
     title: "Juegos",
     file: "views/juegos.html",
     css: ["css/views/juegos.css"],
     js: "js/views/juegos.js",
-    requiresAuth: true,
   },
   "#reportes": {
     title: "Reportes",
     file: "views/reportes.html",
     css: ["css/views/reportes.css"],
     js: "js/views/reportes.js",
-    requiresAuth: true,
   },
   "#ayuda": {
     title: "Ayuda",
@@ -86,26 +72,10 @@ const routes = {
     file: "/view/grand_aladdin/grand_aladdin.html",
     css: ["/view/grand_aladdin/grand_aladdin.css"],
     js: "/view/grand_aladdin/grand_aladdin.js",
-    requiresAuth: true,
-  },
-  "#login": {
-    title: "Iniciar sesión",
-    file: "/view/login/login.html",
-    css: ["/view/login/login.css"],
-    js: "/view/login/login.js",
-  },
-  // (opcional)
-  "#registrarse": {
-    title: "Crear cuenta",
-    file: "/view/registro/registro.html",
-    css: ["/view/registro/login.css"],
-    js: "/view/registro/registro.js",
   },
 };
 
-// Rutas que NO deben mostrar header/sidebar/footer
-
-// ======= CARGA DINÁMICA DE ESTILOS =======
+// Estilos activos por vista
 const activeStyleIds = new Set();
 function ensureStyle(id, href) {
   if (document.getElementById(id)) return;
@@ -125,7 +95,7 @@ function removeOldStyles(keepIds) {
   });
 }
 
-// ======= CONTROLADOR DE VISTAS (módulos ES) =======
+// Controlador (módulo) actual
 let currentController = null; // { init, destroy }
 async function loadController(modulePath) {
   if (!modulePath) return null;
@@ -133,54 +103,16 @@ async function loadController(modulePath) {
   return typeof mod.init === "function" ? mod : null;
 }
 
-// --- rutas sin “shell” (sin header/sidebar/footer) ---
-const SHELLLESS = new Set(["#login", "#registrarse", "#registro"]);
-
-// Activa/Desactiva el modo login (oculta shell)
-function setShelllessMode(isOn) {
-  document.body.classList.toggle("is-authless", !!isOn);
-}
-
-let lastHash = null;
-
-function setActive(hash) {
-  if (!hash) hash = "#inicio";
-
-  // 1) Lee la ruta pedida
-  const wanted = routes[hash] || routes["#inicio"];
-
-  // 2) Si la ruta es privada y no hay sesión, redirige a #login
-  if (wanted.requiresAuth && !isAuthenticated()) {
-    sessionStorage.setItem("post_login_redirect", hash);
-    hash = "#login";
-  }
-
-  // 3) (Re)calcula la ruta final y activa modo sin shell si aplica
-  const route = routes[hash] || routes["#inicio"];
-  setShelllessMode(SHELLLESS.has(hash));
-
-  if (hash === lastHash) return;
-  lastHash = hash;
-
-  // 4) Marca activo en el menú (si visible)
-  links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === hash));
-
-  document.title = `${route.title} – Integrador`;
-  loadView(route);
-  if (!prefersDesktop()) closeSidebar();
-}
-
-
 async function loadView({ file, css = [], js }) {
-  // destruye controlador anterior
+  // destroy anterior
   try {
     await currentController?.destroy?.();
   } catch (_) {}
 
-  // loader simple
-  if (view) view.innerHTML = '<p style="opacity:.8">Cargando…</p>';
+  // loader mínimo
+  view.innerHTML = '<p style="opacity:.8">Cargando…</p>';
 
-  // estilos propios de la vista
+  // estilos de la vista
   const nextStyleIds = new Set();
   css.forEach((href, i) => {
     const id = `view-style-${href.replace(/[^\w-]/g, "_")}-${i}`;
@@ -196,8 +128,8 @@ async function loadView({ file, css = [], js }) {
 
     view.innerHTML = html;
     view.setAttribute("tabindex", "-1");
-    view.focus?.({ preventScroll: true });
-    main?.scrollTo?.({ top: 0, behavior: "smooth" });
+    view.focus({ preventScroll: true });
+    main.scrollTo({ top: 0, behavior: "smooth" });
 
     currentController = await loadController(js);
     if (currentController) await currentController.init(view);
@@ -216,132 +148,194 @@ async function loadView({ file, css = [], js }) {
   }
 }
 
-// ============ AUTENTICACIÓN (localStorage) ============
-const AUTH_TOKEN_KEY = "auth_token";
-const AUTH_EXP_KEY = "auth_exp";
-const AUTH_USER_KEY = "auth_user";
+let lastHash = null;
+function setActive(hash) {
+  if (!hash) hash = "#inicio";
+  if (hash === lastHash) return;
+  lastHash = hash;
 
-function getToken() {
-  return localStorage.getItem(AUTH_TOKEN_KEY) || "";
-}
-function getExp() {
-  return Number(localStorage.getItem(AUTH_EXP_KEY) || 0);
-}
-function getAuthUser() {
-  try {
-    return JSON.parse(localStorage.getItem(AUTH_USER_KEY) || "{}");
-  } catch {
-    return {};
-  }
-}
-function isAuthenticated() {
-  const token = getToken();
-  const exp = getExp();
-  return !!token && Date.now() < exp;
-}
-function clearSession() {
-  localStorage.removeItem(AUTH_TOKEN_KEY);
-  localStorage.removeItem(AUTH_EXP_KEY);
-  localStorage.removeItem(AUTH_USER_KEY);
-}
-function saveSession({ token, exp, user }) {
-  if (token) localStorage.setItem(AUTH_TOKEN_KEY, token);
-  if (exp) localStorage.setItem(AUTH_EXP_KEY, String(exp));
-  if (user) localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
-  refreshAdminLinksVisibility();
+  links.forEach((a) =>
+    a.classList.toggle("active", a.getAttribute("href") === hash)
+  );
+  const route = routes[hash] || routes["#inicio"];
+  document.title = `${route.title} – Integrador`;
+  loadView(route);
+  if (!prefersDesktop()) closeSidebar();
 }
 
-// Exponer logout (útil para botón en UI)
-function logout() {
-  clearSession();
-  sessionStorage.removeItem("post_login_redirect");
-  location.hash = "#login";
-}
-window.logout = logout;
+// Inicializar
+if (!location.hash) location.hash = "#inicio";
+setActive(location.hash);
+window.addEventListener("hashchange", () => setActive(location.hash));
 
-// Ocultar/mostrar enlaces solo-admin
-function refreshAdminLinksVisibility() {
-  const me = getAuthUser();
-  const isAdmin = String(me?.rol || "").toLowerCase() === "admin";
-  document.querySelectorAll("[data-admin-only]").forEach((el) => {
-    el.style.display = isAdmin ? "" : "none";
-  });
-}
-
-setInterval(() => {
-  if (!isAuthenticated() && location.hash !== "#login") {
-    sessionStorage.setItem("post_login_redirect", location.hash || "#inicio");
-    location.hash = "#login";
-  }
-}, 15 * 100000); // cada 15s
-
-async function apiFetch(path = "", { method = "POST", body = {}, headers = {} } = {}) {
-  // Inyecta token en el body (tu requireAuth_ ya soporta leerlo ahí)
-  const token = localStorage.getItem("auth_token");
-  const payload = { ...(body || {}) };
-  if (token) payload.token = token;
-
-  const res = await fetch(API_URL + path, {
-    method,
-    headers: { "Content-Type": "text/plain;charset=utf-8", ...headers },
-    body: JSON.stringify(payload),
-  });
-
-  const txt = await res.text();
-  let data;
-  try { data = JSON.parse(txt); }
-  catch { throw new Error("Respuesta no JSON (¿CORS/permiso WebApp?): " + txt.slice(0,200)); }
-
-  if (data?.ok === false && /UNAUTHORIZED/i.test(String(data.error || ""))) {
-    localStorage.removeItem("auth_token");
-    localStorage.removeItem("auth_exp");
-    localStorage.removeItem("auth_user");
-    sessionStorage.setItem("post_login_redirect", location.hash || "#inicio");
-    location.hash = "#login";
-    throw new Error("No autorizado");
-  }
-  return data;
-}
-
-window.apiFetch = apiFetch;
-
-(function boot() {
-  // Limpia sesión caducada al arrancar
-  if (!isAuthenticated()) clearSession();
-
-  // Refresca enlaces admin en arranque
-  refreshAdminLinksVisibility();
-
-  // Enlace directo a ruta protegida → redirigir a login
-  if (!location.hash) location.hash = "#inicio";
-  setActive(location.hash);
-
-  // Cambios de hash
-  window.addEventListener("hashchange", () => setActive(location.hash));
-
-  // Sincroniza sesión entre pestañas
-  window.addEventListener("storage", (e) => {
-    if ([AUTH_TOKEN_KEY, AUTH_EXP_KEY, AUTH_USER_KEY].includes(e.key)) {
-      refreshAdminLinksVisibility();
-      if (!isAuthenticated() && location.hash !== "#login") {
-        sessionStorage.setItem(
-          "post_login_redirect",
-          location.hash || "#inicio"
-        );
-        location.hash = "#login";
-      }
-    }
-  });
-})();
-
+// Utilidad opcional global (antes la llamabas desde onclick)
 window.AlertaDesarrollo = function () {
-  if (window.Swal?.fire) {
-    Swal.fire(
-      "En desarrollo",
-      "Esta sección estará disponible pronto.",
-      "info"
-    );
-  } else {
-    alert("En desarrollo. Esta sección estará disponible pronto.");
-  }
+  Swal?.fire?.(
+    "En desarrollo",
+    "Esta sección estará disponible pronto.",
+    "info"
+  );
 };
+
+let _scrollY = 0;
+
+document.getElementById("btn_iniciar_sesion").addEventListener("click", () => {
+  console.log("entro al btn");
+  // localStorage.removeItem("usuario_integrador_aladdin");
+
+  const user_name = document.getElementById("user_name");
+  const user_rol = document.getElementById("user_rol");
+
+  const usuarioEl = document.getElementById("nombre_login");
+  const cedulaEl = document.getElementById("contraseña_login");
+
+  const loader = document.getElementById("loader-login");
+
+  if (usuarioEl.value == "" || cedulaEl.value == "") {
+    Swal.fire({
+      icon: "info",
+      title: "Campos en blanco",
+      html: "Completa todos los campos para poder iniciar sesión.",
+    });
+    return;
+  }
+
+  const url =
+    "https://script.google.com/macros/s/AKfycbwoQFpBcbOBhNbIvqo6UPlv9oV1H8IHKJMlonFOiK1T9cW6J0I8uZHAe5bPps4NxdmD3Q/exec";
+
+  let cedula = cedulaEl.value;
+  loader.style.display = "flex";
+
+  fetch(`${url}?cedula=${encodeURIComponent(cedula)}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "data");
+      if (!Array.isArray(data) || data.length === 0) {
+        loader.style.display = "none";
+        return;
+      }
+      loader.style.display = "none";
+
+      // Éxito: guarda en localStorage (si ya estaba, lo refresca)
+      localStorage.setItem(LS_KEY, cedula);
+      user_name.innerHTML = data[0].Nombre;
+      user_rol.innerHTML = data[0].Rol;
+      // Cierra overlay y habilita scroll
+      document.getElementById("background_login").style.display = "none";
+      cleanUrl({ keepQuery: false, hash: "#inicio" });
+      unlockBodyScroll();
+    })
+    .catch((err) => {
+      console.error("Error al consultar la cédula:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Error en la verificación.",
+        text: "No se pudo verificar si el registro existe.",
+      });
+    });
+
+  lockBodyScroll();
+});
+lockBodyScroll();
+
+function lockBodyScroll() {
+  _scrollY = window.scrollY || document.documentElement.scrollTop;
+  document.body.style.top = `-${_scrollY}px`;
+  document.body.classList.add("body-lock");
+}
+
+function unlockBodyScroll() {
+  document.body.classList.remove("body-lock");
+  document.body.style.top = "";
+  window.scrollTo(0, _scrollY);
+}
+
+const LS_KEY = "usuario_integrador_aladdin";
+
+function getUsersLogin() {
+  const user_name = document.getElementById("user_name");
+  const user_rol = document.getElementById("user_rol");
+
+  const savedCedula = localStorage.getItem(LS_KEY) || "";
+  const cedulaParaEnviar = savedCedula;
+  const loader = document.getElementById("loader-login");
+
+  const url =
+    "https://script.google.com/macros/s/AKfycbwoQFpBcbOBhNbIvqo6UPlv9oV1H8IHKJMlonFOiK1T9cW6J0I8uZHAe5bPps4NxdmD3Q/exec";
+
+  if (!cedulaParaEnviar) {
+    return;
+  }
+
+  loader.style.display = "flex";
+  fetch(`${url}?cedula=${encodeURIComponent(cedulaParaEnviar)}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "data");
+      if (!Array.isArray(data) || data.length === 0) {
+        loader.style.display = "none";
+        return;
+      }
+      loader.style.display = "none";
+
+      // Éxito: guarda en localStorage (si ya estaba, lo refresca)
+      localStorage.setItem(LS_KEY, cedulaParaEnviar);
+      user_name.innerHTML = data[0].Nombre;
+      user_rol.innerHTML = data[0].Rol;
+      // Cierra overlay y habilita scroll
+      document.getElementById("background_login").style.display = "none";
+      cleanUrl({ keepQuery: false, hash: "#inicio" });
+      unlockBodyScroll();
+    })
+    .catch((err) => {
+      console.error("Error al consultar la cédula:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Error en la verificación.",
+        text: "No se pudo verificar si el registro existe.",
+      });
+    });
+}
+
+getUsersLogin();
+
+document
+  .getElementById("olvidar_usuario")
+  .addEventListener("click", () => forgetSavedUser());
+
+function cleanUrl({ keepQuery = false, hash = "" } = {}) {
+  const base = location.origin + location.pathname;
+  const q = keepQuery ? location.search : "";
+  const h = hash ? hash : ""; // p.ej. "#login" o "" para sin hash
+  history.replaceState(null, document.title, base + q + h);
+}
+
+function forgetSavedUser() {
+  Swal.fire({
+    title: "Estas Seguro?",
+    text: "¿Seguro que quieres salir de manera segura?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si quiero!",
+  }).then((result) => {
+    if (!result.isConfirmed) return;
+
+    localStorage.removeItem(LS_KEY);
+
+    // 1) Limpia query y deja la ruta limpia + #login (SPA)
+    cleanUrl({ keepQuery: false, hash: "#login" });
+
+    // 2) Si tu router escucha hashchange, esto ya basta.
+    //    Si no, puedes forzar:
+    // location.reload(); // (opcional, no recomendado si tu SPA maneja el hash)
+    Swal.fire("Exitoso!", "Tu usuario ha sido olvidado.", "success").then(
+      (res) => {
+        if (res.isConfirmed) {
+          location.reload();
+        }
+      }
+    );
+  });
+}

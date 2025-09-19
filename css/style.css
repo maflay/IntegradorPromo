@@ -36,6 +36,30 @@ body {
   animation: spin 1s linear infinite;
 }
 
+
+
+.loader-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-login {
+  border: 6px solid #ccc;
+  border-top: 6px solid #dc3545;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

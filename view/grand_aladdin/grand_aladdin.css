@@ -72,16 +72,21 @@
     color: rgb(55, 104, 105);
 }
 
-.content_part_down>a {
+.content_part_down .content_a_parta_down {
     display: flex;
     justify-content: end;
     align-items: center;
     width: 100%;
+    gap: 20px;
+}
+
+.content_a_parta_down a{
+    
     text-decoration: none;
     color: cornflowerblue;
 }
 
-.content_part_down>a:hover {
+.content_part_down .content_a_parta_down>a:hover {
     color: rgb(55, 104, 105);
 
 }
