@@ -64,12 +64,6 @@
     text-align: center;
 }
 
-.content_btn_a {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
 .btn_a_1,
 .btn_a_2 {
     text-decoration: none;

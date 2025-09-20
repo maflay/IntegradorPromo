@@ -4,6 +4,14 @@
 //   document.getElementById('vista_otros_casino').innerHTML = html;
 // })
 // .catch(err => console.error('Error cargando partial:', err));
+function cleanUrl({ keepQuery = false, hash = "" } = {}) {
+  const base = location.origin + location.pathname;
+  const q = keepQuery ? location.search : "";
+  const h = hash ? hash : ""; // p.ej. "#login" o "" para sin hash
+  history.replaceState(null, document.title, base + q + h);
+}
+ cleanUrl({ keepQuery: false, hash: "#inicio" });
+
 
 const img_send_obs = document.getElementById("img_send_obs");
 const rol_desc_obser = document.getElementById("rol_desc_obser");

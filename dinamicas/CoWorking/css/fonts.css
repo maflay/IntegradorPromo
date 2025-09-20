@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Coolvetica_Hv_Comp";
+  src: url("/dinamicas/CoWorking/fonts/coolvetica_font/Coolvetica_Hv_Comp.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Coolvetica_Rg";
+  src: url("/dinamicas/CoWorking/fonts/coolvetica_font/Coolvetica_Rg.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Coolvetica_Rg_Cond";
+  src: url("/dinamicas/CoWorking/fonts/coolvetica_font/Coolvetica_Rg_Cond.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Coolvetica_Rg_Cram";
+  src: url("/dinamicas/CoWorking/fonts/coolvetica_font/Coolvetica_Rg_Cram.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Coolvetica_Rg_It";
+  src: url("/dinamicas/CoWorking/fonts/coolvetica_font/Coolvetica_Rg_It.otf") format("opentype");
+}

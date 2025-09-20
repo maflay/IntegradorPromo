@@ -9,27 +9,75 @@ window.addEventListener("DOMContentLoaded", () => {
   const cedula_pedido = document.getElementById("cedula_pedido");
   const mesa_pedido = document.getElementById("mesa_pedido");
   const foto_pedido = document.getElementById("foto_pedido");
+
   // const foto_pedido_camara = document.getElementById("foto_pedido_camara");
   const descripcion_pedido = document.getElementById("descripcion_pedido");
   const btn_enviar_pedido = document.getElementById("btn_enviar_pedido");
 
+  // menu
+  const precio_cafe_espresso_pequeño = document.getElementById(
+    "precio_cafe_espresso_pequeño"
+  );
+
+  const precio_cafe_americano_pequeño = document.getElementById(
+    "precio_cafe_americano_pequeño"
+  );
+  const precio_cafe_americano_mediano = document.getElementById(
+    "precio_cafe_americano_mediano"
+  );
+  const precio_cafe_americano_grande = document.getElementById(
+    "precio_cafe_americano_grande"
+  );
+
+  precio_cafe_espresso_pequeño.addEventListener("click", () => {
+    let precioCafe = precio_cafe_espresso_pequeño.innerHTML;
+    let nombreCafe = document.getElementById(
+      "nombre_cafe_espresso"
+    ).innerHTML;
+    PaintCardPedido(precioCafe, nombreCafe);
+  });
+
+  precio_cafe_americano_pequeño.addEventListener("click", () => {
+    let nombreCafe = document.getElementById(
+      "nombre_cafe_americano"
+    ).innerHTML;
+    let precioCafe = precio_cafe_americano_pequeño.innerHTML;
+    PaintCardPedido(precioCafe, nombreCafe);
+  });
+
+  precio_cafe_americano_mediano.addEventListener("click", () => {
+    console.log(precio_cafe_americano_mediano.innerHTML);
+    let nombreCafe = document.getElementById(
+      "nombre_cafe_americano"
+    ).innerHTML;
+    let precioCafe = precio_cafe_americano_mediano.innerHTML;
+    PaintCardPedido(precioCafe, nombreCafe);
+  });
+
+  precio_cafe_americano_grande.addEventListener("click", () => {
+    console.log(precio_cafe_americano_grande.innerHTML);
+    let nombreCafe = document.getElementById(
+      "nombre_cafe_americano"
+    ).innerHTML;
+    let precioCafe = precio_cafe_americano_grande.innerHTML;
+    PaintCardPedido(precioCafe, nombreCafe);
+  });
+
   // btnWhat
   const btn_what_pedido = document.getElementById("btn_what_pedido");
-  btn_what_pedido.addEventListener("click", ()=> {
+  btn_what_pedido.addEventListener("click", () => {
     let telCliente = mesa_pedido.value;
-    if(telCliente == ""){
+    if (telCliente == "") {
       Swal.fire({
-        icon:"info",
+        icon: "info",
         title: "Antes de continuar",
-        html: "Digita un numero valido para poderte comunicar con nosotros."
+        html: "Digita un numero valido para poderte comunicar con nosotros.",
       });
       return;
     }
     // console.log(`wa.me/57${telCliente}`);
-    window.open(`wa.me/57${telCliente}`, target ="_blank")
+    window.open(`wa.me/57${telCliente}`, (target = "_blank"));
   });
-
-  
 
   const WEBAPP_URL =
     "https://script.google.com/macros/s/AKfycbz6N5YHKvx7m2v6QIUv22cQt6rquoVAynhyvK4eczfIuXEo4-CVYomVqsnpExB_0jb98Q/exec"; // <-- cámbiala
@@ -123,3 +171,41 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+
+ let pedidos = [];
+
+  function renderPedidos() {
+    const container = document.getElementById("content_card_item_carrito_map");
+
+    
+    container.innerHTML = pedidos
+      .map(
+        (pedido, index) => `
+        <div class="card_item_carrito">
+          <p class="pedido_nombre">${pedido.nombre}</p>
+          <p class="pedido_precio">${pedido.precio}</p>
+          <input type="number" min="1" value="${pedido.cantidad}" 
+                 onchange="updateCantidad(${index}, this.value)">
+          <button id="btn_remove_pedido" onclick="removePedido(${index})">
+            <img src="/dinamicas/CoWorking/resources/basura.png" 
+                 alt="Eliminar" width="20">
+          </button>
+        </div>
+      `
+      )
+      .join("");
+      
+    }
+    
+    function PaintCardPedido(precioCafe, nombreCafe) {
+      pedidos.push({ nombre: nombreCafe, precio: precioCafe, cantidad: 1 });
+      renderPedidos();
+    }
+  
+    // --- Eliminar pedido ---
+    function removePedido(index) {
+      pedidos.splice(index, 1);
+      renderPedidos();
+    }
+  // --- Agregar un pedido ---
+
