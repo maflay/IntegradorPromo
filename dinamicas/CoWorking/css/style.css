@@ -177,13 +177,9 @@ body {
     width: 100%;
 }
 
-.menu_card_2 {
-
-}
-
-.card_item_carrito{
+.card_item_carrito {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     gap: 10px;
@@ -191,11 +187,14 @@ body {
     border-radius: 20px;
 }
 
-.card_item_carrito>p{
+.card_item_carrito>p {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     margin: 0 !important;
 }
 
-.card_item_carrito>input{
+.card_item_carrito>input {
     width: 30px;
     border-radius: 2px;
     border: none;
@@ -210,13 +209,13 @@ body {
     border: none;
 }
 
-.card_item_carrito img{
+.card_item_carrito img {
     width: 18px;
     cursor: pointer;
     transition: all 0.4s ease;
 }
 
-.card_item_carrito img:hover{
+.card_item_carrito img:hover {
     opacity: 0.7;
 }
 
@@ -264,7 +263,7 @@ body {
 
 .input-group input:focus~label,
 .input-group input:valid~label {
-    top: -12px;
+    top: -3px;
     font-size: 10px;
     color: #eeeeee;
 }
@@ -297,17 +296,17 @@ body {
     transition: all 0.4s ease;
 }
 
-.menu_card_produto:hover{
+.menu_card_produto:hover {
     background-color: #eeeeee;
 }
 
-.title_menu_producto{
+.title_menu_producto {
     display: flex;
     flex-direction: column;
     line-height: 1rem;
 }
 
-.title_menu_producto>p{
+.title_menu_producto>p {
     font-size: 0.7rem;
 }
 
@@ -327,21 +326,26 @@ body {
 .title_adicional {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
-.mini_card_adicional{
+.mini_card_adicional {
     display: flex;
     justify-content: space-between;
     width: 100%;
     transition: all 0.4s ease;
 }
 
-.mini_card_adicional:hover{
+.mini_card_adicional:hover {
     background-color: #eeeeee;
 }
 
-.desc_adicional{
+.mini_card_adicional>p:hover {
+    color: #b68b8b;
+    cursor: pointer;
+}
+
+.desc_adicional {
     font-size: 1rem;
 }
 
@@ -355,13 +359,23 @@ body {
     transition: all 0.4s ease;
 }
 
-.precio>h5:hover{
+.precio>h5:hover {
     color: #b68b8b;
     cursor: pointer;
 }
 
-.precio>p:hover{
+.precio>p:hover {
     color: #b68b8b;
+}
+
+.content_card_item_carrito_map {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-height: 80px;
+    overflow-y: auto;
+    scrollbar-color: #f878229f #1f253a00;
 }
 
 @media(max-width: 1366px) {
