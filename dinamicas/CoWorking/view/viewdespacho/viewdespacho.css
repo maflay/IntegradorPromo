@@ -134,7 +134,7 @@ body {
     line-height: 1.35;
     position: absolute;
     bottom: 10px;
-    right: 100px;
+    right: 15px;
 }
 
 .card-meta-despacho-pedido {
@@ -146,17 +146,49 @@ body {
     bottom: 10px;
 }
 
+.card-meta-despacho-pedidoA {
+    position: absolute;
+    color: #374151;
+    left: 294px;
+    top: 70px;
+}
+
+.card-meta-despacho-pago {
+    position: absolute;
+    color: #374151;
+    left: 294px;
+    top: 28px;
+}
+
+.card-meta-despacho-total-pedido{
+    position: absolute;
+    color: #374151;
+    left: 294px;
+    top: 40px;
+}
+
+.card-meta-despacho-numero-cliente{
+    position: absolute;
+    color: #374151;
+    left: 294px;
+    top: 52px;  
+}
+
+.card-meta-despacho-numero-cliente>a{
+    text-decoration: none;
+}
+
 .badge-despacho {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px 10px;
-    font-size: .75rem;
+    padding: 4px 5px;
+    font-size: .5rem;
     border-radius: 999px;
     color: #eef2ff;
     background: #111827;
     position: absolute;
-    top: 25px;
+    top: 10px;
     right: 10px;
 }
 
@@ -176,7 +208,7 @@ body {
     top: 30px;
 }
 
-.lista-relacionados{
+.lista-relacionados {
     display: flex;
     flex-direction: column;
     justify-content: start;

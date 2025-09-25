@@ -11,7 +11,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const WEBAPP_URL =
     "https://script.google.com/macros/s/AKfycbz6N5YHKvx7m2v6QIUv22cQt6rquoVAynhyvK4eczfIuXEo4-CVYomVqsnpExB_0jb98Q/exec";
 
-    const URL_EXTRA = "https://script.google.com/macros/s/AKfycbxD4p_NAnJ5PD7ORn-LF7CQelaxe9AOsoJmTU4fZIiimXhk4inRKZGM4WJp1VfFB8Fg/exec";
+  const URL_EXTRA =
+    "https://script.google.com/macros/s/AKfycbxD4p_NAnJ5PD7ORn-LF7CQelaxe9AOsoJmTU4fZIiimXhk4inRKZGM4WJp1VfFB8Fg/exec";
 
   const FALLBACK_IMG =
     "data:image/svg+xml;utf8,\
@@ -107,100 +108,138 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     return "";
   };
-//   function getPedidoPorCedula (){
-//     let url_Pedido = "https://script.google.com/macros/s/AKfycbxD4p_NAnJ5PD7ORn-LF7CQelaxe9AOsoJmTU4fZIiimXhk4inRKZGM4WJp1VfFB8Fg/exec";
-//     fetch(`${url_Pedido}`)
-//       .then(async (r) => {
-//         const text = await r.json();
-//         console.log(text);
-//   })
-//   }  
+  //   function getPedidoPorCedula (){
+  //     let url_Pedido = "https://script.google.com/macros/s/AKfycbxD4p_NAnJ5PD7ORn-LF7CQelaxe9AOsoJmTU4fZIiimXhk4inRKZGM4WJp1VfFB8Fg/exec";
+  //     fetch(`${url_Pedido}`)
+  //       .then(async (r) => {
+  //         const text = await r.json();
+  //         console.log(text);
+  //   })
+  //   }
 
-// getPedidoPorCedula();
-
+  // getPedidoPorCedula();
 
   const normCed = (v) => String(v ?? "").replace(/\D/g, ""); // deja solo dígitos
 
-function GetAllPedidos() {
-  Promise.all([
-    fetch(WEBAPP_URL).then(r => { if(!r.ok) throw new Error(`A HTTP ${r.status}`); return r.json(); }),
-    fetch(URL_EXTRA).then(r => { if(!r.ok) throw new Error(`B HTTP ${r.status}`); return r.json(); })
-  ])
-  .then(([rowsA, rowsB]) => {
-    // normaliza respuesta a arrays
-    let A = Array.isArray(rowsA) ? rowsA : (rowsA?.data || rowsA?.resultados || []);
-    let B = Array.isArray(rowsB) ? rowsB : (rowsB?.data || rowsB?.resultados || []);
-    if (!Array.isArray(A)) A = [];
-    if (!Array.isArray(B)) B = [];
+  function GetAllPedidos() {
+    Promise.all([
+      fetch(WEBAPP_URL).then((r) => {
+        if (!r.ok) throw new Error(`A HTTP ${r.status}`);
+        return r.json();
+      }),
+      fetch(URL_EXTRA).then((r) => {
+        if (!r.ok) throw new Error(`B HTTP ${r.status}`);
+        return r.json();
+      }),
+    ])
+      .then(([rowsA, rowsB]) => {
+        // normaliza respuesta a arrays
+        let A = Array.isArray(rowsA)
+          ? rowsA
+          : rowsA?.data || rowsA?.resultados || [];
+        let B = Array.isArray(rowsB)
+          ? rowsB
+          : rowsB?.data || rowsB?.resultados || [];
+        if (!Array.isArray(A)) A = [];
+        if (!Array.isArray(B)) B = [];
 
-    if (!A.length) {
-      pedidos_despacho.innerHTML = "<p>No hay pedidos.</p>";
-      return;
-    }
+        if (!A.length) {
+          pedidos_despacho.innerHTML = "<p>No hay pedidos.</p>";
+          return;
+        }
 
-    // 🔹 agrupa B por cédula → Map(cedulaNormalizada -> Array de filas B)
-    const groupB = new Map();
-    for (const r of B) {
-      const key = normCed(byKey(r, ["Cedula","cedula"]));
-      if (!key) continue;
-      if (!groupB.has(key)) groupB.set(key, []);
-      groupB.get(key).push(r);
-    }
+        // 🔹 agrupa B por cédula → Map(cedulaNormalizada -> Array de filas B)
+        const groupB = new Map();
+        for (const r of B) {
+          const key = normCed(byKey(r, ["Cedula", "cedula"]));
+          if (!key) continue;
+          if (!groupB.has(key)) groupB.set(key, []);
+          groupB.get(key).push(r);
+        }
 
-    // 🔹 render de A, listando TODOS los matches de B
-    const html = A.reverse().map(rowA => {
-      const cedNorm = normCed(byKey(rowA, ["Cedula","cedula"]));
-      const nombre  = byKey(rowA, ["Nombre"]) || "—";
-      const pedidoA = byKey(rowA, ["Pedido"]) || "—";
-      const fecha   = formatFecha(byKey(rowA, ["Fecha","fecha"]));
-      const hora    = formatHora(byKey(rowA, ["Hora","hora"]));
-      const fotoVal = byKey(rowA, ["Foto_cliente","Foto cliente","Foto"]);
-      const imgUrl  = resolveImage(fotoVal);
+        // 🔹 render de A, listando TODOS los matches de B
+        const html = A.reverse()
+          .map((rowA) => {
+            const cedNorm = normCed(byKey(rowA, ["Cedula", "cedula"]));
+            const nombre = byKey(rowA, ["Nombre"]) || "—";
+            const pedidoA = byKey(rowA, ["Pedido"]) || "—";
+            const celular = byKey(rowA, ["Celular", "celular"]) || "—";
+            const totalPedido =
+              byKey(rowA, ["Total_pedido", "total_pedido"]) || "—";
+            const pago = byKey(rowA, ["Pago"]) || "—";
+            const fecha = formatFecha(byKey(rowA, ["Fecha", "fecha"]));
+            const hora = formatHora(byKey(rowA, ["Hora", "hora"]));
+            const observacion = byKey(rowA, ["Pedido", "pedido"]);
+            const fotoVal = byKey(rowA, [
+              "Foto_cliente",
+              "Foto cliente",
+              "Foto",
+            ]);
+            const imgUrl = resolveImage(fotoVal);
+            // console.log(celular, "celular");
+            // console.log(totalPedido, "totalPedido");
+            // todos los registros relacionados en URL_EXTRA para esta cédula
+            const matches = groupB.get(cedNorm) || [];
 
-      // todos los registros relacionados en URL_EXTRA para esta cédula
-      const matches = groupB.get(cedNorm) || [];
-
-      // cómo mostrar cada match de B (ajusta las claves según tu hoja B)
-      const listaB = matches.map((m, i) => {
-        const pedidoB = byKey(m, ["Pedido"]) || "(sin pedido)";
-        const cantidadB    = byKey(m, ["Cantidad","cantidad"]) || "";
-        const estado  = byKey(m, ["Estado","estado"]) || "";
-        // agrega más campos si quieres
-        return `
+            // cómo mostrar cada match de B (ajusta las claves según tu hoja B)
+            const listaB = matches
+              .map((m, i) => {
+                const pedidoB = byKey(m, ["Pedido"]) || "(sin pedido)";
+                const cantidadB = byKey(m, ["Cantidad", "cantidad"]) || "";
+                const estado = byKey(m, ["Estado", "estado"]) || "";
+                // agrega más campos si quieres
+                return `
           <span><strong>♦️</strong> ${pedidoB}. ${cantidadB}</span>
           `;
-      }).join("");
+              })
+              .join("");
 
-      return `
+            return `
         <article class="card-pedido-despacho">
           <div class="card-body-despacho">
-            <h3 class="card-title-despacho-nombre">${nombre} - ${cedNorm || "-"}</h3>
+            <h3 class="card-title-despacho-nombre">${nombre} - ${
+              cedNorm || "-"
+            }</h3>
             <div class="card-meta-despacho-fecha"><strong>Fecha:</strong> ${fecha}</div>
             <div class="card-meta-despacho-hora"><strong>Hora:</strong> ${hora}</div>
-            ${imgUrl ? `<a class="badge-despacho" href="${imgUrl}" target="_blank" rel="noopener">Ver Foto</a>` : ""}
+            <div class="card-meta-despacho-pedidoA"><strong>Solicitudes:</strong> ${pedidoA}</div>
+            <div class="card-meta-despacho-pago"><strong>Cliente paga con:</strong> ${pago}</div>
+            <div class="card-meta-despacho-total-pedido"><strong>Total del Pedido:</strong> ${totalPedido}</div>
+            <div class="card-meta-despacho-numero-cliente"><strong>Numero del Cliente:</strong><a target="_blank" href="https://api.whatsapp.com/send/?phone=57${celular}&text&type=phone_number&app_absent=0""> ${celular}</a></div>
+            ${
+              imgUrl
+                ? `<a class="badge-despacho" href="${imgUrl}" target="_blank" rel="noopener">Ver Foto</a>`
+                : ""
+            }
 
-            ${matches.length ? `
+            ${
+              matches.length
+                ? `
               <div class="card-meta-despacho-rel">
                 <div class="lista-relacionados">${listaB}</div>
-              </div>` 
-            : `<div class="badge-despacho badge-warn">Sin registros en URL_EXTRA</div>`}
+              </div>`
+                : `<div class="badge-despacho badge-warn">Sin registros en URL_EXTRA</div>`
+            }
           </div>
         </article>
       `;
-    }).join("");
+          })
+          .join("");
 
-    pedidos_despacho.innerHTML = html || "<p>No hay pedidos.</p>";
-  })
-  .catch(e => {
-    console.error(e);
-    pedidos_despacho.innerHTML = `<p>Error cargando los pedidos: ${e.message || e}</p>`;
-    Swal?.fire?.("Error", String(e.message || e), "error");
-  });
-}
+        pedidos_despacho.innerHTML = html || "<p>No hay pedidos.</p>";
+      })
+      .catch((e) => {
+        console.error(e);
+        pedidos_despacho.innerHTML = `<p>Error cargando los pedidos: ${
+          e.message || e
+        }</p>`;
+        Swal?.fire?.("Error", String(e.message || e), "error");
+      });
+  }
 
   GetAllPedidos();
 
   setInterval(() => {
     GetAllPedidos();
-  }, 1000000);
+  }, 10000);
 });

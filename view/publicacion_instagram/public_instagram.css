@@ -1,0 +1,157 @@
+.loader_instagram_publi {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner_instagram_publi {
+    border: 1px solid #ccc;
+    border-top: 1px solid #dc3545;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.content_view_init {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.content_card_view_publicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.content_casino_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: relative;
+}
+
+.content_casino_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 30px;
+}
+
+.contento_img_casino {
+    width: 100px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
+.contento_img_casino img {
+    width: 100px;
+}
+
+.content_acciones_casino {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 40px 0 0 0;
+}
+
+.content_entradas_casino {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 0 30px;
+    width: 100%;
+    gap: 10px;
+}
+
+.content_entradas_casino input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    width: 70%;
+}
+
+.content_info_urls {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+    padding: 20px 30px;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.content_info_urls {
+    font-size: 1rem;
+}
+
+.content_info_urls a {
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.content_info_urls a:hover {
+    color: rgba(255, 255, 255, 0.788);
+}
+
+.content_logo_excel {
+    width: 20px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.content_logo_excel:hover {
+    opacity: 0.7;
+}
+
+.content_logo_excel img {
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width:768px) {
+    .content_card_view_publicacion {
+        flex-direction: column;
+    }
+
+    .content_casino_1 {
+        width: 100%;
+    }
+
+    .content_entradas_casino {
+        padding: 0;
+    }
+}

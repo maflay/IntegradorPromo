@@ -1,0 +1,28 @@
+.content_otras_acciones {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 255, 255, 0.253);
+    border-radius: 20px;
+}
+
+.content_otras_acciones a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+}
+
+.content_otras_acciones a:hover {
+    color: gray;
+}
+
+
+@media(max-width:768px) {
+    .content_otras_acciones {
+        height: 100vh;
+        flex-direction: column;
+    }
+}

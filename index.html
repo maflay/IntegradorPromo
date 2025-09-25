@@ -9,112 +9,134 @@
   <!-- Estilos base -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="/view/modales/modal_info_user/modal_info_user.css">
   <!-- libs opcionales -->
   <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
+
   <div class="app" id="app">
     <!-- Header (solo móvil) -->
-    <header class="app-header" role="banner">
-      <button id="btnOpen" class="icon-btn" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
-        <!-- ícono hamburguesa -->
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </button>
-      <div class="brand">
-        <div class="brand-logo"></div> <span>Integrador</span>
-      </div>
-    </header>
-    <div id="background_login" class="background_login">
-      <div id="loader-login" class="loader-login">
-        <div class="spinner-login"></div>
-      </div>
-      <h2> Integrador Aladdin <br /> Login</h2>
-      <input type="text" id="nombre_login" placeholder="Usuario">
-      <input type="text" id="contraseña_login" placeholder="Contraseña">
-      <button id="btn_iniciar_sesion" class="btn_a_1">Iniciar sesión</button>
-    </div>
-
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar" aria-label="Menú lateral">
-      <div class="brand" aria-hidden="true">
-        <div class="brand-logo"></div> <span>Integrador</span>
-      </div>
-
-      <nav class="sidebar-nav" role="navigation">
-        <a class="nav-link" href="#inicio" data-route>
-          <span class="nav-icon">🏠</span>
-          <span class="nav-label">Inicio</span>
-        </a>
-        <!-- externos: sin data-route -->
-        <a class="nav-link" href="#gran_aladdin" title="Finalistas Casinos">
-          <span class="nav-icon">🪙</span>
-          <span class="nav-label">Grand Aladdin</span>
-        </a>
-        <a target="_blank" class="nav-link" href="/dinamicas/promocion_lo_hacemos_en_grande/grandaladdin.html"
-          title="Ruleta TV">
-          <span class="nav-icon"><img class="nav-img-icono" src="/resource/ruleta_icono.png"
-              alt="integradorAladdin"></span>
-          <span class="nav-label">Ruleta Grand Aladdin</span>
-        </a>
-        <a target="_blank" class="nav-link" href="https://vivealaddin.com/" title="Web Aladdin">
-          <span class="nav-icon">♦️</span>
-          <span class="nav-label">Aladdin</span>
-        </a>
-        <a target="_blank" class="nav-link" href="https://marcopolocolombia.com/" title="Web Marco Polo">
-          <span class="nav-icon">♠️</span>
-          <span class="nav-label">Marco Polo</span>
-        </a>
-        <a target="_blank" class="nav-link" href="/dinamicas/CoWorking/coworking.html" title="Pedidos CoWorking">
-          <span class="nav-icon">📒</span>
-          <span class="nav-label">CoWorking</span>
-        </a>
-        <a target="_blank" class="nav-link" href="/dinamicas/CoWorking/view/viewdespacho/viewdespacho.html"
-          title="Pedidos CoWorking">
-          <span class="nav-icon">📒</span>
-          <span class="nav-label">Pedidos CoWorking</span>
-        </a>
-      </nav>
-
-      <div class="sidebar-footer">
-        <div class="user">
-          <div class="avatar"></div>
-          <div>
-            <div id="user_name" style="font-weight:700">Aladdin</div>
-            <div id="user_rol" class="tag">Administrador</div>
-          </div>
-        </div>
-        <button class="olvidar_usuario" id="olvidar_usuario">Salir</button>
-        <button id="btnClose" class="icon-btn" aria-label="Cerrar menú">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    <div id="menu_login">
+      <header class="app-header" role="banner">
+        <button id="btnOpen" class="icon-btn" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+          <!-- ícono hamburguesa -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
           </svg>
         </button>
-      </div>
-    </aside>
+        <div class="brand">
+          <div class="brand-logo"></div> <span>Integrador</span>
+        </div>
+      </header>
 
-    <!-- Backdrop móvil -->
-    <div class="backdrop" id="backdrop" hidden></div>
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar" aria-label="Menú lateral">
+        <div class="brand" aria-hidden="true">
+          <div class="brand-logo"></div> <span>Integrador</span>
+        </div>
 
+        <nav class="sidebar-nav" role="navigation">
+          <a class="nav-link" href="#inicio" data-route>
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Inicio</span>
+          </a>
+          <!-- externos: sin data-route -->
+          <a class="nav-link" href="#gran_aladdin" title="Finalistas Casinos">
+            <span class="nav-icon">🪙</span>
+            <span class="nav-label">Grand Aladdin</span>
+          </a>
+          <a class="nav-link" href="#dinamicas" title="Finalistas Casinos">
+            <span class="nav-icon">🪙</span>
+            <span class="nav-label">Dinamicas</span>
+          </a>
+             <a class="nav-link" href="#otros" title="Otros">
+            <span class="nav-icon">🪙</span>
+            <span class="nav-label">Otros</span>
+          </a>
+          
+          <a class="nav-link" href="#publicacion_instagram" title="Publiacion Instagram">
+            <span class="nav-icon"><img src="/resource/instagram-icono.png" alt="integradorAladdin"></span>
+            <span class="nav-label">Social Media</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user">
+            <div class="avatar"></div>
+            <div>
+              <div onclick="OpenModalInfo()" id="user_name" class="user_name" style="font-weight:700">Aladdin</div>
+              <div class="view_info_user" id="view_info_user">
+                <div class="modal_info_funcionario">
+                  <div class="modal_content_funcionario">
+                    <span onclick="CloseModalInfo()" class="close_funcionario" id="close_funcionario">&times;</span>
+                    <h2>Información del Funcionario</h2>
+                    <div class="content_date_funcionario">
+                      <p><strong>Nombre:</strong> <span id="funcionario_nombre"></span></p>
+                      <p><strong>Cédula:</strong> <span id="funcionario_cedula"></span></p>
+                    </div>
+                    <div class="content_date_funcionario">
+                      <p><strong>Rol:</strong> <span id="funcionario_rol"></span></p>
+                      <p><strong>Email:</strong> <span id="funcionario_email"></span></p>
+                    </div>
+                    <div class="content_date_funcionario">
+                      <p><strong>Teléfono:</strong> <span id="funcionario_telefono"></span></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div id="user_rol" class="tag">Administrador</div>
+            </div>
+          </div>
+          <button class="olvidar_usuario" id="olvidar_usuario">Salir</button>
+          <button id="btnClose" class="icon-btn" aria-label="Cerrar menú">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Backdrop móvil -->
+      <div class="backdrop" id="backdrop" hidden></div>
+    </div>
     <!-- Contenido principal -->
     <div class="main" id="main" tabindex="-1">
-      <h1 style="margin-top:0; text-align: center;">Bienvenido al integrador de Aladdin - MP.</h1>
+      <!-- <h1 style="margin-top:0; text-align: center;">Bienvenido al integrador de Aladdin - MP.</h1> -->
       <br />
       <div id="view" class="view">
         <!-- Aquí se inyectan las vistas -->
         <p style="opacity:.8">Cargando…</p>
       </div>
       <br />
-      <footer class="title_footer">Todos los derechos reservados Aladdin 2025.</footer>
-
+      
+      <footer id="footer_label_legal" class="title_footer">Todos los derechos reservados Aladdin 2025.</footer>
     </div> <!-- cierra .main -->
   </div> <!-- cierra .app -->
-
+  <div id="background_login" class="background_login">
+    <div id="loader-login" class="loader-login">
+      <div class="spinner-login"></div>
+    </div>
+    <div class="content_login_form">
+      <h2>Login</h2>
+      <input type="text" id="nombre_login" placeholder="Usuario">
+      <input type="text" id="contraseña_login" placeholder="Contraseña">
+      <div>
+        <button id="btn_iniciar_sesion" class="btn_a_1">Iniciar sesión</button>
+      </div>
+      <div class="bottom_login_form">
+        <img src="/resource/aladdin.png" alt="integradorAladdin">
+        <div class="separator_vertical"></div>
+        <h2>Integrador 2025</h2>
+      </div>
+    </div>
+  </div>
   <!-- Router SPA -->
   <script type="module" src="funtions.js"></script>
+  <script src="/js/store.js"></script>
 </body>
 
 </html>

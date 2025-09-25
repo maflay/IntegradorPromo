@@ -67,7 +67,7 @@ function handleSendInfo() {
         const dataToSend = {
           tipo: "registro",
           nombre: nombreVal,
-          edad: hora + " - " + fecha,
+          edad: fecha,
           cedula: cedulaVal,
           correo: casinoVal,
           bono: bonoVal,

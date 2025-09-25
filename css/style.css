@@ -142,7 +142,7 @@ body {
   gap: 20px;
 }
 
-.content_body_view{
+.content_body_view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -205,11 +205,11 @@ body {
   gap: 10px;
 }
 
-.content_menu_principal{
+.content_menu_principal {
   display: flex;
   width: 340px;
   height: 100%;
-   position: relative;
+  position: relative;
   left: 10px;
 }
 
@@ -221,10 +221,10 @@ body {
   background-color: #1F253A;
   border-radius: 20px;
   padding: 20px;
- position: fixed;
+  position: fixed;
 }
 
-.content_legal_title_menu{
+.content_legal_title_menu {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -342,7 +342,7 @@ body {
 
 .content_control_observacion_integrador .campo_2 {
   width: 20%;
-    padding: 5px 10px;
+  padding: 5px 10px;
   border-radius: 8px;
   border: none;
 }
@@ -399,14 +399,43 @@ body {
 }
 
 
+.btn_a_1,
+.btn_a_2 {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #2C16B0;
+  color: white;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: none;
+}
 
+.btn_a_1:hover,
+.btn_a_2:hover {
+  background: #6622F8;
+}
+
+/* #menu_login{
+  display: none;
+} */
+
+.user_name {
+  transition: all 0.4s ease;
+}
+
+.user_name:hover {
+  color: rgb(105, 105, 105);
+  cursor: pointer;
+}
 
 @media(max-width:1366px) {
   .container_integrador_promociones {
     height: auto;
   }
 
-  .content_body_view{
+  .content_body_view {
     padding: 0;
   }
 }

@@ -1,4 +1,3 @@
-// js/app.js
 const sidebar = document.getElementById("sidebar");
 const btnOpen = document.getElementById("btnOpen");
 const btnClose = document.getElementById("btnClose");
@@ -35,7 +34,6 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && sidebar.classList.contains("open")) closeSidebar();
 });
 
-// Rutas con CSS/JS por vista
 const routes = {
   "#inicio": {
     title: "Inicio",
@@ -43,35 +41,29 @@ const routes = {
     css: ["/view/inicio/inicio.css"],
     js: "/view/inicio/inicio.js",
   },
-  "#promos": {
-    title: "Promos",
-    file: "views/promos.html",
-    css: ["css/views/promos.css"],
-    js: "js/views/promos.js",
-  },
-  "#juegos": {
-    title: "Juegos",
-    file: "views/juegos.html",
-    css: ["css/views/juegos.css"],
-    js: "js/views/juegos.js",
-  },
-  "#reportes": {
-    title: "Reportes",
-    file: "views/reportes.html",
-    css: ["css/views/reportes.css"],
-    js: "js/views/reportes.js",
-  },
-  "#ayuda": {
-    title: "Ayuda",
-    file: "views/ayuda.html",
-    css: ["css/views/ayuda.css"],
-    js: "js/views/ayuda.js",
-  },
   "#gran_aladdin": {
     title: "Grand Aladdin",
     file: "/view/grand_aladdin/grand_aladdin.html",
     css: ["/view/grand_aladdin/grand_aladdin.css"],
     js: "/view/grand_aladdin/grand_aladdin.js",
+  },
+  "#publicacion_instagram": {
+    title: "Publicacion Social Media",
+    file: "/view/publicacion_instagram/publi_instagram.html",
+    css: ["/view/publicacion_instagram/public_instagram.css"],
+    js: "/view/publicacion_instagram/publi_instagram.js",
+  },
+  "#dinamicas": {
+    title: "Dinamicas",
+    file: "/view/dinamicas/dinamicas.html",
+    css: ["/view/dinamicas/dinamicas.css"],
+    js: "/view/dinamicas/dinamicas.js",
+  },
+  "#otros": {
+    title: "Otras Acciones",
+    file: "/view/otras/otras.html",
+    css: ["/view/otras/otras.css"],
+    js: "/view/otras/otras.js",
   },
 };
 
@@ -148,41 +140,34 @@ async function loadView({ file, css = [], js }) {
   }
 }
 
+let _scrollY = 0;
 let lastHash = null;
-function setActive(hash) {
-  if (!hash) hash = "#inicio";
-  if (hash === lastHash) return;
+
+function setActive(hash, { force = false } = {}) {
+  if (!hash) hash = "#inicio"; // usa default internamente
+  if (!force && hash === lastHash) return; // evita recargar si es el mismo hash
   lastHash = hash;
 
   links.forEach((a) =>
     a.classList.toggle("active", a.getAttribute("href") === hash)
   );
+
   const route = routes[hash] || routes["#inicio"];
   document.title = `${route.title} – Integrador`;
   loadView(route);
   if (!prefersDesktop()) closeSidebar();
 }
 
-// Inicializar
-if (!location.hash) location.hash = "#inicio";
-setActive(location.hash);
+// Inicializar SIN modificar la URL:
+const initialHash = location.hash;
+setActive(initialHash);
+
 window.addEventListener("hashchange", () => setActive(location.hash));
 
-// Utilidad opcional global (antes la llamabas desde onclick)
-window.AlertaDesarrollo = function () {
-  Swal?.fire?.(
-    "En desarrollo",
-    "Esta sección estará disponible pronto.",
-    "info"
-  );
-};
-
-let _scrollY = 0;
-
+/* --------------------
+   LOGIN
+-------------------- */
 document.getElementById("btn_iniciar_sesion").addEventListener("click", () => {
-  console.log("entro al btn");
-  // localStorage.removeItem("usuario_integrador_aladdin");
-
   const user_name = document.getElementById("user_name");
   const user_rol = document.getElementById("user_rol");
 
@@ -209,20 +194,42 @@ document.getElementById("btn_iniciar_sesion").addEventListener("click", () => {
   fetch(`${url}?cedula=${encodeURIComponent(cedula)}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data, "data");
       if (!Array.isArray(data) || data.length === 0) {
+        Swal.fire({
+          icon: "info",
+          title: "Usuario no encontrado",
+          html: "El usuario no se encuentra. Contacta el área de Publicidad.",
+        });
+        console.log("Usuario no encontrado");
         loader.style.display = "none";
         return;
       }
       loader.style.display = "none";
 
-      // Éxito: guarda en localStorage (si ya estaba, lo refresca)
       localStorage.setItem(LS_KEY, cedula);
-      user_name.innerHTML = data[0].Nombre;
+      user_name.innerHTML = data[0].Nombre.substring(0, 10) + "...";
       user_rol.innerHTML = data[0].Rol;
-      // Cierra overlay y habilita scroll
+      validateSeccion();
       document.getElementById("background_login").style.display = "none";
-      cleanUrl({ keepQuery: false, hash: "#inicio" });
+      document.getElementById("background_login").classList.add("test_hidden");
+      document.getElementById("menu_login").style.display = "flex";
+      document.getElementById("footer_label_legal").style.display = "flex";
+
+      const user = {
+        nombre: data[0].Nombre,
+        rol: data[0].Rol,
+        cedula: cedula,
+      };
+
+      if (!location.hash || location.hash === "#login") {
+        location.hash = "#inicio";
+      }
+      window.AppStore?.setUser?.(data);
+      metodoprueba(data);
+
+      // AppStore.setUser(user);
+      setActive("#inicio", { force: true });
+
       unlockBodyScroll();
     })
     .catch((err) => {
@@ -236,12 +243,14 @@ document.getElementById("btn_iniciar_sesion").addEventListener("click", () => {
 
   lockBodyScroll();
 });
+
 lockBodyScroll();
 
 function lockBodyScroll() {
   _scrollY = window.scrollY || document.documentElement.scrollTop;
   document.body.style.top = `-${_scrollY}px`;
   document.body.classList.add("body-lock");
+  document.body.style.backgroundColor = "white";
 }
 
 function unlockBodyScroll() {
@@ -271,24 +280,40 @@ function getUsersLogin() {
   fetch(`${url}?cedula=${encodeURIComponent(cedulaParaEnviar)}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data, "data");
       if (!Array.isArray(data) || data.length === 0) {
         loader.style.display = "none";
         return;
       }
-      loader.style.display = "none";
-
-      // Éxito: guarda en localStorage (si ya estaba, lo refresca)
       localStorage.setItem(LS_KEY, cedulaParaEnviar);
-      user_name.innerHTML = data[0].Nombre;
+      user_name.innerHTML = data[0].Nombre.substring(0, 10) + "...";
       user_rol.innerHTML = data[0].Rol;
-      // Cierra overlay y habilita scroll
+
       document.getElementById("background_login").style.display = "none";
-      cleanUrl({ keepQuery: false, hash: "#inicio" });
+      document.getElementById("background_login").classList.add("test_hidden");
+      document.getElementById("menu_login").style.display = "flex";
+      document.getElementById("footer_label_legal").style.display = "flex";
+
+      const user = {
+        nombre: data[0].Nombre,
+        rol: data[0].Rol,
+        cedula: cedulaParaEnviar,
+      };
+
+      if (!location.hash || location.hash === "#login") {
+        location.hash = "#inicio";
+      }
+
+      window.AppStore?.setUser?.(data);
+      metodoprueba(data);
+      validateSeccion();
       unlockBodyScroll();
     })
     .catch((err) => {
       console.error("Error al consultar la cédula:", err);
+      if (!location.hash || location.hash === "#login") {
+        location.hash = "#inicio";
+      }
+
       Swal.fire({
         icon: "error",
         title: "Error en la verificación.",
@@ -299,43 +324,59 @@ function getUsersLogin() {
 
 getUsersLogin();
 
-document
-  .getElementById("olvidar_usuario")
-  .addEventListener("click", () => forgetSavedUser());
-
-function cleanUrl({ keepQuery = false, hash = "" } = {}) {
-  const base = location.origin + location.pathname;
-  const q = keepQuery ? location.search : "";
-  const h = hash ? hash : ""; // p.ej. "#login" o "" para sin hash
-  history.replaceState(null, document.title, base + q + h);
+function validateSeccion() {
+  if (localStorage.getItem(LS_KEY)) {
+    document.getElementById("menu_login").style.display = "flex";
+    document.getElementById("app").style.background = "#0f162d";
+    document.getElementById("footer_label_legal").style.display = "flex";
+  } else {
+    document.getElementById("menu_login").style.display = "none";
+    document.getElementById("app").style.background = "white";
+    document.getElementById("footer_label_legal").style.display = "none";
+  }
 }
 
-function forgetSavedUser() {
+if (localStorage.getItem(LS_KEY)) {
+  document.getElementById("menu_login").style.display = "flex";
+  document.getElementById("app").style.background = "#0f162d";
+  document.getElementById("footer_label_legal").style.display = "flex";
+} else {
+  document.getElementById("menu_login").style.display = "none";
+  document.getElementById("app").style.background = "white";
+  document.getElementById("footer_label_legal").style.display = "none";
+}
+
+validateSeccion();
+
+document
+  .getElementById("olvidar_usuario")
+  .addEventListener("click", OlivdarUsuario);
+function OlivdarUsuario() {
   Swal.fire({
-    title: "Estas Seguro?",
-    text: "¿Seguro que quieres salir de manera segura?",
+    title: "Seguro de salir?",
+    text: "Se olvidara el usuario y la contraseña",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Si quiero!",
+    confirmButtonText: "Si Quiero!",
+    allowOutsideClick: false,
   }).then((result) => {
-    if (!result.isConfirmed) return;
-
-    localStorage.removeItem(LS_KEY);
-
-    // 1) Limpia query y deja la ruta limpia + #login (SPA)
-    cleanUrl({ keepQuery: false, hash: "#login" });
-
-    // 2) Si tu router escucha hashchange, esto ya basta.
-    //    Si no, puedes forzar:
-    // location.reload(); // (opcional, no recomendado si tu SPA maneja el hash)
-    Swal.fire("Exitoso!", "Tu usuario ha sido olvidado.", "success").then(
-      (res) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Exito!",
+        text: "Tu usuario has sido olivdado.",
+        icon: "success",
+        allowOutsideClick: false,
+      }).then((res) => {
         if (res.isConfirmed) {
+          localStorage.removeItem(LS_KEY);
+          localStorage.removeItem("app:user");
+          validateSeccion();
+          window.location.hash = "#login";
           location.reload();
         }
-      }
-    );
+      });
+    }
   });
 }

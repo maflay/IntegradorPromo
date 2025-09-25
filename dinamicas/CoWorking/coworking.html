@@ -13,577 +13,1005 @@
 </head>
 
 <body>
-    <div id="loader" class="loader-overlay">
+    <div class="loader-overlay" id="loader">
         <div class="spinner"></div>
+    </div>
+    <div id="loader-envio" class="loader-overlay-envio">
+        <div class="spinner-envio"></div>
+        <h2 class="title_loader title_loader_1">Tu pedido se está haciendo</h2>
+        <h2 class="title_loader title_loader_2">Por favor no cerrar, ni refrescar la página ni Bloquear el dispositivo
+        </h2>
+        <h2 class="title_loader title_loader_3">Tu pedido se está haciendo</h2>
+        <h2 class="title_loader title_loader_4">Gracias por tu paciencia</h2>
     </div>
     <section class="content_ini_coworking">
         <div class="content_info_coworking">
-            <h2>Haz tu pedido </h2>
+            <div class="content_logo_coworking">
+                <img src="/dinamicas/CoWorking/resources/Logo_Wonderlive.png" alt="integradorAladdin">
+            </div>
+            <h6>CoWorking MallPlaza 2do Piso</h6>
+            <h4 class="identity_device"><span style="color: red;">*</span>Realiza tu pedido<span
+                    style="color: red;">*</span></h4>
+            <h6>Para agregar productos toca sobre el precio.</h6>
+            <h6 class="divice_mobil">La cantidad la puedes editar al final.</h6>
             <div class="content_menu_form">
-                <div id="menu_productos" class="carta_menu">
-                    <div class="content_img_head_menu">
-                        <img src="/dinamicas/CoWorking/resources/tazas.png" alt="integradorAladdin">
-                    </div>
-                    <div class="menu_card_1">
-                        <div class="title_menu_card">
-                            <h3>BEBIDAS CALIENTES</h3>
-                            <p>Todos nuestros Cafés son recién molidos</p>
+                <div id="producto_add" class="producto_add">
+                    <div class="wall_add_product"></div>
+                    <p>Producto agregado</p>
+                </div>
+                <div id="producto_del" class="producto_del">
+                    <div class="wall_add_product"></div>
+                    <p>Producto eliminado</p>
+                </div>
+                <div
+                    style="width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                    <div id="menu_productos" class="carta_menu">
+                        <div class="content_img_head_menu">
+                            <img src="/dinamicas/CoWorking/resources/tazas.png" alt="integradorAladdin">
                         </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Café Espresso</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso_pequeño">$4.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p>-</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p>-</p>
-                                </div>
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>BEBIDAS CALIENTES</h3>
+                                <p>Todos nuestros Cafés son recién molidos</p>
                             </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Café Americano</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_americano_pequeño">$3.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item" id="precio_cafe_americano_mediano">$4.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item" id="precio_cafe_americano_grande">$4.500</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Café Latte</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso">$4.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$4.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$5.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Capuccino</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso">$4.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$5.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$6.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Mocaccino</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso">$5.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$6.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$6.500</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Capuccino Chai</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso">$6.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$6.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$8.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Matcha Latte</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item" id="precio_cafe_espresso">$5.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$6.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$7.000</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu_card_1">
-                        <div class="title_menu_card">
-                            <h3>ADICIONES</h3>
-                            <div class="content_precio_adicional">
-                                <div class="title_adicional">
-                                    <h4>Lácteos</h4>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Leche deslactosada / entera</h6>
-                                            <p class="precio-item">$2.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Leche de almendras</h6>
-                                            <p class="precio-item">$2.000</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title_adicional">
-                                    <h5>Toppings</h5>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Masmelos</h6>
-                                            <p class="precio-item">$2.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu_card_produto">
-
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Crema chantilly</h6>
-                                            <p class="precio-item">$2.000</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content_precio_adicional">
-                                <div class="title_adicional">
-                                    <h5>Helados</h5>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Vainilla</h6>
-                                            <p class="precio-item">$5.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Fresa</h6>
-                                            <p class="precio-item">$5.000</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title_adicional">
-                                    <h5>Caramelo</h5>
-                                    <div class="menu_card_produto">
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Salsa de chocolate</h6>
-                                            <p class="precio-item">$1.500</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu_card_produto">
-
-                                        <div class="mini_card_adicional desc_adicional">
-                                            <h6 class="nombre_producto">Nutella</h6>
-                                            <p class="precio-item">$1.500</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
                             <div class="menu_card_produto">
-                                <h5 class="nombre_producto">Infusiones Aromáticas y Frutales <br />
-                                    <p style="font-size: .8rem;">Infusion a elegir</p>
-                                </h5>
+                                <h5 class="nombre_producto">Café Espresso</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso_pequeño">$4.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p>-</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p>-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Café Americano</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_americano_pequeño">$3.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item" id="precio_cafe_americano_mediano">$4.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item" id="precio_cafe_americano_grande">$4.500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Café Latte</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso">$4.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$4.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$5.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Capuccino</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso">$4.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$5.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$6.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Mocaccino</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso">$5.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$6.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$6.500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Capuccino Chai</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso">$6.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$6.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$8.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Matcha Latte</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item" id="precio_cafe_espresso">$5.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$6.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$7.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>ADICIONES</h3>
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <h4>Lácteos</h4>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Leche deslactosada / entera</h6>
+                                                <p class="precio-item">$2.000</p>
+                                            </div>
+                                        </div>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Leche de almendras</h6>
+                                                <p class="precio-item">$2.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title_adicional">
+                                        <h5>Toppings</h5>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Masmelos</h6>
+                                                <p class="precio-item">$2.000</p>
+                                            </div>
+                                        </div>
+                                        <div class="menu_card_produto">
+
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Crema chantilly</h6>
+                                                <p class="precio-item">$2.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <h5>Helados</h5>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Vainilla</h6>
+                                                <p class="precio-item">$5.000</p>
+                                            </div>
+                                        </div>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Fresa</h6>
+                                                <p class="precio-item">$5.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title_adicional">
+                                        <h5>Caramelo</h5>
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Salsa de chocolate</h6>
+                                                <p class="precio-item">$1.500</p>
+                                            </div>
+                                        </div>
+                                        <div class="menu_card_produto">
+
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Nutella</h6>
+                                                <p class="precio-item">$1.500</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Infusiones Aromáticas y Frutales <br />
+                                        <p style="font-size: .8rem;">Infusion a elegir</p>
+                                    </h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$6.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+
+                            </div>
+                        </div>
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>BEBIDAS FRIAS</h3>
+                            </div>
+                            <div class="menu_card_produto">
+                                <div class="title_menu_producto">
+                                    <h5 class="nombre_producto">Ice Coffee</h5>
+                                    <p>Leche (opcinal)</p>
+                                </div>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item">-</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$7.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$7.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <div class="title_menu_producto">
+                                    <h5 class="nombre_producto">Cold Brew</h5>
+                                </div>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p>-</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p>-</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p class="precio-item">$5.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <div class="title_menu_producto">
+                                    <h5 class="nombre_producto">Frapuccino</h5>
+                                    <p>Salsa de chocolate</p>
+                                    <p>o caramelo, helado (opcional)</p>
+                                </div>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p>-</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$8.000</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p>-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <div class="title_menu_producto">
+                                    <h5 class="nombre_producto">Affogato</h5>
+                                </div>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h6>Pequeño</h6>
+                                        <p class="precio-item">$9.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Mediano</h6>
+                                        <p class="precio-item">$9.500</p>
+                                    </div>
+                                    <div class="precio">
+                                        <h6>Grande</h6>
+                                        <p>-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content_img_head_menu">
+                            <img src="/dinamicas/CoWorking/resources/platos.png" alt="integradorAladdin">
+                        </div>
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>Panaderia</h3>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant Tradicional Mantequilla</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$4.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant de Queso Mozarela</h5>
                                 <div class="content_precio_producto">
                                     <div class="precio">
                                         <h5 class="precio-item">$6.000</h5>
                                     </div>
                                 </div>
                             </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant Jamon y Queso</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$6.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant Nutella y Fresas</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$8.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant de Chocolate</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$6.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Croissant de Almendras</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$5.500</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Pastel (Pollo, Hawaiano, Ranchero)</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$7.500</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Esponja de Queso</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$4.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Chicharrones con Dulce de Guayaba</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$4.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Rollos de Queso con Almendras</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$7.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>Tortas</h3>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Cheescake Frutos Rojos</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$11.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Torta de Zanahoria</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$11.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Torta de Chocolate</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$11.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Torta de Banano</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$11.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Torta de Quinua</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$11.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Brownie con Helado</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$9.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Galletas Saludables</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$6.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Crespes de Pandebono</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$6.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Acompañados de mermelada artesanal</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$4.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Tapas Españolas ( 3 Unds)</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$19.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Lumpias ( 3 Unds)</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$10.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu_card_1">
                             <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">SODA ITALIANA</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$10.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                        </div>
+                        <div class="menu_card_1">
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Juegos en Leche</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$8.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Juegos en Agua</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$6.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu_card_produto">
+                                <h5 class="nombre_producto">Juegos en Agua Manantial</h5>
+                                <div class="content_precio_producto">
+                                    <div class="precio">
+                                        <h5 class="precio-item">$4.000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu_card_1">
+                            <div class="title_menu_card">
+                                <h3>CÓCTELES</h3>
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <!-- <h4>Lácteos</h4> -->
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Mojito</h6>
+                                                <small class="desc_alcohol">Ron,Hierbabuena,Limon,soda, Almibar.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Martini</h6>
+                                                <small class="desc_alcohol">Ginebra, vermut seco, aceitunas.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <!-- <h4>Lácteos</h4> -->
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Margarita</h6>
+                                                <small class="desc_alcohol">Tequila, zumo de limón, triple sec,
+                                                    michelada.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Maitai</h6>
+                                                <small class="desc_alcohol">Crema de whisky, amaretto, licor de café,
+                                                    vodka.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <!-- <h4>Lácteos</h4> -->
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Gin Tonic</h6>
+                                                <small class="desc_alcohol">Ginebra, tónica, garnish, pepino o
+                                                    romero.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Sidecar</h6>
+                                                <small class="desc_alcohol">Brandy, triple sec, zumo de limón,
+                                                    hielo.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <!-- <h4>Lácteos</h4> -->
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Padrino</h6>
+                                                <small class="desc_alcohol">Whisky, naranchelo.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content_precio_adicional">
+                                    <div class="title_adicional">
+                                        <div class="menu_card_produto">
+                                            <div class="mini_card_adicional desc_adicional">
+                                                <h6 class="nombre_producto">Piña Colada</h6>
+                                                <small class="desc_alcohol">Tequila, zumo de limón, triple sec,
+                                                    michelada.</small>
+                                                <p class="precio-item">$25.000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                                <h3>LICORES</h3>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Chivas Regal 18 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$505.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$42.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Chivas Regal 12 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$230.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$20.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Old Parr 18 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$500.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$42.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Old Parr 12 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$220.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$20.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Buchanan's 18 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$530.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$44.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Buchanan's 12 años</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$225.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$20.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Tequila Don julio</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$400.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$35.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Tequila El Jimador</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$160.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$15.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Tequila Jose Cuervo</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$120.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$12.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Blanco del valle</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$80.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$9.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Ron Viejo de Caldas</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$90.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$10.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Ron La Hechicera</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$340.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$30.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Ron Zapaca Ambar</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$200.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$20.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Baileys</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item"></p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$12.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Vino Lazo</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h6>Botella</h6>
+                                            <p class="precio-item">$62.000</p>
+                                        </div>
+                                        <div class="precio">
+                                            <h6>Trago</h6>
+                                            <p class="precio-item">$16.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">COPA DE VINO<br />
+                                    </h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$16.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
+                                <h3>Cervezas</h3>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Corona</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$9.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Heineiken</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$8.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Club D.</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$7.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Aguila</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$6.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu_card_produto">
+                                    <h5 class="nombre_producto">Andina</h5>
+                                    <div class="content_precio_producto">
+                                        <div class="precio">
+                                            <h5 class="precio-item">$4.000</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="menu_card_1">
-                        <div class="title_menu_card">
-                            <h3>BEBIDAS FRIAS</h3>
-                        </div>
-                        <div class="menu_card_produto">
-                            <div class="title_menu_producto">
-                                <h5 class="nombre_producto">Ice Coffee</h5>
-                                <p>Leche (opcinal)</p>
-                            </div>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item">-</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$7.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$7.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <div class="title_menu_producto">
-                                <h5 class="nombre_producto">Cold Brew</h5>
-                            </div>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p>-</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p>-</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p class="precio-item">$5.000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <div class="title_menu_producto">
-                                <h5 class="nombre_producto">Frapuccino</h5>
-                                <p>Salsa de chocolate</p>
-                                <p>o caramelo, helado (opcional)</p>
-                            </div>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p>-</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$8.000</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p>-</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <div class="title_menu_producto">
-                                <h5 class="nombre_producto">Affogato</h5>
-                            </div>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h6>Pequeño</h6>
-                                    <p class="precio-item">$9.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Mediano</h6>
-                                    <p class="precio-item">$9.500</p>
-                                </div>
-                                <div class="precio">
-                                    <h6>Grande</h6>
-                                    <p>-</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content_img_head_menu">
-                        <img src="/dinamicas/CoWorking/resources/platos.png" alt="integradorAladdin">
-                    </div>
-                    <div class="menu_card_1">
-                        <div class="title_menu_card">
-                            <h3>Panaderia</h3>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant Tradicional Mantequilla</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$4.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant de Queso Mozarela</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant Jamon y Queso</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant Nutella y Fresas</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$8.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant de Chocolate</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Croissant de Almendras</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$5.500</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Pastel (Pollo, Hawaiano, Ranchero)</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$7.500</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Esponja de Queso</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$4.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Chicharrones con Dulce de Guayaba</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$4.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Rollos de Queso con Almendras</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$7.000</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="menu_card_1">
-                        <div class="title_menu_card">
-                            <h3>Tortas</h3>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Cheescake Frutos Rojos</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$11.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Torta de Zanahoria</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$11.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Torta de Chocolate</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$11.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Torta de Banano</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$11.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Torta de Quinua</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$11.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Brownie con Helado</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$9.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Galletas Saludables</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Crespes de Pandebono</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Acompañados de mermelada artesanal</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$4.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Tapas Españolas ( 3 Unds)</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$19.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Lumpias ( 3 Unds)</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$10.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu_card_1">
-                        <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">SODA ITALIANA</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$10.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="width: 100%;height: 1px;background-color: #4b2727;margin: 4px 0;"></div>
-                    </div>
-                    <div class="menu_card_1">
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Juegos en Leche</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$8.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Juegos en Agua</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$6.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu_card_produto">
-                            <h5 class="nombre_producto">Juegos en Agua Manantial</h5>
-                            <div class="content_precio_producto">
-                                <div class="precio">
-                                    <h5 class="precio-item">$4.000</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="content_form_pedido">
-                    <h2>Déjanos tomar tu orden</h2>
-                    <div class="input-group">
-                        <input id="nombre_pedido" type="text" required />
-                        <label>Nombre : <strong style="color: red;">*</strong></label>
-                    </div>
-                    <div class="input-group">
-                        <input id="cedula_pedido" type="text" required />
-                        <label>Cedula : <strong style="color: red;">*</strong></label>
-                    </div>
-                    <div class="input-group">
-                        <input id="mesa_pedido" type="text" required />
-                        <label>Número : <strong style="color: red;">*</strong></label>
-                    </div>
+
                     <div class="datos_column_input">
-                        <span class="title_indentidad">Dejanos verte para validar tu identidad.<strong
-                                style="color: red;">*</strong></span>
-                        <input class="form-control" type="file" id="foto_pedido" accept="image/*">
-                    </div>
-                    <div style="position: absolute;bottom: -30px; display: flex; gap: 10px;">
-                        <p>Total del Pedido: </p>
-                        <p id="Total_del_pedido"></p>
-                    </div>
-                    <div class="datos_column_input">
+                        <h4><span style="color: red;">*</span>Revisa tu pedido, puedes editar la cantidad o borra el
+                            producto.<span style="color: red;">*</span></h4>
                         <div class="content_item_carrito">
                             <div class="card_item_carrito">
                                 <p id="pedido_nombre_carrito">Producto</p>
                                 <p id="pedido_precio_carrito">Precio</p>
-                                <p id="pedido_precio_carrito">Opcion</p>
+                                <p id="pedido_precio_carrito">Cantidad</p>
+                                <p id="pedido_precio_carrito">Borra P.</p>
                             </div>
                             <div style="width: 100%;height: 1px;background-color: #fff;"></div>
                             <div class="content_card_item_carrito_map" id="content_card_item_carrito_map"></div>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <input id="descripcion_pedido" type="text" required />
-                        <label>Envía tus otras solicitudes : <strong style="color: red;">*</strong></label>
+                    <div class="contento_total_pedido">
+                        <p>Total del Pedido: </p>
+                        <p id="Total_del_pedido"></p>
                     </div>
-                    <div style="justify-content: center; align-items: center;" class="datos_column_input">
+                    <h5>Regálanos tus datos para generar la factura y tu pedido.</h5>
+                    <div class="content_input_group">
+                        <div class="input-group">
+                            <input id="nombre_pedido" type="text" required />
+                            <label>Nombre : <strong style="color: red;">*</strong></label>
+                        </div>
+                        <div class="input-group">
+                            <input id="cedula_pedido" type="text" required />
+                            <label># Documento : <strong style="color: red;">*</strong></label>
+                        </div>
+                    </div>
+                    <div class="content_input_group">
+                        <div class="input-group">
+                            <input id="mesa_pedido" type="text" required />
+                            <label># Celular : <strong style="color: red;">*</strong></label>
+                        </div>
+                    </div>
+                    <div class="content_input_group ">
+                        <div class="input-group content_forma_pago">
+                            <select name="tipo_pago" id="tipo_pago">
+                                <option value="">Forma de pago</option>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Tarjeta">Tarjeta</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <input class="monto_efectivo" type="text" id="monto_efectivo"
+                                placeholder="Devuelta de Cuanto..." style="display: none;">
+                        </div>
+
+                    </div>
+
+                    <div class="datos_column_input ">
+                        <span class="title_indentidad">Regálanos una foto tuya para reconocerte cuando llevemos tu
+                            pedido a tu mesa<strong style="color: red;">*</strong></span>
+                        <div class="content_btn_tomar_foto">
+                            <input class="form-control file-input" type="file" id="foto_pedido" accept="image/*">
+                            <div class="btn_tomar_foto">Subir / Tomar Foto</div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <h5>Observaciones adicionles</h5>
+                    </div>
+                    <div style="background-color: rgba(0, 0, 0, 0.404);" class="input-group">
+                        <input id="descripcion_pedido" type="text"
+                            placeholder="EJ:  (Sin azucar, frutos rojos, Infusiones) todo a tu gusto" required />
+                    </div>
+                    <div class="content_btn_init">
                         <div id="btn_what_pedido" class="btn-what"><img
                                 src="/dinamicas/CoWorking/resources/logo_what.png" alt="integradorAladdin"></div>
                         <button id="btn_enviar_pedido" class="btn btn-primary">Enviar</button>
