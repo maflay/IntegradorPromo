@@ -1,0 +1,74 @@
+:root {
+    --bg: #0f162d;
+    /* fondo app */
+    --panel: #1F253A;
+    /* panel/side */
+    --panel-2: #27314F;
+    /* hover */
+    --accent: #6622F8;
+    /* acento */
+    --text: #E8ECF8;
+    /* texto */
+    --muted: #9AA4C6;
+    /* texto suave */
+    --bad: #E14D4D;
+    /* error */
+    --good: #38C172;
+    /* OK */
+    --shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: auto;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Inter, Arial, sans-serif;
+    background: radial-gradient(1200px 800px at 20% -10%, #1a2140 0%, var(--bg) 50%, #0b1124 100%);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.background_aviso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+}
+
+.content_logo_sudoku {
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.content_logo_sudoku>img {
+    width: 100%;
+}
+
+.content_btn_send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+@media(max-width:768px) {
+    .background_aviso {
+        padding-top: 40px;
+    }
+}

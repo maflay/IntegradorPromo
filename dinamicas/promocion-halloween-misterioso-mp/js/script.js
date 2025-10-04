@@ -4,6 +4,15 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+   window.addEventListener("click", () => {
+    const sonidoFondo = new Audio(
+      "/dinamicas/promocion-9-portales/resources/Sonido_background.mp3"
+    );
+
+    sonidoFondo.play();
+ sonidoFondo.loop = true;
+    sonidoFondo.volume = 0.4;
+  }, { once: true });
   // Loader
   const loader = document.getElementById("loader");
 
@@ -220,6 +229,9 @@ window.addEventListener("DOMContentLoaded", () => {
   score_calabaza.innerHTML = ScoreCalabaza;
 
   btn_img_esqueleto.addEventListener("click", () => {
+      const audioFicha = new Audio(
+        "/dinamicas/promocion-halloween-misterioso/resources/Sonido_ficha.mp3"
+      );
     if (categoria.value == "" || casino.value == "") {
       Swal.fire({
         icon: "none",
@@ -263,12 +275,31 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 30000
             : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_esqueleto_1.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
+            : categoria.value == "GENIUS"
+            ? 40000
+            : categoria.value == "TITANIO"
+            ? 40000
+            : categoria.value == "LEGENDARIO"
+            ? 40000
+            : categoria.value == "GOLD"
+            ? 30000
+            : categoria.value == "SILVER"
+            ? 30000
+            : categoria.value == "BRONCE"
+            ? 30000
+            : 0;
       } else {
         ficha_img_esqueleto_1.dataset.valor =
           categoria.value == "ESTANDAR"
-            ? 20000
-            : categoria.value == "SUPERIOR"
             ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
             : categoria.value == "GENIUS"
             ? 40000
             : categoria.value == "TITANIO"
@@ -291,6 +322,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     } else if (!img_esqueleto_2.classList.contains("posicion_esqueleto_2")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_esqueleto_2.dataset.valor =
@@ -311,12 +343,31 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 30000
             : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_esqueleto_2.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
+            : categoria.value == "GENIUS"
+            ? 40000
+            : categoria.value == "TITANIO"
+            ? 40000
+            : categoria.value == "LEGENDARIO"
+            ? 40000
+            : categoria.value == "GOLD"
+            ? 30000
+            : categoria.value == "SILVER"
+            ? 30000
+            : categoria.value == "BRONCE"
+            ? 30000
+            : 0;
       } else {
         ficha_img_esqueleto_2.dataset.valor =
           categoria.value == "ESTANDAR"
-            ? 20000
-            : categoria.value == "SUPERIOR"
             ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
             : categoria.value == "GENIUS"
             ? 40000
             : categoria.value == "TITANIO"
@@ -339,6 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     } else if (!img_esqueleto_3.classList.contains("posicion_esqueleto_3")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_esqueleto_3.dataset.valor =
@@ -359,12 +411,31 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 30000
             : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_esqueleto_3.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
+            : categoria.value == "GENIUS"
+            ? 40000
+            : categoria.value == "TITANIO"
+            ? 40000
+            : categoria.value == "LEGENDARIO"
+            ? 40000
+            : categoria.value == "GOLD"
+            ? 30000
+            : categoria.value == "SILVER"
+            ? 30000
+            : categoria.value == "BRONCE"
+            ? 30000
+            : 0;
       } else {
         ficha_img_esqueleto_3.dataset.valor =
           categoria.value == "ESTANDAR"
-            ? 20000
-            : categoria.value == "SUPERIOR"
             ? 30000
+            : categoria.value == "SUPERIOR"
+            ? 40000
             : categoria.value == "GENIUS"
             ? 40000
             : categoria.value == "TITANIO"
@@ -394,8 +465,13 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     }
   });
+
+    const audioFicha = new Audio(
+        "/dinamicas/promocion-halloween-misterioso/resources/Sonido_ficha.mp3"
+      );
 
   img_esqueleto_1.addEventListener("click", () => {
     if (img_esqueleto_1.classList.contains("posicion_esqueleto_1")) {
@@ -412,6 +488,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     }
   });
 
@@ -430,6 +507,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     }
   });
 
@@ -448,6 +526,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_esqueleto.innerHTML = ScoreEsquelto;
+      audioFicha.play();
     }
   });
 
@@ -495,6 +574,25 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 40000
             : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_momia_1.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 40000
+            : categoria.value == "SUPERIOR"
+            ? 50000
+             : categoria.value == "GENIUS"
+            ? 50000
+            : categoria.value == "TITANIO"
+            ? 50000
+            : categoria.value == "LEGENDARIO"
+            ? 50000
+            : categoria.value == "GOLD"
+            ? 40000
+            : categoria.value == "SILVER"
+            ? 40000
+            : categoria.value == "BRONCE"
+            ? 40000
+            : 0;
       } else {
         ficha_img_momia_1.dataset.valor =
           categoria.value == "ESTANDAR"
@@ -524,6 +622,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     } else if (!img_momia_2.classList.contains("posicion_momia_2")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_momia_2.dataset.valor =
@@ -532,6 +631,25 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "SUPERIOR"
             ? 30000
             : categoria.value == "GENIUS"
+            ? 50000
+            : categoria.value == "TITANIO"
+            ? 50000
+            : categoria.value == "LEGENDARIO"
+            ? 50000
+            : categoria.value == "GOLD"
+            ? 40000
+            : categoria.value == "SILVER"
+            ? 40000
+            : categoria.value == "BRONCE"
+            ? 40000
+            : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_momia_2.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 40000
+            : categoria.value == "SUPERIOR"
+            ? 50000
+             : categoria.value == "GENIUS"
             ? 50000
             : categoria.value == "TITANIO"
             ? 50000
@@ -572,6 +690,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     } else if (!img_momia_3.classList.contains("posicion_momia_3")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_momia_3.dataset.valor =
@@ -580,6 +699,25 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "SUPERIOR"
             ? 30000
             : categoria.value == "GENIUS"
+            ? 50000
+            : categoria.value == "TITANIO"
+            ? 50000
+            : categoria.value == "LEGENDARIO"
+            ? 50000
+            : categoria.value == "GOLD"
+            ? 40000
+            : categoria.value == "SILVER"
+            ? 40000
+            : categoria.value == "BRONCE"
+            ? 40000
+            : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_momia_3.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 40000
+            : categoria.value == "SUPERIOR"
+            ? 50000
+             : categoria.value == "GENIUS"
             ? 50000
             : categoria.value == "TITANIO"
             ? 50000
@@ -620,6 +758,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     }
   });
 
@@ -638,6 +777,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     }
   });
 
@@ -656,6 +796,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     }
   });
 
@@ -674,6 +815,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_momia.innerHTML = ScoreMomia;
+      audioFicha.play();
     }
   });
 
@@ -721,6 +863,25 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 50000
             : 0;
+      } else if (casino.value == "A108") {
+        ficha_img_calabaza_1.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 50000
+            : categoria.value == "SUPERIOR"
+            ? 60000
+            : categoria.value == "GENIUS"
+            ? 100000
+            : categoria.value == "TITANIO"
+            ? 90000
+            : categoria.value == "LEGENDARIO"
+            ? 80000
+            : categoria.value == "GOLD"
+            ? 70000
+            : categoria.value == "SILVER"
+            ? 60000
+            : categoria.value == "BRONCE"
+            ? 50000
+            : 0;
       } else {
         ficha_img_calabaza_1.dataset.valor =
           categoria.value == "ESTANDAR"
@@ -750,6 +911,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     } else if (!img_calabaza_2.classList.contains("posicion_calabaza_2")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_calabaza_2.dataset.valor =
@@ -770,7 +932,26 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 50000
             : 0;
-      } else {
+      } else if (casino.value == "A108") {
+        ficha_img_calabaza_2.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 50000
+            : categoria.value == "SUPERIOR"
+            ? 60000
+            : categoria.value == "GENIUS"
+            ? 100000
+            : categoria.value == "TITANIO"
+            ? 90000
+            : categoria.value == "LEGENDARIO"
+            ? 80000
+            : categoria.value == "GOLD"
+            ? 70000
+            : categoria.value == "SILVER"
+            ? 60000
+            : categoria.value == "BRONCE"
+            ? 50000
+            : 0;
+      }  else {
         ficha_img_calabaza_2.dataset.valor =
           categoria.value == "ESTANDAR"
             ? 50000
@@ -798,6 +979,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     } else if (!img_calabaza_3.classList.contains("posicion_calabaza_3")) {
       if (casino.value == "A43" || casino.value == "A53") {
         ficha_img_calabaza_3.dataset.valor =
@@ -818,7 +1000,26 @@ window.addEventListener("DOMContentLoaded", () => {
             : categoria.value == "BRONCE"
             ? 50000
             : 0;
-      } else {
+      } else if (casino.value == "A108") {
+        ficha_img_calabaza_3.dataset.valor =
+          categoria.value == "ESTANDAR"
+            ? 50000
+            : categoria.value == "SUPERIOR"
+            ? 60000
+            : categoria.value == "GENIUS"
+            ? 100000
+            : categoria.value == "TITANIO"
+            ? 90000
+            : categoria.value == "LEGENDARIO"
+            ? 80000
+            : categoria.value == "GOLD"
+            ? 70000
+            : categoria.value == "SILVER"
+            ? 60000
+            : categoria.value == "BRONCE"
+            ? 50000
+            : 0;
+      }  else {
         ficha_img_calabaza_3.dataset.valor =
           categoria.value == "ESTANDAR"
             ? 50000
@@ -846,6 +1047,7 @@ window.addEventListener("DOMContentLoaded", () => {
       conteo_turno.innerHTML = lanz;
       validateTry(categoria.value, lanz, TotalPremio);
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     }
   });
 
@@ -864,6 +1066,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     }
   });
 
@@ -882,6 +1085,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     }
   });
 
@@ -900,6 +1104,7 @@ window.addEventListener("DOMContentLoaded", () => {
       premio_acumulado.innerHTML = totalpremio_fichas;
       conteo_turno.innerHTML = lanz;
       score_calabaza.innerHTML = ScoreCalabaza;
+      audioFicha.play();
     }
   });
 
@@ -955,6 +1160,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
       fondo_board_1.style.display = "flex";
       label_acumulado.style.display = "none";
+
+             const audio = new Audio(
+        "/dinamicas/promocion-9-portales/resources/aplausos.mp3"
+      );
+
+      // reproducir
+      audio.play();
 
       let premioFormarte = premio.toLocaleString("es-CO", {
         style: "currency",

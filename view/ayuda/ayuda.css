@@ -1,0 +1,145 @@
+.content_observacion_integrador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: none;
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    background-color: rgba(70, 131, 180, 0.075);
+    border-radius: 20px;
+    padding: 20px 0;
+}
+
+.content_box_comentario {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 800px;
+}
+
+.recargarcomentario {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #747474;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.recargarcomentario:hover {
+    color: #fff;
+}
+
+
+.content_control_observacion_integrador {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    gap: 10px;
+}
+
+.content_control_observacion_integrador .campo_1 {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.content_control_observacion_integrador .campo_2 {
+    width: 20%;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.content_control_observacion_integrador>img {
+    position: absolute;
+    right: 5px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.content_mensaje_chat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 20px;
+    width: 100%;
+    padding: 8px 0;
+    background-color: #d6d6d6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.content_date_chat .hora_int {
+    font-size: 0.8rem;
+    color: #202020;
+}
+
+.content_date_chat .fecha_int {
+    font-size: 0.8rem;
+    color: #292929;
+}
+
+.content_mensaje_chat .nombre_int {
+    display: flex;
+    padding-left: 5px;
+    color: #292929;
+    width: auto;
+    position: absolute;
+    top: 0;
+}
+
+.content_mensaje_chat .mensaje_int {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: auto;
+    color: #292929;
+    padding-top: 20px;
+    position: relative;
+    left: 5px;
+}
+
+.content_date_chat {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
+@media(max-width:1280px) {
+    .content_box_comentario {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .recargarcomentario {
+        right: 25px;
+    }
+
+    .card_integrador {
+        width: 280px;
+    }
+
+    .content_btn_a {
+        font-size: 1rem;
+    }
+
+
+}
+
+
+@media (max-width:768px) {
+    .content_box_comentario {
+        width: 100%;
+    }
+
+}

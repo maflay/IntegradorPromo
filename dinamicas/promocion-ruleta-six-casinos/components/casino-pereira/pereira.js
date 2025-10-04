@@ -59,8 +59,6 @@ window.addEventListener("DOMContentLoaded", () => {
       bono: "",
     };
 
-    console.log(data, "data");
-
     loader.style.display = "flex";
 
     fetch(`${url}?cedula=${cedula_pereira_val}`)
@@ -181,7 +179,6 @@ window.addEventListener("DOMContentLoaded", () => {
       observacion: casino_modal_descripcion_pereira_val,
     };
 
-    console.log(data, "data");
     loader.style.display = "flex";
     fetch(url, {
       method: "POST",
@@ -220,7 +217,6 @@ window.addEventListener("DOMContentLoaded", () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (!Array.isArray(data) || data.length === 0) {
           container.innerHTML = `<p>No hay datos disponibles.</p>`;
           miniloader.style.display = "none";

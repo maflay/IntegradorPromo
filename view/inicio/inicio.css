@@ -1,4 +1,4 @@
-.section_ini_inicio{
+.content_main_inicio {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,6 +6,35 @@
     height: 80vh;
 }
 
-.section_ini_inicio>h1{
+.content_title {
+    text-align: center;
+}
+
+.content_title>h2 {
     font-size: 4rem;
+}
+
+.content_img_inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_logo_up {
+    width: 250px !important;
+}
+
+.content_img_inicio img {
+    width: 450px;
+}
+
+@media(max-width:768px) {
+    .content_logo_up {
+        width: 200px !important;
+    }
+
+    .content_img_inicio img {
+        width: 350px;
+    }
 }

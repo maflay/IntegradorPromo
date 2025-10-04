@@ -142,9 +142,17 @@
     height: 100%;
 }
 
+.message_cargando_insta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
 @media(max-width:768px) {
     .content_card_view_publicacion {
         flex-direction: column;
+        gap: 100px;
     }
 
     .content_casino_1 {

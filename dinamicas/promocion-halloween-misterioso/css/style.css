@@ -658,7 +658,7 @@ body {
 }
 
 .vista_table_premios {
-    padding-top: 380px;
+    padding-top: 560px;
     text-align: center;
 }
 
@@ -684,6 +684,12 @@ body {
     position: absolute;
     bottom: 320px;
     font-size: 2.2rem;
+}
+
+.result_dia_misterioso{
+    height: 100%;
+    max-height: 323px;
+    overflow: auto;
 }
 
 @media (max-width:1366px) {

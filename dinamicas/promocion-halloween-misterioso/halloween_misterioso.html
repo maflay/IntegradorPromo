@@ -3,6 +3,7 @@
 
 <head>
     <title>Aladdin: Halloween Misterioso</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="/dinamicas/promocion-halloween-misterioso/css/style.css">
     <link rel="stylesheet" href="/dinamicas/promocion-halloween-misterioso/css/fonts.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,8 @@
     <div id="loader" class="loader-overlay">
         <div class="spinner"></div>
     </div>
+    <!-- <audio style="position: absolute;" id="miAudio"
+        src="/dinamicas/promocion-9-portales/resources/Sonido_background.mp3"></audio> -->
     <div class="content_halloween_misterioso">
         <div class="content_logo_misterioso">
             <img src="/dinamicas/promocion-halloween-misterioso/resources/logo.png" alt="promoAladdin">
@@ -56,7 +59,7 @@
                     <option value="A108-MESAS">A108-MESAS</option>
                 </select>
                 <select class="form-control" style=" cursor: pointer;" id="categoria">
-                    <option value="">Categoria...</option>
+                    <option value="">Categoría...</option>
                     <option value="GENIUS">Genius</option>
                     <option value="TITANIO">Titanio</option>
                     <option value="LEGENDARIO">Legendario</option>
@@ -64,7 +67,7 @@
                     <option value="SILVER">Silver</option>
                     <option value="BRONCE">Bronce</option>
                     <option value="SUPERIOR">Superior</option>
-                    <option value="ESTANDAR">Estandar</option>
+                    <option value="ESTANDAR">Estándar</option>
                     <option value="ADICIONAL">Adicional</option>
                 </select>
                 <img id="abrirOpciones" class="engranaje_misterioso"
@@ -75,7 +78,10 @@
             <div class="board_2">
                 <img src="/dinamicas/promocion-halloween-misterioso/resources/aladdin.png" alt="promoAladdin">
             </div>
-            <span class="content_title_premio"><p id="label_acumulado">Acumulado :</p><p id="premio_acumulado"> $ 0</p></span>
+            <span class="content_title_premio">
+                <p id="label_acumulado">Acumulado :</p>
+                <p id="premio_acumulado"> $ 0</p>
+            </span>
             <div id="board_1" class="board_1 ">
                 <div id="fondo_board_1" class="fondo_board_1"></div>
                 <!-- <h2>Tablero Fichas</h2> -->
@@ -269,7 +275,7 @@
                         <option value="SILVER">Silver</option>
                         <option value="BRONCE">Bronce</option>
                         <option value="SUPERIOR">Superior</option>
-                        <option value="ESTANDAR">Estandar</option>
+                        <option value="ESTANDAR">Estándar</option>
                         <option value="ADICIONAL">Adicional</option>
                     </select>
                 </div>
@@ -318,46 +324,46 @@
                     <h2 class="text_misterioso">Tabla de Premios</h2>
 
                     <br />
-                    <p class="casinos_misterioso">A05, A04, A08, A09, A12, MP15, A16, MP108</p>
+                    <p class="casinos_misterioso">A05, A07, A08, A09, A12, MP15, A16, MP108</p>
                     <table class="table-wrapper styled-table">
                         <thead>
                             <tr>
                                 <th>Fichas</th>
-                                <th>Genius</th>
-                                <th>Titanio</th>
-                                <th>Legendario</th>
-                                <th>Gold</th>
-                                <th>Silver</th>
                                 <th>Bronce</th>
+                                <th>Silver</th>
+                                <th>Gold</th>
+                                <th>Legendario</th>
+                                <th>Titanio</th>
+                                <th>Genius</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Calabaza</td>
-                                <td>$ 90.000</td>
-                                <td>$ 80.000</td>
-                                <td>$ 70.000</td>
-                                <td>$ 60.000</td>
-                                <td>$ 50.000</td>
                                 <td>$ 40.000</td>
+                                <td>$ 50.000</td>
+                                <td>$ 60.000</td>
+                                <td>$ 70.000</td>
+                                <td>$ 80.000</td>
+                                <td>$ 90.000</td>
                             </tr>
                             <tr>
                                 <td>Momia</td>
-                                <td>$ 50.000</td>
-                                <td>$ 50.000</td>
-                                <td>$ 50.000</td>
+                                <td>$ 30.000</td>
                                 <td>$ 40.000</td>
                                 <td>$ 40.000</td>
-                                <td>$ 20.000</td>
+                                <td>$ 50.000</td>
+                                <td>$ 50.000</td>
+                                <td>$ 50.000</td>
                             </tr>
                             <tr>
                                 <td>Calavera</td>
-                                <td>$ 40.000</td>
-                                <td>$ 40.000</td>
-                                <td>$ 40.000</td>
-                                <td>$ 30.000</td>
-                                <td>$ 30.000</td>
                                 <td>$ 20.000</td>
+                                <td>$ 30.000</td>
+                                <td>$ 30.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -367,51 +373,79 @@
                         <thead>
                             <tr>
                                 <th>Fichas</th>
-                                <th>Genius</th>
-                                <th>Titanio</th>
-                                <th>Legendario</th>
-                                <th>Gold</th>
-                                <th>Silver</th>
                                 <th>Bronce</th>
+                                <th>Silver</th>
+                                <th>Gold</th>
+                                <th>Legendario</th>
+                                <th>Titanio</th>
+                                <th>Genius</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Calabaza</td>
-                                <td>$ 100.000</td>
-                                <td>$ 90.000</td>
-                                <td>$ 80.000</td>
-                                <td>$ 70.000</td>
+                                <td>$ 50.000</td>
                                 <td>$ 60.000</td>
+                                <td>$ 70.000</td>
+                                <td>$ 80.000</td>
+                                <td>$ 90.000</td>
+                                <td>$ 100.000</td>
+                            </tr>
+                            <tr>
+                                <td>Momia</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 50.000</td>
+                                <td>$ 50.000</td>
+                                <td>$ 50.000</td>
+                            </tr>
+                            <tr>
+                                <td>Calavera</td>
+                                <td>$ 30.000</td>
+                                <td>$ 30.000</td>
+                                <td>$ 30.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
+                                <td>$ 40.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="width: 100%;height: 1px;background-color: #dbdbdb;margin: 20px 0;"></div>
+                    <p class="casinos_misterioso">Otros Casinos</p>
+                    <table class="table-wrapper styled-table">
+                        <thead>
+                            <tr>
+                                <th>Fichas</th>
+                                <th>Estándar</th>
+                                <th>Superior</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Calabaza</td>
+                                <td>$ 40.000</td>
                                 <td>$ 50.000</td>
                             </tr>
                             <tr>
                                 <td>Momia</td>
-                                <td>$ 50.000</td>
-                                <td>$ 50.000</td>
-                                <td>$ 50.000</td>
-                                <td>$ 40.000</td>
-                                <td>$ 40.000</td>
+                                <td>$ 30.000</td>
                                 <td>$ 40.000</td>
                             </tr>
                             <tr>
                                 <td>Calavera</td>
-                                <td>$ 40.000</td>
-                                <td>$ 40.000</td>
-                                <td>$ 40.000</td>
-                                <td>$ 30.000</td>
-                                <td>$ 30.000</td>
+                                <td>$ 20.000</td>
                                 <td>$ 30.000</td>
                             </tr>
                         </tbody>
                     </table>
                     <div style="width: 100%;height: 1px;background-color: #dbdbdb;margin: 20px 0;"></div>
-                    <p class="casinos_misterioso">S36, A781, MP15m, MP108m y MP100</p>
+                    <p class="casinos_misterioso">A36, A781</p>
                     <table class="table-wrapper styled-table">
                         <thead>
                             <tr>
                                 <th>Fichas</th>
-                                <th>Estandar</th>
+                                <th>Estándar</th>
                                 <th>Superior</th>
                             </tr>
                         </thead>
@@ -429,7 +463,7 @@
                             <tr>
                                 <td>Calavera</td>
                                 <td>$ 30.000</td>
-                                <td>$ 30.000</td>
+                                <td>$ 40.000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -439,7 +473,7 @@
             <div id="view_registros_dia" class="body_modal_misterioso">
                 <h2>Registro del Dia</h2>
                 <div id="Info_result_dia"></div>
-                <div id="result_dia_misterioso"></div>
+                <div class="result_dia_misterioso" id="result_dia_misterioso"></div>
             </div>
         </div>
     </section>

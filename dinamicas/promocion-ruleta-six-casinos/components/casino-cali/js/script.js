@@ -257,9 +257,6 @@ function handleObservacionSubmit() {
   loader.style.display = "flex";
   const [fecha, hora] = fechaCompleta.split(", ");
 
-  console.log(casino.value);
-  console.log(observacion.value);
-
   const data = {
     tipo: "observacion",
     hora: hora,
@@ -303,8 +300,6 @@ function handleCreateFinalista() {
   const casino = document.getElementById("casino_finalista");
   const loader = document.getElementById("loader");
   loader.style.display = "flex";
-  console.log("handleCreateFinalista");
-
   const urlBase = "https://script.google.com/macros/s/AKfycbw1sOxdcBKMFcJdAyRaxe8EeOi76KOizQuOrjEkVN6gEHo7l6H00s9yuMhIGTYIR-Yw/exec";
 
   const cedulaVal = cedula.value;

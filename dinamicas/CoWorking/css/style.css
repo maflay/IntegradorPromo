@@ -416,19 +416,18 @@ body {
     border-bottom: 2px solid #eeeeee;
 }
 
-.btn-what {
+.btn_what {
     border-radius: 50% !important;
     width: 35px;
-    height: 35px;
 }
 
-.btn-what>img {
+.btn_what img {
     width: 100%;
     transition: all .4s ease;
     cursor: pointer;
 }
 
-.btn-what>img:hover {
+.btn_what img:hover {
     transform: scale(1.1);
 }
 
@@ -634,9 +633,9 @@ body {
 }
 
 
-    .divice_mobil{
-        display: none;
-    }
+.divice_mobil {
+    display: none;
+}
 
 @media(max-width: 1366px) {
     .menu_card_2 {
@@ -729,8 +728,21 @@ body {
         width: 250px;
     }
 
-    .divice_mobil{
+    .divice_mobil {
         display: flex;
+    }
+
+    .btn_what {
+        border-radius: 50% !important;
+        width: 35px;
+    }
+
+    .btn_what img {
+        width: 20%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
     }
 
 }

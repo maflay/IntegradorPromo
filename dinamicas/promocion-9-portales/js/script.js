@@ -1,8 +1,19 @@
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
+
   loader.style.display = "none";
 });
 window.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("click", () => {
+    const sonidoFondo = new Audio(
+      "/dinamicas/promocion-9-portales/resources/Sonido_background.mp3"
+    );
+
+    sonidoFondo.play();
+ sonidoFondo.loop = true;
+    sonidoFondo.volume = 0.4;
+  }, { once: true });
+
   const btn_cuerno_diablo = document.getElementById("btn_cuerno_diablo");
   const btn_pezuñas_diablo = document.getElementById("btn_pezuñas_diablo");
   const content_control_btn = document.getElementById("content_control_btn");
@@ -50,9 +61,31 @@ window.addEventListener("DOMContentLoaded", () => {
     "notificacion_registro_dia"
   );
 
+  // const soundBackground = document.getElementById("miAudio-9");
+
+  //   soundBackground.play();
+  //    soundBackground.muted = false;
+
+  // soundBackground.volume = 0.35;
+
   const promocion = "Los 9 Portales";
   const url =
     "https://script.google.com/macros/s/AKfycbwnQw7PQuWb0NzV-oAgrXZzq8ebE6HMrVZ1_t8aS_VRbvKQIB1U8B67_3Ch3oaH-0OF/exec";
+
+  const audio = new Audio(
+    "/dinamicas/promocion-9-portales/resources/Antorcha_sonido_cortado.mp3"
+  );
+
+  const soundGritoFina = new Audio(
+    "/dinamicas/promocion-9-portales/resources/aplausos.mp3"
+  );
+
+  // const soundBackground = new Audio(
+  //   "/dinamicas/promocion-9-portales/resources/Sonido_background.mp3"
+  // );
+
+  // soundBackground.play();
+  // soundBackground.volume = 0.35;
 
   notificacion_registro_dia.style.display = "none";
 
@@ -224,6 +257,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const CLASS_TO_PORTAL = {
     // Cuernos
     start_cuernos: 1,
+    posicion_1_cuernos: 1,
     posicion_2_cuernos: 2,
     posicion_3_cuernos: 3,
     posicion_4_cuernos: 4,
@@ -231,6 +265,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Pezuñas
     start_pezuñas: 9,
+    posicion_9_pezuñas: 9,
     posicion_8_pezuñas: 8,
     posicion_7_pezuñas: 7,
     posicion_6_pezuñas: 6,
@@ -253,6 +288,7 @@ window.addEventListener("DOMContentLoaded", () => {
     content_conteo_lanzamiento.style.display = "flex";
     btn_reiniciar_btn_actions.style.pointerEvents = "default";
     btn_reiniciar_btn_actions.style.opacity = "1";
+    audio.play();
   });
 
   btn_pezuñas_diablo.addEventListener("click", () => {
@@ -266,6 +302,7 @@ window.addEventListener("DOMContentLoaded", () => {
     content_conteo_lanzamiento.style.display = "flex";
     btn_reiniciar_btn_actions.style.pointerEvents = "default";
     btn_reiniciar_btn_actions.style.opacity = "1";
+    audio.play();
   });
 
   btn_dados_cuernos.addEventListener("click", () => {
@@ -288,6 +325,7 @@ window.addEventListener("DOMContentLoaded", () => {
     title_game.textContent =
       "Mala suerte caíste en los cachos del diablo. Fuiste olvidado en el portal 1";
     validateCurrentScore(LANZ_ACTUAL);
+    audio.play();
   });
 
   btn_dados_pezuñas.addEventListener("click", () => {
@@ -310,6 +348,7 @@ window.addEventListener("DOMContentLoaded", () => {
     title_game.textContent =
       "Mala suerte las pezuñas te alcanzaron. Caíste al portal 9";
     validateCurrentScore(LANZ_ACTUAL);
+    audio.play();
   });
 
   btn_dados_una_casilla.addEventListener("click", () => {
@@ -318,18 +357,24 @@ window.addEventListener("DOMContentLoaded", () => {
         antorcha_ficha.classList.remove("start_cuernos");
         antorcha_ficha.classList.add("posicion_2_cuernos");
         title_game.textContent = "Estas en el portal 2.";
+
+        // reproducir
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_2_cuernos")) {
         antorcha_ficha.classList.remove("posicion_2_cuernos");
         antorcha_ficha.classList.add("posicion_3_cuernos");
         title_game.textContent = "Estas en el portal 3.";
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_3_cuernos")) {
         antorcha_ficha.classList.remove("posicion_3_cuernos");
         antorcha_ficha.classList.add("posicion_4_cuernos");
         title_game.textContent = "Estas en el portal 4.";
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_4_cuernos")) {
         antorcha_ficha.classList.remove("posicion_4_cuernos");
         antorcha_ficha.classList.add("posicion_5_last");
         title_game.textContent = "Felicidades Llegaste al portal 5.";
+        audio.play();
       }
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
@@ -339,18 +384,22 @@ window.addEventListener("DOMContentLoaded", () => {
         antorcha_ficha.classList.remove("start_pezuñas");
         antorcha_ficha.classList.add("posicion_8_pezuñas");
         title_game.textContent = "Estas en el portal 8.";
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_8_pezuñas")) {
         antorcha_ficha.classList.remove("posicion_8_pezuñas");
         antorcha_ficha.classList.add("posicion_7_pezuñas");
         title_game.textContent = "Estas en el portal 7.";
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_7_pezuñas")) {
         antorcha_ficha.classList.remove("posicion_7_pezuñas");
         antorcha_ficha.classList.add("posicion_6_pezuñas");
         title_game.textContent = "Estas en el portal 6.";
+        audio.play();
       } else if (antorcha_ficha.classList.contains("posicion_6_pezuñas")) {
         antorcha_ficha.classList.remove("posicion_6_pezuñas");
         antorcha_ficha.classList.add("posicion_5_last");
         title_game.textContent = "Felicidades Llegaste al portal 5.";
+        audio.play();
       }
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
@@ -365,39 +414,46 @@ window.addEventListener("DOMContentLoaded", () => {
       title_game.textContent = "Mala suerte volviste al portal 9...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else if (antorcha_ficha.classList.contains("posicion_7_pezuñas")) {
       antorcha_ficha.classList.remove("posicion_7_pezuñas");
       antorcha_ficha.classList.add("posicion_8_pezuñas");
       title_game.textContent = "Mala suerte volviste al portal 8...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else if (antorcha_ficha.classList.contains("posicion_6_pezuñas")) {
       antorcha_ficha.classList.remove("posicion_6_pezuñas");
       antorcha_ficha.classList.add("posicion_7_pezuñas");
       title_game.textContent = "Mala suerte volviste al portal 7...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else if (antorcha_ficha.classList.contains("posicion_2_cuernos")) {
       antorcha_ficha.classList.remove("posicion_2_cuernos");
       antorcha_ficha.classList.add("start_cuernos");
       title_game.textContent = "Mala suerte volviste al portal 1...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else if (antorcha_ficha.classList.contains("posicion_3_cuernos")) {
       antorcha_ficha.classList.remove("posicion_3_cuernos");
       antorcha_ficha.classList.add("posicion_2_cuernos");
       title_game.textContent = "Mala suerte volviste al portal 2...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else if (antorcha_ficha.classList.contains("posicion_4_cuernos")) {
       antorcha_ficha.classList.remove("posicion_4_cuernos");
       antorcha_ficha.classList.add("posicion_3_cuernos");
       title_game.textContent = "Mala suerte volviste al portal 3...";
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     } else {
       LANZ_ACTUAL += 1;
       conteo_lanzamientos.textContent = LANZ_ACTUAL;
+      audio.play();
     }
 
     validateCurrentScore(LANZ_ACTUAL);
@@ -406,6 +462,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // todas las posiciones posibles para cada tipo
   const POS_CUERNOS = [
     "start_cuernos",
+    "posicion_1_cuernos",
     "posicion_2_cuernos",
     "posicion_3_cuernos",
     "posicion_4_cuernos",
@@ -414,6 +471,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const POS_PEZUNAS = [
     "start_pezuñas",
+    "posicion_9_pezuñas",
     "posicion_8_pezuñas",
     "posicion_7_pezuñas",
     "posicion_6_pezuñas",
@@ -472,15 +530,15 @@ window.addEventListener("DOMContentLoaded", () => {
       9: 120000,
     },
     LEGENDARIO: {
-      1: 100000,
-      2: 110000,
-      3: 120000,
-      4: 130000,
-      5: 200000,
-      6: 130000,
-      7: 120000,
-      8: 110000,
-      9: 100000,
+      1: 110000,
+      2: 120000,
+      3: 130000,
+      4: 140000,
+      5: 220000,
+      6: 140000,
+      7: 130000,
+      8: 120000,
+      9: 110000,
     },
     GOLD: {
       1: 100000,
@@ -500,9 +558,9 @@ window.addEventListener("DOMContentLoaded", () => {
       4: 120000,
       5: 170000,
       6: 120000,
-      7: 120000,
-      8: 110000,
-      9: 100000,
+      7: 110000,
+      8: 100000,
+      9: 90000,
     },
     BRONCE: {
       1: 80000,
@@ -549,7 +607,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const premio = CATEGORY_PRIZES[categoria]?.[portal] ?? 0;
-
+    soundGritoFina.play();
     title_game.innerHTML = `Categoría ${categoria}: ${
       portal == 5
         ? ` Bienvenido al talismán de Aladdin <img class="talisman" src="/dinamicas/promocion-9-portales/resources/talisman.png" alt="Logo premio">, saliste del infierno`

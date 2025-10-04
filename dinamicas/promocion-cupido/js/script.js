@@ -1136,7 +1136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Ejemplo: cómo leer el total al enviar
 function test() {
   const total = window.cupidoTotal || 0;
-  console.log("TOTAL SELECCIONADO:", total);
+  // console.log("TOTAL SELECCIONADO:", total);
   // aquí haces tu envío junto con el resto de campos
 }
 
